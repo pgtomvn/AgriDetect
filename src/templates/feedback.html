@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>AgriDetect – Góp ý chẩn đoán</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="{{ url_for('static', filename='logo.png') }}" type="image/png" />
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='logo.png') }}">
+  <link rel="preload" as="image" href="{{ url_for('static', filename='logo.png') }}">
+
+  <style>
+    :root{
+      --green:#228b22;
+      --green2:#28a745;
+      --bg:#c3f0c3;
+      --panel:#fff;
+      --border:#cfe8cf;
+      --muted:#374151;
+    }
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      padding:32px 16px;
+      min-height:100vh;
+      font-family:system-ui,-apple-system,"Inter",Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background:var(--bg);
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+    }
+
+    /* Aurora background */
+    #aurora-bg{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      overflow:hidden;
+      pointer-events:none;
+    }
+    #aurora-bg canvas{
+      width:100%;
+      height:100%;
+      display:block;
+    }
+
+    .card{
+      background:var(--panel);
+      border-radius:20px;
+      padding:24px 22px;
+      width:100%;
+      max-width:960px;
+      box-shadow:0 10px 25px rgba(0,0,0,.08);
+    }
+
+    h2{
+      margin:0 0 8px 0;
+      color:var(--green);
+      font-size:22px;
+      font-weight:800;
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+    .meta{
+      margin:4px 0 20px;
+      color:var(--muted);
+      font-size:16px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      padding:4px 10px;
+      border-radius:999px;
+      background:#ecfdf5;
+      color:#065f46;
+      font-size:12px;
+      font-weight:600;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1.1fr 1.1fr;
+      gap:18px;
+    }
+    .imgbox h4,
+    .formbox h4{
+      margin:0 0 8px;
+      font-size:16px;
+      color:rgba(0, 0, 0, 0.8);
+    }
+    .imgbox img{
+      width:100%;
+      border-radius:12px;
+      border:1px solid #e5e7eb;
+      max-height:420px;
+      object-fit:contain;
+      background:#f9fafb;
+    }
+
+    label{
+      display:block;
+      margin:10px 0 6px;
+      font-weight:600;
+      font-size:16px;
+      color:#111827;
+    }
+    select,
+    textarea{
+      width:100%;
+      padding:10px 11px;
+      border-radius:10px;
+      border:1px solid #d1d5db;
+      font-size:16px;
+      font-family:inherit;
+    }
+    select:focus,
+    textarea:focus{
+      outline:none;
+      border-color:#34d399;
+      box-shadow:0 0 0 1px rgba(16,185,129,0.3);
+    }
+    textarea{
+      resize:vertical;
+      min-height:76px;
+    }
+
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:16px;
+      align-items:center;
+    }
+
+    /* Buttons – đồng bộ kích thước giống nhau */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:140px;
+      height:44px;
+      padding:0 20px;
+      border-radius:10px;
+      border:none;
+      background:#22c55e;
+      color:#fff;
+      font-size:16px;
+      font-weight:600;
+      text-decoration:none;
+      cursor:pointer;
+      box-sizing:border-box;
+      transition:filter .18s ease, transform .06s ease, box-shadow .18s ease;
+    }
+    .btn:focus{
+      outline:none;
+      box-shadow:0 0 0 2px rgba(22,163,74,.18);
+    }
+    .btn:hover{ filter:brightness(.96); }
+    .btn:active{
+      transform:translateY(1px);
+      box-shadow:0 4px 10px rgba(0,0,0,.08);
+    }
+
+    /* màu nút giống bộ ở result.html */
+    .btn.secondary{ background:#4b5563; color:#fff; }   /* xám: "Về trang chính" */
+    .btn.primary{   background:#22c55e; color:#fff; }   /* xanh lá: "Gửi góp ý" */
+    .btn.info{      background:#0ea5e9; color:#fff; }   /* (dùng chỗ khác nếu cần) */
+
+    .btn.primary:disabled,
+    .btn.disabled{
+      opacity:.6;
+      cursor:not-allowed;
+      box-shadow:none;
+    }
+
+    .msg{
+      margin-top:10px;
+      font-size:14px;
+    }
+    .msg.ok{ color:#0a7a00; }
+    .msg.err{ color:#b91c1c; }
+
+    @media (max-width:860px){
+      body{padding-top:20px;}
+      .grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+  <div id="aurora-bg"></div>
+
+  <div class="card">
+    <h2>✍️ Góp ý chẩn đoán</h2>
+
+    <div class="meta">
+      <div>
+        <strong>Kết quả mô hình:</strong>
+        <span>
+          {{ plant_pred_vi or plant_pred or "?" }}
+          {% if disease_pred_vi %}
+            — {{ disease_pred_vi }}
+          {% endif %}
+        </span>
+      </div>
+      <span class="pill">Ảnh sẽ được thu thập để sử dụng cho mục đích cải thiện mô hình AgriDetect</span>
+    </div>
+
+    <div class="grid">
+      <div class="imgbox">
+        <h4>Ảnh bạn đã gửi</h4>
+        <img src="{{ image_url or image_path }}" alt="Ảnh góp ý">
+      </div>
+
+      <div class="formbox">
+        <h4>Điền lại thông tin đúng</h4>
+
+        <label for="plantSel">Cây trồng đúng:</label>
+        <select id="plantSel" required>
+          <option value="">-- Chọn loại cây --</option>
+          {% for p in plants %}
+          <option value="{{ p }}">{{ plant_names_vi.get(p, p) }}</option>
+          {% endfor %}
+        </select>
+
+        <label for="diseaseSel">Bệnh chính xác:</label>
+        <select id="diseaseSel" required>
+          <option value="">-- Chọn bệnh --</option>
+        </select>
+
+        <label for="note">Ghi chú thêm (tuỳ chọn):</label>
+        <textarea id="note" rows="3"
+                  placeholder="Ví dụ: chụp ngoài nắng, lá có đốm vàng nhạt, hơi xoăn ở mép..."></textarea>
+
+        <div class="actions">
+          <a class="btn secondary" id="btnBack" href="/">Về trang chính</a>
+          <button id="submitBtn" class="btn primary" type="button">Gửi góp ý</button>
+        </div>
+
+        <div id="msg" class="msg"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dữ liệu từ server cho JS -->
+  <script>
+    const _templateData = JSON.parse(`{{ {
+      "image_id": image_id,
+      "diseases_by_plant": diseases_by_plant,
+      "diseases_vi_by_plant": diseases_vi_by_plant,
+      "plant_pred": plant_pred or "",
+      "disease_pred": disease_pred or ""
+    } | tojson }}`);
+
+    const imageId           = _templateData.image_id;
+    const diseasesByPlant   = _templateData.diseases_by_plant || {};
+    const diseasesViByPlant = _templateData.diseases_vi_by_plant || {};
+    const plantPred         = _templateData.plant_pred || "";
+    const diseasePred       = _templateData.disease_pred || "";
+
+    const plantSel   = document.getElementById('plantSel');
+    const diseaseSel = document.getElementById('diseaseSel');
+    const noteEl     = document.getElementById('note');
+    const msg        = document.getElementById('msg');
+    const submitBtn  = document.getElementById('submitBtn');
+
+    function setMsg(text, type){
+      msg.textContent = text || "";
+      msg.className = "msg" + (type ? " " + type : "");
+    }
+
+    // Đổ danh sách bệnh theo cây
+    function populateDiseases(plant, preselectValue){
+      diseaseSel.innerHTML = '<option value="">-- Chọn bệnh --</option>';
+
+      const labels = diseasesByPlant[plant] || [];
+      const viMap  = diseasesViByPlant[plant] || {};
+
+      labels.forEach(d => {
+        const opt = document.createElement('option');
+        opt.value = d;                     // label gốc để gửi server
+        opt.textContent = viMap[d] || d;   // hiển thị tiếng Việt
+        if (preselectValue && preselectValue === d){
+          opt.selected = true;
+        }
+        diseaseSel.appendChild(opt);
+      });
+    }
+
+    plantSel.addEventListener('change', () => {
+      populateDiseases(plantSel.value);
+    });
+
+    // Prefill theo dự đoán nếu có
+    (function prefill(){
+      if (plantPred){
+        plantSel.value = plantPred;
+        populateDiseases(plantPred);
+
+        if (diseasePred){
+          // Ưu tiên match chính xác
+          let target = Array.from(diseaseSel.options).find(o => o.value === diseasePred);
+
+          // Nếu không trùng exact, thử match lỏng hơn
+          if (!target){
+            const norm = s => (s || "").toLowerCase();
+            target = Array.from(diseaseSel.options).find(o => {
+              const ov = norm(o.value);
+              const dv = norm(diseasePred);
+              return dv.includes(ov) || ov.includes(dv);
+            });
+          }
+          if (target){
+            diseaseSel.value = target.value;
+          }
+        }
+      }
+    })();
+
+    // Gửi góp ý
+    submitBtn.addEventListener('click', async (ev) => {
+      ev.preventDefault();
+
+      const payload = {
+        image_id: imageId,
+        correct_plant: plantSel.value || null,
+        correct_disease: diseaseSel.value || null,
+        user_note: (noteEl.value || null)
+      };
+
+      if (!payload.correct_plant || !payload.correct_disease){
+        setMsg("Vui lòng chọn đầy đủ cả Cây trồng và Bệnh.", "err");
+        return;
+      }
+
+      try{
+        submitBtn.disabled = true;
+        submitBtn.classList.add("disabled");
+        submitBtn.textContent = "Đang gửi...";
+        setMsg("Đang gửi góp ý, vui lòng chờ một chút…");
+
+        const res = await fetch("/api/feedback", {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify(payload)
+        });
+
+        const data = await res.json();
+        if (data.ok){
+          const extra = data.copied_to ? (" Ảnh đã được lưu vào: " + data.copied_to) : "";
+          setMsg("✅ Đã ghi nhận góp ý của bạn! Cảm ơn bạn đã giúp AgriDetect tốt hơn." + extra, "ok");
+          submitBtn.textContent = "Đã gửi";
+
+          setTimeout(() => { window.location.href = "/"; }, 1100);
+        }else{
+          setMsg("Lỗi khi ghi nhận góp ý: " + (data.error || "không rõ."), "err");
+          submitBtn.disabled = false;
+          submitBtn.classList.remove("disabled");
+          submitBtn.textContent = "Gửi góp ý";
+        }
+      }catch(err){
+        console.error(err);
+        setMsg("❌ Lỗi kết nối tới máy chủ. Vui lòng thử lại sau.", "err");
+        submitBtn.disabled = false;
+        submitBtn.classList.remove("disabled");
+        submitBtn.textContent = "Gửi góp ý";
+      }
+    });
+
+    // Nút về trang chính: ưu tiên quay lại tab hiện tại
+    document.getElementById('btnBack').addEventListener('click', function(e){
+      e.preventDefault();
+      if (history.length > 1) history.back(); else location.href = '/';
+    });
+  </script>
+
+  <!-- Aurora background script -->
+  <script src="{{ url_for('effects_static', filename='aurora.js') }}"></script>
+</body>
+</html>

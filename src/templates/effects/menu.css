@@ -1,0 +1,200 @@
+/* =========================
+   AgriDetect – Top nav bar
+   ========================= */
+
+:root {
+  --nav-text-main: #332456;
+  --nav-text-sub: #0e5c2f;
+  --nav-text-hover: #cdeecd;
+  --nav-indicator-color: #cdeecd;
+}
+
+/* Thanh nav bám trên cùng, không nền */
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  background: transparent;
+}
+
+/* Inner: chỉ làm một hàng, căn giữa menu */
+.top-nav-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 18px 24px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+
+  font-family: system-ui, -apple-system, "Inter", Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity .5s ease-out .2s, transform .5s ease-out .2s;
+}
+
+/* Splash xong mới hiện nav */
+body.page-ready .top-nav-inner {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ẩn logo + chữ AgriDetect */
+.nav-brand {
+  display: none !important;
+}
+
+.nav-links {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 450px;                 /* khoảng cách giữa các mục – muốn xa/gần chỉnh số này */
+  font-size: 17px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ĐƯỜNG RAY MỜ chạy dưới cả nhóm menu */
+.nav-links::before {
+  content: "";
+  position: absolute;
+  left: -48px;              /* kéo dài hơn nhóm chữ 1 chút */
+  right: -48px;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0),
+    rgba(15,118,110,0.35),
+    rgba(0,0,0,0)
+  );
+  pointer-events: none;
+}
+
+.nav-indicator {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: var(--nav-indicator-color);
+  border-radius: 999px;
+  transform: translateX(0);
+  transition:
+    transform .28s cubic-bezier(0.22,0.61,0.36,1),
+    width .28s cubic-bezier(0.22,0.61,0.36,1);
+  pointer-events: none;
+
+  /* 👇 glow cho thanh active */
+  box-shadow:
+    0 0 4px rgba(22,163,74,0.6),
+    0 0 14px rgba(22,163,74,0.45);
+
+  /* nhịp glow nhẹ nhẹ */
+  animation: agriNavGlow 1.6s ease-in-out infinite alternate;
+}
+
+.nav-indicator.no-anim {
+  transition: none;
+}
+
+/* keyframes cho glow */
+@keyframes agriNavGlow {
+  from {
+    box-shadow:
+      0 0 2px rgba(22,163,74,0.45),
+      0 0 8px rgba(22,163,74,0.35);
+  }
+  to {
+    box-shadow:
+      0 0 4px rgba(22,163,74,0.9),
+      0 0 15px rgba(22,163,74,0.7);
+  }
+}
+
+/* Nút link */
+.nav-link-btn {
+  position: relative;
+  padding: 2px 0 6px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font: inherit;
+  color: var(--nav-text-sub);
+  outline: none;
+}
+
+/* Label 2 lớp: hover lướt lên/xuống */
+.nav-link-btn .nav-label {
+  position: relative;
+  display: block;
+  height: 1.3em;
+  overflow: hidden;
+}
+
+.nav-label-main,
+.nav-label-hover {
+  display: block;
+  transform: translateY(0%);
+  transition: transform .22s ease-out;
+}
+
+.nav-label-hover {
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+  opacity: .95;
+  color: var(--nav-text-hover);
+}
+
+.nav-link-btn:hover .nav-label-main {
+  transform: translateY(-100%);
+}
+.nav-link-btn:hover .nav-label-hover {
+  transform: translateY(-100%);
+}
+
+/* Active tab */
+.nav-link-btn.is-active {
+  color: var(--nav-text-hover);
+}
+
+/* Chữ của tab active – glow nhẹ */
+.nav-link-btn.is-active .nav-label-main {
+  text-shadow:
+    0 0 4px rgba(255,255,255,0.5),
+    0 0 10px rgba(22,163,74,0.4);
+}
+
+/* Focus bằng phím */
+.nav-link-btn:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Mobile: co nhỏ một chút nhưng vẫn là 1 hàng */
+@media (max-width: 768px) {
+  .top-nav-inner {
+    padding-inline: 12px;
+    gap: 16px;
+  }
+  .nav-links {
+    gap: 24px;
+    font-size: 15px;
+  }
+}
+
+/* === Nav scroll animation (ẩn dần khi kéo xuống) === */
+.top-nav,
+.top-nav-inner,
+.nav-links,
+.nav-brand-name {
+  will-change: transform, opacity;
+  transition:
+    transform 0.18s ease-out,
+    opacity   0.18s ease-out;
+}
+

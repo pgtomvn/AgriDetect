@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AgriDetect – Thông tin bài viết</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="{{ url_for('static', filename='logo.png') }}" type="image/png" />
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='logo.png') }}">
+  <link rel="preload" as="image" href="{{ url_for('static', filename='logo.png') }}">
+
+  <style>
+    html, body{
+      overflow-x: hidden;
+    }
+
+    html{
+      scrollbar-width: none;           /* Firefox */
+    }
+
+    html::-webkit-scrollbar{
+      width: 0;
+      height: 0;                       /* Chrome / Edge / Safari */
+    }
+  </style>
+  <!-- Lenis CSS (same as index) -->
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.15/dist/lenis.css">
+
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="{{ url_for('info_css') }}">
+</head>
+<body>
+  <!-- Aurora background layer (giống index) -->
+  <div id="aurora-bg"></div>
+
+  <div class="info-page">
+
+    <!-- HEADER + LOGO -->
+    <header class="info-header">
+      <div class="info-header-inner">
+        <a href="/" class="info-logo-link">
+          <img
+            src="{{ url_for('static', filename='logo.png') }}"
+            alt="Logo AgriDetect"
+            class="info-logo-img"
+          />
+          <div class="info-logo-text-wrap">
+            <span class="info-logo-main">AgriDetect</span>
+          </div>
+        </a>
+
+        <div class="info-header-right">
+          <button
+            type="button"
+            class="info-header-btn info-back-btn"
+            onclick="window.location.href='/'"
+          >
+            ← Về trang chính
+          </button>
+        </div>
+      </div>
+
+      <!-- Thanh progress đọc bài -->
+      <div class="info-progress">
+        <div class="info-progress-bar" id="articleProgress"></div>
+      </div>
+    </header>
+
+    <!-- MAIN LAYOUT -->
+    <main class="info-main">
+      <!-- BÀI VIẾT CHÍNH -->
+      <article class="info-article" data-animate="fade">
+        <header class="info-article-header">
+          <p class="info-article-section">Kinh doanh · Khởi nghiệp</p>
+          <h1 class="info-article-title">
+            Trồng ớt chuông trong nhà kính, lãi 1 tỷ đồng/ha
+          </h1>
+          <p class="info-article-subtitle">
+            Với 4.500m2 nhà kính, mỗi năm nhóm liên kết của anh Cường cung ứng ra thị trường hơn 30 tấn ớt ngọt, thu nhập 450 triệu đồng, tương ứng mức lợi nhuận 1 tỷ đồng/ha.
+          </p>
+          <div class="info-article-meta">
+            <span class="info-meta-author">NGUYỄN HẢI TIẾN</span>
+            <span class="info-meta-dot">•</span>
+            <time datetime="2025-10-07T06:22:00+07:00" class="info-meta-time">
+              07/10/2025 · 06:22 (GMT+7)
+            </time>
+            <span class="info-meta-dot">•</span>
+            <span class="info-meta-readtime">6 phút đọc</span>
+          </div>
+        </header>
+
+        <!-- NỘI DUNG BÀI VIẾT -->
+        <section class="info-article-body">
+          <p>
+            Tốt nghiệp Học viện Nông nghiệp Việt Nam, anh Trịnh Việt Cường ở tổ dân phố Chiềng Đi, phường Vân Sơn (Sơn La) không tìm việc làm tại doanh nghiệp hay cơ quan nhà nước mà quyết định về quê khởi nghiệp trồng ớt ngọt (ớt chuông) đúng với ngành nghề anh được đào tạo.
+          </p>
+
+        <!-- ẢNH HERO -->
+        <figure class="info-hero" data-animate="fade">
+          <div class="info-hero-img-wrap">
+            <img
+              src="{{ url_for('static', filename='info3-1.png') }}"
+              alt="Anh Trịnh Việt Cường trong vườn ớt chuông"
+              class="info-hero-img"
+            />
+          </div>
+          <figcaption class="info-hero-caption">
+            Anh Trịnh Việt Cường trong vườn ớt chuông. Ảnh: Hải Tiến.
+          </figcaption>
+        </figure>
+
+        <h3>Khai thác lợi thế sinh thái quê hương</h3>
+
+          <p>
+            Anh Cường cho biết, cao nguyên Mộc Châu quê anh nằm ở cao trung bình hơn 1.000m so với mặt biển, nhiệt độ chênh lệch ngày - đêm lớn, thời tiết quanh năm mát mẻ, đất canh tác tơi xốp, giàu dinh dưỡng, ít khi xảy ra mưa bão lớn nên rất thích hợp sản xuất các loại rau quả. Mộc Châu còn là nơi khai sinh phong trào chăn nuôi bò sữa của nước ta. Hiện các xã trong khu vực vẫn duy trì được đàn bò sữa trên 30 nghìn con, mỗi ngay thải ra hơn 700 tấn phân hữu cơ, rất thuận lợi để khai thác dùng trong sản xuất nông nghiệp.   
+          </p>
+
+          <p>
+            Lý do anh Cường chọn trồng cây ớt ngọt bởi đây là loại rau cao cấp có giá trị kinh tế cao, thị trường còn khan hiếm. Đặc biệt, cây ớt ngọt chỉ trồng được ở những khu vực có nhiệt độ không khí 18 - 28 độ C và ẩm độ khoảng 80% như Mộc Châu. Mặt khác, vỏ quả ớt khá cứng, cho phép bảo quản tự nhiên được 5 - 7 ngày nên dễ dàng vận chuyển đi tiêu thụ xa.
+          </p>
+
+          <p>
+            Tuy nhiên, khu vực Mộc Châu từ tháng 11 đến 1 năm sau thường có sương mù dày đặc, ảnh hưởng xấu tới khả năng quang hợp của cây trồng, làm giảm khả năng sinh trưởng, phát triển của cây ớt, giảm năng suất quả. Để khắc phục bất lợi này, anh Cường đã liên kết với anh Phùng Văn Khả (cùng quê) góp vốn xây dựng 4.500m2 nhà màng để ngăn sương.
+          </p>
+
+          <p>
+            Để không phải vào tận Đà Lạt (Lâm Đồng) học hỏi các điển hình trồng ớt chuông, anh Cường thuê chuyên gia của Viện Nghiên cứu Rau quả lên tư vấn kỹ thuật trồng ớt ngọt, coi đây là khoản học phí đào tạo thực tế.
+          </p>
+
+        <!-- ẢNH HERO -->
+        <figure class="info-hero" data-animate="fade">
+          <div class="info-hero-img-wrap">
+            <img
+              src="{{ url_for('static', filename='info3-2.png') }}"
+              alt="Vườn ớt đang trong giai đoạn cho thu hoạch"
+              class="info-hero-img"
+            />
+          </div>
+          <figcaption class="info-hero-caption">
+            Vườn ớt đang trong giai đoạn cho thu hoạch. Ảnh: Hải Tiến.
+          </figcaption>
+        </figure>
+
+        <h3>Kỹ thuật thâm canh ớt ngọt</h3>
+
+          <p>
+            Để sản xuất ớt ngọt đạt hiệu quả cao ở khu vực Mộc Châu và những xã có đặc điểm sinh thái tương tự, cần chọn giống ớt lai F1, làm vườn gieo hạt từ tháng 3 - 4, trồng vào tháng 4 - 5 (khi cây giống đạt 30 - 35 ngày tuổi). Trước đó, cày phơi ải, làm nhỏ đất, dọn sạch cỏ dại, lên luống cao 25 - 30cm, rộng 1 - 1,2m, rãnh luống rộng 30 - 35cm, bổ hốc trồng cây cách cây 40cm, hàng cách hàng 40cm.
+          </p>
+
+          <p>
+            Bón lót (cho 1.000m2 vườn) từ 80 - 100kg vôi bột, 1.000 – 1.200kg phân bò hoặc hữu cơ hoai mục, 100 - 120kg NPK 13 - 13 - 13 + TE (có thể thay phân hữu cơ bằng 200kg phân hữu cơ vi sinh). Chú ý, khi trồng ớt không được để rễ cây tiếp xúc trực tiếp với phân hoá học. Nên ủ phân bò và hữu cơ với chế phẩm nấm Trichoderma để tăng hiệu lực phân bón, phòng ngừa nấm bệnh phát sinh hại ớt, vôi bột bón kết hợp với làm đất.
+          </p>
+
+          <p>
+            Khi cây ớt cao khoảng 15cm, tiến hành bấm ngọn để cây phát sinh mầm nhánh, sau tỉa bỏ, giữ lại 2 nhánh khoẻ, sạch bệnh để chăm sóc lấy quả. Cây ớt phát triển cao 30cm (sau trồng 20 - 25 ngày) cần treo dây để nẹp cành, giữ cho cây không đổ ngã, nhất là ở giai đoạn mang quả. Tưới nước giỏ giọt tự động 2 - 4h/ngày. Bón NPK (loại chuyên dụng) định kỳ 3 ngày/lần qua hệ thống tưới nước nhỏ giọt trên cây ớt (liều lượng sử dụng phân theo tư vấn của chuyên gia). Cắt tỉa loại bỏ kịp thời các mầm cành phát sinh ngoài ý muốn và những lá ớt già cỗi, sâu bệnh nhằm tạo sự thông thoáng trong vườn, giảm phát sinh sâu bệnh hại, tăng khả năng quang hợp cho cây.
+          </p>
+
+        <!-- ẢNH HERO -->
+        <figure class="info-hero" data-animate="fade">
+          <div class="info-hero-img-wrap">
+            <img
+              src="{{ url_for('static', filename='info3-3.png') }}"
+              alt="Nhà kính trồng ớt chuông của anh Cường và anh Khả"
+              class="info-hero-img"
+            />
+          </div>
+          <figcaption class="info-hero-caption">
+            Nhà kính trồng ớt chuông của anh Cường và anh Khả. Ảnh: Hải Tiến.
+          </figcaption>
+        </figure>
+
+          <p>
+            Sâu bệnh trên cây ớt ngọt nói chung thường có 3 đối tượng gây thiệt hại nặng và khó diệt trừ nhất gồm bọ trĩ, bệnh héo vàng do nấm và bệnh héo xanh do vi khuẩn. Để phòng trừ bọ trĩ, cần trồng ớt trong nhà màng, nhà kính, phun trừ bằng các thuốc bảo vệ thực vật có hoạt chất Acetamiprid, Abemectin, Thiamethoxam, Carbosulfan hoặc Spinosad.
+          </p>
+
+          <p>
+            Với bệnh héo xanh, héo vàng, hiện chưa có thuốc phun ngừa đặc hiệu, phải áp dụng các biện pháp phòng trừ tổng hợp như dùng vôi bột xử lý đất trước khi xuống giống, luân canh ớt với cây trồng họ cà (khoai tây, cà chua, cà pháo, cà bát, cà tím), trồng bằng cây giống ớt chuông ghép trên gốc ớt chuyên dụng, trồng ớt trên giá thể vô trùng, tăng cường bón phân hữu cơ hoai mục hoặc hữu cơ vi sinh, vệ sinh tiêu độc, khử trùng và thiêu huỷ mọi tàn dư thực vật trong vườn ngay sau kết thúc vụ thu hoạch.
+          </p>
+
+          <p>
+            Trong vườn ớt còn có thể xuất hiện rầy, rệp, nhện đỏ, nhện trắng và bệnh thán thư gây hại, phun trừ bằng các thuốc trừ sâu bệnh đặc hiệu. Lưu ý, sử dụng thuốc trong danh mục Nhà nước cho phép dùng sản xuất rau quả an toàn, nên dùng thuốc của những nhà cung ứng có uy tín cao như Bayer, Syngenta.
+          </p>
+
+          <p>
+            Cây ớt chuông sau trồng 40 - 45 ngày sẽ ra hoa, 85 - 90 ngày cho thu hoạch. Thu hái khi có 50 - 70% diện tích vỏ quả chuyển từ màu xanh sang đỏ hoặc vàng (tuỳ giống). Có thể thu hái theo yêu cầu của thương lái khi vỏ quả chuyển từ màu xanh non sang xanh đậm và khối lượng quả đạt tối đa (200 - 250g/quả).
+          </p>
+
+          <p>
+            Là giống có đặc tính sinh trưởng vô hạn, nếu chăm sóc đúng kỹ thuật cây sẽ ra quả và cho thu hoạch kéo dài 8 - 9 tháng. Chú ý, hạt ớt lấy từ những quả thương phẩm không dùng làm giống cho vụ sau.   
+          </p>
+
+          <p>
+            Bằng những cách làm nêu trên, trên diện tích 4.500m2 nhà kính, mỗi năm nhóm liên kết của anh Cường sản xuất, cung ứng ra thị trường hơn 30 tấn ớt ngọt, thu nhập 450 triệu đồng, tương ứng năng suất đạt 65 tấn quả và thu nhập 1 tỷ đồng/ha canh tác (đã trừ mọi chi phí sản xuất).
+          </p>
+
+          <div class="info-note" data-animate="fade">
+            <p>
+              "Ớt ngọt mới được trồng trên địa bàn Mộc Châu khoảng 3 năm lại đây. Là loại rau cao cấp, hạt giống phải nhập ngoại rất đắt, yêu cầu điều kiện sinh thái khác biệt, phải đầu tư vốn sản xuất lớn, quy trình canh tác nghiêm ngặt nên Mộc Châu mới sản xuất được khoảng 300 tấn quả (4 - 5ha), còn lại phải nhập khẩu từ Trung Quốc. Riêng tại tỉnh Lâm Đồng, ớt ngọt đã được trồng phổ biến, đủ các loại (ớt quả bi, quả dài, quả chuông), tổng diện tích đạt 70 - 100ha/năm", ông Nguyễn Thái Thịnh, Phó Bộ môn Rau và Cây gia vị (Viện Nghiên cứu Rau quả) cho biết.
+            </p>
+          </div>
+        </section>
+
+        <footer class="info-article-footer">
+          <div class="info-tags">
+            <span class="info-tag-label">Chủ đề:</span>
+            <a href="#" class="info-tag">Ớt chuông</a>
+            <a href="#" class="info-tag">Canh tác thông minh</a>
+            <a href="#" class="info-tag">Sơn La</a>
+            <a href="#" class="info-tag">Kinh doanh</a>
+          </div>
+
+          <div class="info-share">
+            <span class="info-share-label">Chia sẻ:</span>
+            <button
+              type="button"
+              class="info-share-btn"
+              data-share="copy"
+            >
+              Copy link
+            </button>
+          </div>
+        </footer>
+      </article>
+
+      <!-- CỘT BÊN PHẢI: LIÊN QUAN / TIP -->
+      <aside class="info-aside">
+        <section class="info-card" data-animate="fade">
+          <h3 class="info-card-title">Bài viết liên quan</h3>
+          <ul class="info-related-list">
+            <li>
+              <a href="{{ url_for('info_page',
+                   slug='gia-rau-cu-ha-nhiet-nhung-van-cao') }}" class="info-related-link">
+                <span class="info-related-tag">Thị trường</span>
+                <p>Giá rau củ hạ nhiệt những vẫn cao</p>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url_for('info_page',
+                   slug='khanh-hoa-tap-huan-quan-ly-sau-benh-va-khoi-phuc-cay-trong-sau-lu')}}" class="info-related-link">
+                <span class="info-related-tag">Trồng trọt</span>
+                <p>Khánh Hòa tập huấn quản lý sâu bệnh và khôi phục cây trồng sau bão lũ</p>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url_for('info_page',
+                   slug='nguoi-hoi-sinh-nhung-thua-dat-kho-can-o-ven-do') }}" class="info-related-link">
+                <span class="info-related-tag">Giải pháp</span>
+                <p>
+                  Người hồi sinh những thửa đất khô cằn ở ven đô
+                </p>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </aside>
+    </main>
+
+    <!-- NÚT LÊN ĐẦU TRANG -->
+    <button
+      type="button"
+      class="info-scroll-top"
+      id="scrollTopBtn"
+      aria-label="Lên đầu trang"
+    >
+      ↑
+    </button>
+
+  </div> <!-- hết .info-page -->
+
+  <!-- Aurora background script -->
+  <script src="/effects/aurora.js"></script>
+
+  <!-- Lenis (smooth scroll, giống index) -->
+  <script src="https://unpkg.com/lenis@1.3.15/dist/lenis.min.js"></script>
+
+  <!-- JS riêng cho trang info -->
+  <script src="{{ url_for('info_js') }}"></script>
+</body>
+</html>

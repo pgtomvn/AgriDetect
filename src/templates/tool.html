@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AgriDetect – Công cụ tính</title>
+
+  <style>
+    :root{
+      --green:#228b22; --green2:#28a745; --blue:#007bff;
+      --bg1:#c3f0c3; --bg2:#c3f0c3; --panel:#fff; --muted:#155724;
+      --danger:#d93025; --border:#cfe8cf;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      font-family:system-ui,-apple-system,"Inter",Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      margin:0;
+      min-height:100vh;
+      background:linear-gradient(to bottom right,var(--bg1),var(--bg2));
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      padding:80px 16px 40px; /* chừa chỗ cho nav trên */
+    }
+
+    /* ===== Aurora background ===== */
+    #aurora-bg{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      overflow:hidden;
+      pointer-events:none;
+    }
+    #aurora-bg canvas{
+      width:100%;
+      height:100%;
+      display:block;
+    }
+    /* ============================= */
+
+    /* ===== Logo góc trái (giống index) ===== */
+    .agri-home-link {
+      position: fixed;
+      top: 10px;
+      left: 22px;
+      z-index: 95;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      font-family: system-ui, -apple-system, "Inter", Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: #064e3b;
+    }
+    .agri-home-link img{
+      width:26px;
+      height:26px;
+      border-radius:6px;
+      object-fit:cover;
+    }
+    .agri-home-link span{
+      text-shadow:0 1px 2px rgba(0,0,0,0.18);
+    }
+    .agri-home-link:hover{
+      transform:translateY(-1px);
+      filter:brightness(1.05);
+    }
+
+    /* ===== Top nav (dùng chung với index, menu.css/menu.js sẽ lo phần hiệu ứng) ===== */
+    .top-nav{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:90;
+      background:transparent;
+    }
+    .top-nav-inner{
+      max-width:1120px;
+      margin:0 auto;
+      padding:14px 24px 10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:24px;
+      font-family:inherit;
+      opacity:0;
+      transform:translateY(-10px);
+      transition:opacity .5s ease-out .2s,transform .5s ease-out .2s;
+    }
+    body.page-ready .top-nav-inner{
+      opacity:1;
+      transform:translateY(0);
+    }
+    .nav-links{
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:40px;
+      font-size:17px;
+      font-weight:600;
+      white-space:nowrap;
+    }
+    .nav-links::before{
+      content:"";
+      position:absolute;
+      left:-48px;
+      right:-48px;
+      bottom:0;
+      height:1px;
+      background:linear-gradient(
+        to right,
+        rgba(0,0,0,0),
+        rgba(15,118,110,0.35),
+        rgba(0,0,0,0)
+      );
+      pointer-events:none;
+    }
+    .nav-indicator{
+      position:absolute;
+      left:0;
+      bottom:0;
+      height:2px;
+      width:0;
+      background:#16a34a;
+      border-radius:999px;
+      transform:translateX(0);
+      transition:
+        transform .28s cubic-bezier(0.22,0.61,0.36,1),
+        width .28s cubic-bezier(0.22,0.61,0.36,1);
+      pointer-events:none;
+      box-shadow:
+        0 0 4px rgba(22,163,74,0.6),
+        0 0 14px rgba(22,163,74,0.45);
+      animation:agriNavGlow 1.6s ease-in-out infinite alternate;
+    }
+    .nav-indicator.no-anim{
+      transition:none;
+    }
+    @keyframes agriNavGlow{
+      from{
+        box-shadow:
+          0 0 2px rgba(22,163,74,0.45),
+          0 0 8px rgba(22,163,74,0.35);
+      }
+      to{
+        box-shadow:
+          0 0 6px rgba(22,163,74,0.9),
+          0 0 18px rgba(22,163,74,0.7);
+      }
+    }
+    .nav-link-btn{
+      position:relative;
+      padding:2px 0 6px;
+      border:none;
+      background:none;
+      cursor:pointer;
+      font:inherit;
+      color:#334155;
+      outline:none;
+    }
+    .nav-link-btn .nav-label{
+      position:relative;
+      display:block;
+      height:1.3em;
+      overflow:hidden;
+    }
+    .nav-label-main,
+    .nav-label-hover{
+      display:block;
+      transform:translateY(0%);
+      transition:transform .22s ease-out;
+    }
+    .nav-label-hover{
+      position:absolute;
+      inset-inline:0;
+      top:100%;
+      opacity:.95;
+      color:#020617;
+    }
+    .nav-link-btn:hover .nav-label-main{
+      transform:translateY(-100%);
+    }
+    .nav-link-btn:hover .nav-label-hover{
+      transform:translateY(-100%);
+    }
+    .nav-link-btn.is-active{
+      color:#020617;
+    }
+    .nav-link-btn.is-active .nav-label-main{
+      text-shadow:
+        0 0 4px rgba(255,255,255,0.85),
+        0 0 10px rgba(22,163,74,0.6);
+    }
+
+    /* ===== Layout công cụ ===== */
+    .tool-shell{
+      width:min(1040px,100%);
+      max-width:1040px;
+    }
+    .tool-header{
+      margin-bottom:18px;
+      color:#064e3b;
+    }
+    .tool-header h1{
+      margin:0 0 4px 0;
+      font-size:24px;
+      font-weight:800;
+    }
+    .tool-header p{
+      margin:0;
+      font-size:14px;
+      color:#166534;
+    }
+
+    .tool-layout{
+      display:grid;
+      grid-template-columns:minmax(220px,260px) minmax(0,1fr);
+      gap:18px;
+      align-items:flex-start;
+    }
+
+    .tool-nav{
+      background:rgba(255,255,255,0.96);
+      border-radius:18px;
+      padding:12px 10px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+      border:1px solid rgba(148,163,184,0.35);
+      backdrop-filter:blur(18px);
+    }
+    .tool-nav-title{
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:0.11em;
+      font-weight:700;
+      color:#4b5563;
+      margin:4px 8px 10px;
+    }
+    .tool-nav-list{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .tool-nav-btn{
+      width:100%;
+      border:none;
+      border-radius:12px;
+      padding:8px 10px;
+      text-align:left;
+      cursor:pointer;
+      background:transparent;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      font-size:14px;
+      color:#1f2933;
+      transition:background .18s ease,transform .12s ease,box-shadow .18s ease;
+    }
+    .tool-nav-btn span{
+      display:block;
+    }
+    .tool-nav-btn small{
+      display:block;
+      font-size:11px;
+      color:#6b7280;
+    }
+    .tool-nav-btn:hover{
+      background:rgba(220,252,231,0.8);
+      transform:translateY(-1px);
+    }
+    .tool-nav-btn.is-active{
+      background:#16a34a;
+      color:#ecfdf5;
+      box-shadow:0 8px 20px rgba(22,163,74,0.4);
+    }
+    .tool-nav-btn.is-active small{
+      color:#dcfce7;
+    }
+
+    .tool-panel{
+      background:rgba(255,255,255,0.98);
+      border-radius:20px;
+      padding:18px 18px 16px;
+      box-shadow:0 16px 40px rgba(0,0,0,0.12);
+      border:1px solid rgba(148,163,184,0.4);
+    }
+
+    .tool-panel h2{
+      margin:0 0 4px 0;
+      font-size:20px;
+      color:#166534;
+    }
+    .tool-panel p.desc{
+      margin:0 0 14px 0;
+      font-size:13px;
+      color:#4b5563;
+    }
+
+    .pill-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:3px 9px;
+      border-radius:999px;
+      font-size:11px;
+      background:#ecfdf5;
+      color:#047857;
+      margin-bottom:8px;
+    }
+
+    .tool-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px 16px;
+      margin-top:8px;
+    }
+    @media (max-width:720px){
+      body{
+        padding-top:96px;
+      }
+      .top-nav-inner{
+        padding-inline:12px;
+      }
+      .tool-layout{
+        grid-template-columns:minmax(0,1fr);
+      }
+    }
+
+    label{
+      font-size:13px;
+      color:#374151;
+      font-weight:500;
+      display:block;
+      margin-bottom:4px;
+    }
+    .field{
+      margin-bottom:10px;
+    }
+    input[type="number"],
+    select{
+      width:100%;
+      border-radius:10px;
+      border:1px solid #cbd5e1;
+      padding:8px 10px;
+      font-size:14px;
+      font-family:inherit;
+      outline:none;
+      background:#f9fafb;
+      transition:border .15s ease,box-shadow .15s ease,background .15s ease;
+    }
+    input[type="number"]:focus,
+    select:focus{
+      border-color:#22c55e;
+      box-shadow:0 0 0 1px rgba(34,197,94,0.4);
+      background:#ffffff;
+    }
+
+    .tool-actions{
+      margin-top:6px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .btn-main{
+      border:none;
+      border-radius:10px;
+      padding:9px 14px;
+      font-size:14px;
+      font-weight:600;
+      cursor:pointer;
+      background:#16a34a;
+      color:#ffffff;
+      box-shadow:0 10px 20px rgba(22,163,74,0.35);
+      transition:transform .1s ease,box-shadow .1s ease,filter .15s ease;
+    }
+    .btn-main:hover{
+      filter:brightness(1.03);
+      transform:translateY(-1px);
+      box-shadow:0 14px 26px rgba(22,163,74,0.45);
+    }
+    .btn-ghost{
+      border-radius:10px;
+      border:1px solid #d1d5db;
+      background:#f9fafb;
+      padding:8px 12px;
+      font-size:13px;
+      font-weight:500;
+      cursor:pointer;
+      color:#374151;
+    }
+
+    .result-card{
+      margin-top:14px;
+      padding:10px 12px;
+      border-radius:14px;
+      background:#ecfdf5;
+      border:1px dashed #6ee7b7;
+      font-size:14px;
+      color:#065f46;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .result-card span.value{
+      font-size:18px;
+      font-weight:800;
+    }
+
+    .tool-note{
+      margin-top:8px;
+      font-size:12px;
+      color:#6b7280;
+    }
+
+    .tool-coming{
+      padding:10px 0 2px;
+      font-size:14px;
+      color:#4b5563;
+    }
+    .tool-coming strong{
+      color:#166534;
+    }
+  </style>
+</head>
+<body>
+  <!-- Aurora background layer -->
+  <div id="aurora-bg"></div>
+
+  <!-- Logo góc trái – click về trang chẩn đoán (index) -->
+  <a href="/" class="agri-home-link" aria-label="Quay về màn hình nhận diện bệnh">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="">
+    <span>AgriDetect</span>
+  </a>
+
+  <!-- Top navigation bar -->
+  <header class="top-nav">
+    <div class="top-nav-inner">
+      <nav class="nav-links" aria-label="AgriDetect main navigation">
+        <div class="nav-indicator"></div>
+
+        <button class="nav-link-btn" type="button" data-nav="tools">
+          <span class="nav-label">
+            <span class="nav-label-main">CÔNG CỤ TÍNH TOÁN</span>
+            <span class="nav-label-hover" aria-hidden="true">CÔNG CỤ TÍNH TOÁN</span>
+          </span>
+        </button>
+
+        <button class="nav-link-btn" type="button" data-nav="diagnosis">
+          <span class="nav-label">
+            <span class="nav-label-main">NHẬN DIỆN BỆNH</span>
+            <span class="nav-label-hover" aria-hidden="true">NHẬN DIỆN BỆNH</span>
+          </span>
+        </button>
+
+        <button class="nav-link-btn" type="button" data-nav="forum">
+          <span class="nav-label">
+            <span class="nav-label-main">DIỄN ĐÀN NÔNG NGHIỆP</span>
+            <span class="nav-label-hover" aria-hidden="true">DIỄN ĐÀN NÔNG NGHIỆP</span>
+          </span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Khung chính của trang công cụ -->
+  <main class="tool-shell" aria-label="Công cụ tính nông nghiệp">
+    <section class="tool-header">
+      <div class="pill-badge">🧮 Công cụ tính AgriDetect</div>
+      <h1>Hỗ trợ tính nhanh cho vườn & ruộng</h1>
+      <p>Chọn một công cụ ở bên trái – sau này mình sẽ thêm từng công thức cụ thể (lượng phân, pha thuốc, mật độ trồng, chi phí mùa vụ...).</p>
+    </section>
+
+    <section class="tool-layout">
+      <!-- Cột trái: danh sách công cụ -->
+      <aside class="tool-nav" aria-label="Danh sách công cụ">
+        <div class="tool-nav-title">Nhóm công cụ</div>
+        <div class="tool-nav-list">
+          <button class="tool-nav-btn is-active" type="button" data-tool="fert">
+            <span>
+              Tính lượng phân theo diện tích
+              <small>Ví dụ: ha, sào, m² → tổng kg phân cần bón</small>
+            </span>
+          </button>
+
+          <button class="tool-nav-btn" type="button" data-tool="spray">
+            <span>
+              Pha dung dịch & thuốc BVTV
+              <small>Thể tích bình, nồng độ mong muốn...</small>
+            </span>
+          </button>
+
+          <button class="tool-nav-btn" type="button" data-tool="density">
+            <span>
+              Mật độ trồng & số cây
+              <small>Khoảng cách hàng/cây → ước lượng số cây</small>
+            </span>
+          </button>
+
+          <button class="tool-nav-btn" type="button" data-tool="cost">
+            <span>
+              Ghi nhanh chi phí mùa vụ
+              <small>Nháp chi phí phân, thuốc, nhân công,...</small>
+            </span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- Cột phải: panel nội dung -->
+      <section class="tool-panel">
+        <!-- Panel: demo tính lượng phân -->
+        <div class="tool-panel-inner" data-tool-panel="fert">
+          <h2>🌱 Tính lượng phân theo diện tích</h2>
+          <p class="desc">
+            Nhập diện tích và liều lượng khuyến nghị (kg/ha). Công cụ sẽ ước tính tổng lượng phân cần chuẩn bị.
+            Sau này mình có thể gắn trực tiếp liều lượng từ <strong>kb_&lt;plant&gt;</strong> tương ứng từng cây.
+          </p>
+
+          <div class="tool-grid">
+            <div>
+              <div class="field">
+                <label for="area-value">Diện tích cần bón</label>
+                <input id="area-value" type="number" min="0" step="0.01" placeholder="Ví dụ: 1.5" />
+              </div>
+
+              <div class="field">
+                <label for="area-unit">Đơn vị diện tích</label>
+                <select id="area-unit">
+                  <option value="ha">Hecta (ha)</option>
+                  <option value="sao-bac">Sào Bắc bộ (~360 m²)</option>
+                  <option value="sao-nam">Sào Nam bộ (~1000 m²)</option>
+                  <option value="m2">Mét vuông (m²)</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <div class="field">
+                <label for="dose">Liều lượng khuyến nghị</label>
+                <input id="dose" type="number" min="0" step="0.1" placeholder="Ví dụ: 300 (kg/ha)" />
+              </div>
+
+              <div class="field">
+                <label for="fert-name">Loại phân (tùy chọn)</label>
+                <input id="fert-name" type="text" placeholder="VD: NPK 16-16-8 hoặc Phân chuồng hoai mục" />
+              </div>
+            </div>
+          </div>
+
+          <div class="tool-actions">
+            <button class="btn-main" type="button" id="btnCalcFert">Tính lượng phân cần chuẩn bị</button>
+            <button class="btn-ghost" type="button" id="btnResetFert">Xóa dữ liệu</button>
+          </div>
+
+          <div class="result-card" id="fertResult" style="display:none">
+            <div>
+              <div>Kết quả ước tính:</div>
+              <div>
+                <span class="value" id="fertKg">0 kg</span>
+                <span id="fertNameLabel"></span>
+              </div>
+            </div>
+            <div style="font-size:12px;color:#065f46;">
+              (Đã quy đổi diện tích sang ha dựa trên đơn vị bạn chọn)
+            </div>
+          </div>
+
+          <div class="tool-note">
+            Gợi ý sau này:
+            <ul style="margin:4px 0 0 18px;padding:0;font-size:12px;">
+              <li>Auto điền liều lượng theo <strong>loại cây + loại phân</strong> từ KB.</li>
+              <li>Cho phép lưu thành “phiếu bón phân” để xem lại trong lịch sử mùa vụ.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Panel: placeholder cho công cụ khác -->
+        <div class="tool-panel-inner" data-tool-panel="spray" style="display:none">
+          <h2>🧴 Pha dung dịch & thuốc BVTV</h2>
+          <p class="desc">
+            Khu vực này sẽ dùng để tính thể tích nước, lượng thuốc cần pha cho từng bình / từng hecta.
+            Hiện tạm thời để trống để mình thống nhất công thức trước.
+          </p>
+          <div class="tool-coming">
+            <strong>Ý tưởng:</strong> nhập thể tích bình, số bình dự kiến, nồng độ % hoặc ml/lít → xuất ra tổng lượng thuốc & nước.
+          </div>
+        </div>
+
+        <div class="tool-panel-inner" data-tool-panel="density" style="display:none">
+          <h2>📏 Mật độ trồng & số cây</h2>
+          <p class="desc">
+            Dùng để ước lượng số cây giống cần chuẩn bị dựa trên diện tích và khoảng cách hàng/cây.
+            Mình sẽ thêm input & công thức chi tiết sau.
+          </p>
+          <div class="tool-coming">
+            <strong>Ý tưởng:</strong> nhập chiều dài/chiều rộng lô hoặc diện tích + khoảng cách hàng/cây → tính số hốc/số cây.
+          </div>
+        </div>
+
+        <div class="tool-panel-inner" data-tool-panel="cost" style="display:none">
+          <h2>💰 Ghi nhanh chi phí mùa vụ</h2>
+          <p class="desc">
+            Sau này có thể dùng như một bảng nháp nhỏ để ghi chi phí phân, thuốc, giống, nhân công… rồi xuất ra tổng.
+          </p>
+          <div class="tool-coming">
+            <strong>Ý tưởng:</strong> một bảng đơn giản, mỗi dòng là hạng mục + số tiền; tổng hợp nhanh và có nút “xuất ra ghi chú”.
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <!-- Aurora background script -->
+  <script src="effects/aurora.js"></script>
+
+  <!-- Logic nhẹ cho tool-page (chuyển tab + demo tính phân) -->
+  <script>
+    // chuyển giữa các tool bên trái
+    (function(){
+      const navBtns = Array.from(document.querySelectorAll('.tool-nav-btn'));
+      const panels = Array.from(document.querySelectorAll('.tool-panel-inner'));
+
+      function showTool(name){
+        navBtns.forEach(btn => {
+          const on = btn.dataset.tool === name;
+          btn.classList.toggle('is-active', on);
+        });
+        panels.forEach(panel => {
+          const on = panel.dataset.toolPanel === name;
+          panel.style.display = on ? '' : 'none';
+        });
+      }
+
+      navBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          showTool(btn.dataset.tool);
+        });
+      });
+
+      // mặc định: hiển thị "fert"
+      showTool('fert');
+    })();
+
+    // demo tính lượng phân
+    (function(){
+      const areaInput = document.getElementById('area-value');
+      const unitSelect = document.getElementById('area-unit');
+      const doseInput = document.getElementById('dose');
+      const fertNameInput = document.getElementById('fert-name');
+      const btnCalc = document.getElementById('btnCalcFert');
+      const btnReset = document.getElementById('btnResetFert');
+      const resultBox = document.getElementById('fertResult');
+      const fertKgSpan = document.getElementById('fertKg');
+      const fertNameLabel = document.getElementById('fertNameLabel');
+
+      function unitToHaFactor(unit){
+        switch(unit){
+          case 'ha': return 1;
+          case 'sao-bac': return 360 / 10000;   // 360 m2
+          case 'sao-nam': return 1000 / 10000;  // 1000 m2
+          case 'm2': return 1 / 10000;
+          default: return 1;
+        }
+      }
+
+      btnCalc.addEventListener('click', () => {
+        const areaVal = parseFloat(areaInput.value || '0');
+        const dose = parseFloat(doseInput.value || '0');
+
+        if (!areaVal || !dose || areaVal <= 0 || dose <= 0){
+          alert('Vui lòng nhập diện tích và liều lượng lớn hơn 0.');
+          return;
+        }
+
+        const ha = areaVal * unitToHaFactor(unitSelect.value);
+        const totalKg = ha * dose;
+        const rounded = Math.round(totalKg * 10) / 10;
+
+        fertKgSpan.textContent = rounded.toLocaleString('vi-VN') + ' kg';
+        const name = (fertNameInput.value || '').trim();
+        fertNameLabel.textContent = name ? ' · ' + name : '';
+        resultBox.style.display = 'flex';
+      });
+
+      btnReset.addEventListener('click', () => {
+        areaInput.value = '';
+        doseInput.value = '';
+        fertNameInput.value = '';
+        resultBox.style.display = 'none';
+      });
+    })();
+  </script>
+
+  <!-- Nav animation & glow (dùng chung với index) -->
+  <script src="effects/menu.js"></script>
+</body>
+</html>

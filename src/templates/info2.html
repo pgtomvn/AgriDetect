@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AgriDetect – Thông tin bài viết</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="{{ url_for('static', filename='logo.png') }}" type="image/png" />
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='logo.png') }}">
+  <link rel="preload" as="image" href="{{ url_for('static', filename='logo.png') }}">
+
+  <style>
+    html, body{
+      overflow-x: hidden;
+    }
+
+    html{
+      scrollbar-width: none;           /* Firefox */
+    }
+
+    html::-webkit-scrollbar{
+      width: 0;
+      height: 0;                       /* Chrome / Edge / Safari */
+    }
+  </style>
+  <!-- Lenis CSS (same as index) -->
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.15/dist/lenis.css">
+
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="{{ url_for('info_css') }}">
+</head>
+<body>
+  <!-- Aurora background layer (giống index) -->
+  <div id="aurora-bg"></div>
+
+  <div class="info-page">
+
+    <!-- HEADER + LOGO -->
+    <header class="info-header">
+      <div class="info-header-inner">
+        <a href="/" class="info-logo-link">
+          <img
+            src="{{ url_for('static', filename='logo.png') }}"
+            alt="Logo AgriDetect"
+            class="info-logo-img"
+          />
+          <div class="info-logo-text-wrap">
+            <span class="info-logo-main">AgriDetect</span>
+          </div>
+        </a>
+
+        <div class="info-header-right">
+          <button
+            type="button"
+            class="info-header-btn info-back-btn"
+            onclick="window.location.href='/'"
+          >
+            ← Về trang chính
+          </button>
+        </div>
+      </div>
+
+      <!-- Thanh progress đọc bài -->
+      <div class="info-progress">
+        <div class="info-progress-bar" id="articleProgress"></div>
+      </div>
+    </header>
+
+    <!-- MAIN LAYOUT -->
+    <main class="info-main">
+      <!-- BÀI VIẾT CHÍNH -->
+      <article class="info-article" data-animate="fade">
+        <header class="info-article-header">
+          <p class="info-article-section">Trồng trọt · Khắc phục sau lũ</p>
+          <h1 class="info-article-title">
+            Khánh Hòa tập huấn quản lý sâu bệnh và khôi phục cây trồng sau lũ
+          </h1>
+          <p class="info-article-subtitle">
+            Chi cục Trồng trọt và BVTV Khánh Hòa triển khai 10 lớp tập huấn giúp nông dân nhận diện dịch hại kịp thời, khôi phục cây trồng sau lũ.
+          </p>
+          <div class="info-article-meta">
+            <span class="info-meta-author">KIM SƠ</span>
+            <span class="info-meta-dot">•</span>
+            <time datetime="2025-12-08T15:49:00+07:00" class="info-meta-time">
+              08/12/2025 · 15:49 (GMT+7)
+            </time>
+            <span class="info-meta-dot">•</span>
+            <span class="info-meta-readtime">4 phút đọc</span>
+          </div>
+        </header>
+
+        <!-- NỘI DUNG BÀI VIẾT -->
+        <section class="info-article-body">
+          <p>
+            Từ ngày 6 - 8/12, Chi cục Trồng trọt và BVTV Khánh Hòa tổ chức tập huấn chuyên sâu về sinh vật gây hại và hỗ trợ, 
+            hướng dẫn nông dân khôi phục cây trồng sau lũ.
+          </p>
+
+        <figure class="info-hero" data-animate="fade">
+          <div class="info-hero-img-wrap">
+            <img
+              src="{{ url_for('static', filename='info2-1.png') }}"
+              alt="Lãnh đạo Chi cục Trồng trọt và BVTV Khánh Hòa hướng dẫn nông dân khôi phục lúa bị ngập"
+              class="info-hero-img"
+            />
+          </div>
+          <figcaption class="info-hero-caption">
+            Lãnh đạo Chi cục Trồng trọt và BVTV Khánh Hòa hướng dẫn nông dân khôi phục lúa bị ngập. 
+            Ảnh: KS.
+          </figcaption>
+        </figure>
+
+          <p>
+            Ông Nguyễn Đức Thuận, Chi cục trưởng Chi cục Trồng trọt và BVTV Khánh Hòa cho biết, đợt tập huấn nhằm hướng dẫn kỹ thuật sản xuất, các biện pháp quản lý và phòng chống sinh vật gây hại trên cây trồng. Đặc biệt, Chi cục tập trung vào những vùng có nguy cơ cao hoặc thường xuyên xuất hiện các dịch hại nguy hiểm như sâu đục thân, rầy nâu, bệnh vàng lùn - lùn xoắn lá trên lúa, sâu keo mùa thu trên bắp, bệnh thán thư nho, ruồi đục quả táo và bệnh khảm lá sắn, đồng thời hỗ trợ, hướng dẫn nông dân khôi phục vùng trồng sau lũ lụt
+          </p>
+
+          <p>
+            Theo ông Thuận, 10 lớp tập huấn đã được tổ chức cho các tổ chức, cá nhân và nông dân sản xuất các cây trồng trọng điểm như lúa, bắp, nho, táo, mía, sắn, dừa, măng tây, hành, tỏi, sầu riêng, bưởi. Nội dung tập huấn được chia thành ba nhóm chính.
+          </p>
+
+        <figure class="info-hero" data-animate="fade">
+          <div class="info-hero-img-wrap">
+            <img
+              src="{{ url_for('static', filename='info2-2.png') }}"
+              alt="Các vườn táo bị ngập sau lũ được Chi cục Trồng trọt và BVTV Khánh Hòa hướng dẫn nông dân khắc phục"
+              class="info-hero-img"
+            />
+          </div>
+          <figcaption class="info-hero-caption">
+            Các vườn táo bị ngập sau lũ được Chi cục Trồng trọt và BVTV Khánh Hòa hướng dẫn nông dân khắc phục.
+            Ảnh: A Thuận.
+          </figcaption>
+        </figure>
+
+          <p>
+            Các lớp tập huấn được tổ chức tại các xã, phường Xuân Hải, Vĩnh Hải, Phước Hậu và Phước Hữu có quy mô 160 người tham gia, nội dung tập trung phổ biến về hình thái, vòng đời, nguyên nhân, triệu chứng gây hại của các sinh vật hại phổ biến cùng phương pháp dự tính, dự báo tình hình dịch hại để hướng dẫn phòng trừ hiệu quả.
+          </p>
+
+          <p>
+            Nông dân được hướng dẫn chi tiết cách sử dụng thuốc BVTV an toàn, hiệu quả theo nguyên tắc “4 đúng”: đúng thuốc, đúng liều lượng - nồng độ, đúng lúc, đúng cách. Chi cục cũng hướng dẫn nông dân ưu tiên dùng thuốc sinh học, thảo mộc, nhóm thuốc có độ độc thấp, đảm bảo thời gian cách ly cũng như hướng dẫn bà con thu gom bao bì sau sử dụng đúng quy định và các biện pháp xử lý đất, chăm sóc phục hồi các loại cây trồng sau lũ lụt.
+          </p>
+
+          <p>
+            Hai lớp thuộc nhóm bảo vệ thực vật trên cây trồng ở miền núi được tổ chức tại Lâm Sơn và Phước Hà dành cho 52 học viên, tập trung vào đặc điểm và biện pháp phòng trừ sinh vật gây hại trên lúa, bắp, đậu xanh, mía, sắn.
+          </p>
+
+        <figure class="info-hero" data-animate="fade">
+          <div class="info-hero-img-wrap">
+            <img
+              src="{{ url_for('static', filename='info2-3.png') }}"
+              alt="Cán bộ chuyên môn tập huấn giúp nông dân nhận diện dịch hại kịp thời"
+              class="info-hero-img"
+            />
+          </div>
+          <figcaption class="info-hero-caption">
+            Cán bộ chuyên môn tập huấn giúp nông dân nhận diện dịch hại kịp thời. Ảnh: AT.
+          </figcaption>
+        </figure>
+
+            <p>
+                Lớp tập huấn thứ ba được tổ chức tại Đô Vinh với 55 người, tập trung tuyên truyền, hướng dẫn nông dân phòng trừ sinh vật gây hại mới như sâu đầu đen, sâu keo mùa thu và bệnh trắng lá mía; tập huấn về cây sầu riêng tại các xã Khánh Sơn, Tây Khánh Sơn và Đông Khánh Sơn.
+            </p>
+
+            <p>
+                Mục tiêu quan trọng sau tập huấn là đảm bảo nông dân nắm vững kiến thức cơ bản như chăm sóc cây trồng sau mưa lũ, nhận dạng được sinh vật gây hại và áp dụng biện pháp phòng trừ theo phương pháp quản lý dịch hại cây trồng tổng hợp (IPM) và quản lý cây trồng tổng hợp (ICM). Qua đó giúp nông dân phòng trừ kịp thời, không để dịch hại lây lan ra diện rộng, khắc phục thiệt hại và từng bước nâng cao hiệu quả sản xuất, chất lượng sản phẩm cũng như bảo vệ môi trường sinh thái nông nghiệp.
+            </p>
+
+          <div class="info-note" data-animate="fade">
+            <h2 class="info-note-title">Những điều cần lưu ý khi chăm sóc cây trồng sau bão lũ</h2>
+            <p>
+                Sasu bão lũ, cần ưu tiên thoát nước, vệ sinh vườn, dựng cây đổ, tỉa cành hư hỏng, rửa sạch bùn đất khỏi lá và gốc, rồi mới tiến hành phục hồi bộ rễ bằng phân bón lá/vôi, hạn chế bón phân hóa học, và phòng trừ sâu bệnh, đặc biệt là nấm. Chờ đến khi rễ cây hồi phục, đất khô ráo mới bón phân NPK cân đối và tăng cường hữu cơ. 
+            </p>
+          </div>
+        </section>
+
+        <footer class="info-article-footer">
+          <div class="info-tags">
+            <span class="info-tag-label">Chủ đề:</span>
+            <a href="#" class="info-tag">Dữ liệu đất đai</a>
+            <a href="#" class="info-tag">Học liệu khuyến nông</a>
+            <a href="#" class="info-tag">Thiên tait</a>
+            <a href="#" class="info-tag">Canh tác thông minh</a>
+          </div>
+
+          <div class="info-share">
+            <span class="info-share-label">Chia sẻ:</span>
+            <button
+              type="button"
+              class="info-share-btn"
+              data-share="copy"
+            >
+              Copy link
+            </button>
+          </div>
+        </footer>
+      </article>
+
+      <!-- CỘT BÊN PHẢI: LIÊN QUAN / TIP -->
+      <aside class="info-aside">
+        <section class="info-card" data-animate="fade">
+          <h3 class="info-card-title">Bài viết liên quan</h3>
+          <ul class="info-related-list">
+            <li>
+              <a href="{{ url_for('info_page',
+                   slug='gia-rau-cu-ha-nhiet-nhung-van-cao') }}" class="info-related-link">
+                <span class="info-related-tag">Thị trường</span>
+                <p>Giá rau củ hạ nhiệt những vẫn cao</p>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url_for('info_page',
+                   slug='nguoi-hoi-sinh-nhung-thua-dat-kho-can-o-ven-do') }}" class="info-related-link">
+                <span class="info-related-tag">Giải pháp</span>
+                <p>Người hồi sinh những thửa đất khô cằn ở ven đô</p>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url_for('info_page',
+                   slug='trong-ot-chuong-trong-nha-kinh-lai-mot-ty-dong-tren-ha') }}" class="info-related-link">
+                <span class="info-related-tag">Kinh doanh</span>
+                <p>
+                  Trồng ớt chuông trong nhà kính, lãi 1 tỷ đồng/ha
+                </p>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="info-card info-tip-card" data-animate="fade">
+          <h3 class="info-card-title">Gợi ý từ AgriDetect</h3>
+          <p>
+            Để khôi phục cây trồng sau bão lũ, nông dân cần lưu ý một số điểm sau:
+          </p>
+          <ul class="info-tip-list">
+            <li>
+              Thoát nước ngay sau lũ, vệ sinh vườn và dựng cây đổ.
+            </li>
+            <li>
+              Rửa sạch bùn đất khỏi lá và gốc, tỉa cành hư hỏng.
+            </li>
+            <li>
+              Phục hồi bộ rễ bằng phân bón lá hoặc vôi, hạn chế phân hóa học.
+            </li>
+            <li>
+              Phòng trừ sâu bệnh, đặc biệt là nấm sau lũ.
+            </li>
+            <li>
+              Ưu tiên giống chịu mưa, chịu lạnh tốt ở các vùng dễ ngập úng.
+            </li>
+            <li>
+              Ghi chép lại chi phí – sản lượng theo từng vụ để điều chỉnh
+              cơ cấu cây trồng cho mùa sau.
+            </li>
+          </ul>
+        </section>
+      </aside>
+    </main>
+
+    <!-- NÚT LÊN ĐẦU TRANG -->
+    <button
+      type="button"
+      class="info-scroll-top"
+      id="scrollTopBtn"
+      aria-label="Lên đầu trang"
+    >
+      ↑
+    </button>
+
+  </div> <!-- hết .info-page -->
+
+  <!-- Aurora background script -->
+  <script src="/effects/aurora.js"></script>
+
+  <!-- Lenis (smooth scroll, giống index) -->
+  <script src="https://unpkg.com/lenis@1.3.15/dist/lenis.min.js"></script>
+
+  <!-- JS riêng cho trang info -->
+  <script src="{{ url_for('info_js') }}"></script>
+</body>
+</html>

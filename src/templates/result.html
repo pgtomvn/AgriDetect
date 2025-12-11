@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>AgriDetect - Kết quả chẩn đoán</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: #c3f0c3; padding: 32px; }
+    .card {
+      background: #fff; border-radius: 16px; padding: 24px; max-width: 900px;
+      margin: auto; box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .imgbox img { width: 100%; border-radius: 12px; }
+    h2 { margin-top: 0; color: #2f5233; }
+    h4 { margin-bottom: 8px; }
+    .meta { margin: 12px 0 20px; color: #333; }
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+    th, td { border-bottom: 1px solid #eee; padding: 8px 10px; text-align: left; font-size: 14px; }
+    th { background: #f8fafb; }
+    .btn { display: inline-block; margin: 12px 8px 0 0; padding: 10px 16px; background: #4CAF50; color: #fff;
+           border-radius: 8px; text-decoration: none; }
+    .btn.secondary { background: #6b7280; }
+    .btn.info { background: #0ea5e9; }
+    .pill { display: inline-block; padding: 4px 10px; border-radius: 9999px; background: #ecfdf5; color: #065f46; font-size: 12px; }
+    .warn { color: #b91c1c; font-style: italic; margin-top: 8px; }
+    .hintbar {
+      margin: 16px 0 0; padding: 10px 12px; border-radius: 10px;
+      background: #fff7ed; color: #9a3412; font-size: 14px;
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    }
+    /* ===== Aurora background ===== */
+    #aurora-bg{
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    #aurora-bg canvas{
+      width:100%;
+      height:100%;
+      display:block;
+    }
+    /* ============================= */
+    html, body{
+      overflow-x: hidden;
+    }
+
+    /* Ẩn scrollbar giống index */
+    html{
+      scrollbar-width: none;           /* Firefox */
+    }
+    html::-webkit-scrollbar{
+      width: 0;
+      height: 0;                       /* Chrome / Edge / Safari */
+    }
+    body{
+      -ms-overflow-style: none;        /* IE / Edge cũ */
+    }
+
+    /* Lenis helper + float */
+    html.lenis { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto; }
+    .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+    .lenis.lenis-stopped { overflow: hidden; }
+    [data-scroll-float] { will-change: transform; }
+
+    html{scroll-behavior:smooth}
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Smooth scroll (Lenis) -->
+  <script src="https://unpkg.com/lenis@1.3.15/dist/lenis.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.15/dist/lenis.css">
+</head>
+<body>
+  <!-- Aurora background layer -->
+  <div id="aurora-bg"></div>
+
+  <div class="card" data-scroll-float="md">
+    <h2>🌾 Kết quả chẩn đoán</h2>
+
+    <div class="meta">
+      <div><strong>Bệnh được dự đoán:</strong> {{ prediction }}</div>
+      <div><strong>Độ tin cậy:</strong> {{ confidence }}%</div>
+      {% if plant_name_vi %}
+      <div><strong>Loại cây:</strong> {{ plant_name_vi }}</div>
+      {% elif plant_label %}
+      <div><strong>Loại cây:</strong> {{ plant_label }}</div>
+      {% endif %}
+      {% if used_legacy %}
+      <div class="pill" style="background:#fff7ed; color:#9a3412;">Chạy ở chế độ fallback (phân loại toàn ảnh)</div>
+      {% endif %}
+      {% if note %}<div class="warn">{{ note }}</div>{% endif %}
+      {% if uncertain %}
+      <div class="warn">⚠️ Kết quả có thể chưa chắc chắn — bạn có thể bấm “Góp ý” để giúp mô hình học tốt hơn.</div>
+      {% endif %}
+    </div>
+
+    <div class="grid">
+      <div class="imgbox">
+        <h4>Ảnh gốc</h4>
+        <img src="{{ image_url }}" alt="Ảnh đã tải lên">
+      </div>
+      <div class="imgbox">
+        <h4>Ảnh tô vùng lá & vùng nghi nhiễm (Mask + ROI)</h4>
+        {% if overlay_url %}
+          <img src="{{ overlay_url }}" alt="Overlay">
+        {% else %}
+          <div style="color:#6b7280;">(Không có vùng nghi nhiễm để hiển thị)</div>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if roi_rows and roi_rows|length > 0 %}
+      <h4>Chi tiết theo vùng nghi nhiễm</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Vùng trên lá (BBox)</th>
+            <th>Bệnh nghi ngờ</th>
+            <th>Độ tin cậy bệnh<br><span style="font-weight:normal;font-size:12px;">(mô hình phân loại)</span></th>
+            <th>Độ tin cậy vùng lá<br><span style="font-weight:normal;font-size:12px;">(từ phân đoạn lá)</span></th>
+            <th>Độ tin cậy cuối cùng</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for r in roi_rows %}
+          <tr>
+            <td>{{ r.idx }}</td>
+            <td>[{{ r.bbox[0] }}, {{ r.bbox[1] }}, {{ r.bbox[2] }}, {{ r.bbox[3] }}]</td>
+            <td>{{ r.disease }}</td>
+            <td>{{ r.p_cls }}%</td>
+            <td>{{ r.conf_seg }}%</td>
+            <td><strong>{{ r.conf_total }}%</strong></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div style="margin-top:8px; font-size:12px; color:#6b7280;">
+        (*) <strong>Độ tin cậy bệnh</strong>: mức tin của mô hình về bệnh trên vùng đó.<br>
+        (**) <strong>Độ tin cậy vùng lá</strong>: mức tin là vùng đó đúng là lá (ít nền, ít nhiễu).<br>
+        <strong>Độ tin cậy cuối cùng</strong> được tính bằng cách lấy giá trị thấp hơn giữa (*) và (**), chỉ cần một trong hai chưa quá rõ ràng thì kết quả cuối cùng được coi là <strong>không chắc chắn</strong>.
+      </div>
+    {% endif %}
+
+    <div>
+      <a class="btn" href="/">Quay lại</a>
+      <a class="btn secondary" href="" onclick="location.reload(); return false;">Chẩn đoán lại</a>
+      {% if kb_url %}
+        <a class="btn info" href="{{ kb_url }}">Hướng dẫn phác đồ</a>
+      {% endif %}
+      {% if image_id %}
+        <!-- Nút Góp ý dẫn sang trang feedback kèm image_id -->
+        <a class="btn" style="background:#f59e0b"
+          href="{{ url_for('feedback_page') }}?image_id={{ image_id }}&img={{ image_url | urlencode }}">
+          Góp ý
+        </a>
+      {% endif %}
+    </div>
+  </div>
+    <!-- Smooth scroll (Lenis) y chang index.html / forum.js -->
+  <script>
+    (function () {
+      "use strict";
+
+      document.addEventListener("DOMContentLoaded", function () {
+        initSmoothScroll();
+      });
+
+      // -------- Smooth scroll (Lenis) --------
+      function initSmoothScroll() {
+        if (typeof Lenis === "undefined") return;
+
+        let lenis;
+        try {
+          lenis = new Lenis({
+            lerp: 0.12,
+            smoothWheel: true,
+            smoothTouch: false
+          });
+        } catch {
+          return;
+        }
+
+        // Cho debug nếu cần (giống forum.js)
+        window.__lenis = lenis;
+
+        if (window.gsap && window.ScrollTrigger) {
+          lenis.on("scroll", ScrollTrigger.update);
+
+          gsap.ticker.add(function (time) {
+            // forum.js cũng nhân 1000 vì gsap dùng giây, Lenis dùng ms
+            lenis.raf(time * 1000);
+          });
+          gsap.ticker.lagSmoothing(0);
+        } else {
+          function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+          }
+          requestAnimationFrame(raf);
+        }
+      }
+    })();
+  </script>
+  <!-- Aurora background script -->
+  <script src="effects/aurora.js"></script>
+</body>
+</html>

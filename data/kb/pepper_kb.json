@@ -1,0 +1,229 @@
+{
+  "plant": "pepper",
+  "schema_version": "1.0",
+  "items": [
+    {
+      "disease_id": "pepper_bell_bacterial_spot",
+      "labels": [
+        "Pepper__bell___Bacterial_spot",
+        "Bacterial spot"
+      ],
+      "name_vi": "Đốm vi khuẩn (Bacterial spot)",
+      "category": "vi khuẩn",
+      "pathogen": "Xanthomonas spp.",
+      "symptoms_core": [
+        "Đốm nước nhỏ, góc cạnh theo gân lá; thủng lá khi khô",
+        "Trái sần sùi, sẹo hóa; vết lõm sẫm trên trái xanh"
+      ],
+      "look_alikes": [
+        "Bacterial speck (ít gặp ở ớt)",
+        "Thiếu dinh dưỡng nhẹ"
+      ],
+      "favorable_conditions": [
+        "Nhiệt ấm + ẩm cao",
+        "Tưới phun/mưa gió làm bắn giọt"
+      ],
+      "diagnostic_tips": [
+        "Quan sát mặt dưới lá có vết ướt sẫm; tập trung lá thấp",
+        "Bộc phát sau mưa lớn, tưới phun hoặc lá ướt kéo dài"
+      ],
+      "immediate_actions": [
+        "Giảm tưới phun; chuyển nhỏ giọt; không làm khi lá ướt",
+        "Cắt bỏ lá/trái nặng bệnh; vệ sinh kéo/dụng cụ giữa các luống"
+      ],
+      "cultural_management": [
+        "Giống/ cây giống sạch bệnh; luân canh 2–3 năm không họ Cà",
+        "Phủ gốc/mulch chống bắn đất; tiêu hủy tàn dư"
+      ],
+      "spray_programs": {
+        "preventive": [
+          {
+            "stage": "khi ẩm/ấm, có tiền sử vườn",
+            "actives": [
+              {
+                "ai": "copper (đồng)",
+                "FRAC": "M1"
+              },
+              {
+                "ai": "copper + mancozeb",
+                "FRAC": "M1 + M3"
+              }
+            ],
+            "interval_days": "7–10"
+          }
+        ],
+        "curative": [
+          {
+            "stage": "bộc phát sớm",
+            "rotation": [
+              {
+                "ai": "copper (M1)",
+                "FRAC": "M1"
+              },
+              {
+                "ai": "copper + mancozeb",
+                "FRAC": "M1 + M3"
+              }
+            ],
+            "interval_days": "5–7 ngày khi áp lực cao"
+          }
+        ]
+      },
+      "organic_options": [
+        {
+          "ai": "copper (M1)"
+        },
+        {
+          "ai": "dầu khoáng/xà phòng"
+        }
+      ],
+      "nutrition_notes": [
+        "Bón N-P-K cân đối; tán thoáng giảm ẩm lá"
+      ],
+      "product_slots": [
+        {
+          "ai": "copper hydroxide (M1)",
+          "buy_link": "https://qatarchem.com.vn/chapaon-770wp/"
+        },
+        {
+          "ai": "mancozeb (M3)",
+          "buy_link": "https://giaiphapnongnghiep.vn/san-pham/13/thuoc-tru-benh-timan-80wp---goi-1kg-mancozeb"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Bacterial spot (đốm vi khuẩn) trên ớt chuông là bệnh gì?",
+          "a": "Bacterial spot, tiếng Việt thường gọi là bệnh đốm vi khuẩn, là bệnh do nhóm vi khuẩn Xanthomonas spp. gây ra (ví dụ X. euvesicatoria, X. vesicatoria...). Chúng tấn công phần trên mặt đất của cây ớt chuông: lá, cuống, thân và cả trái.\nBệnh phát triển mạnh trong điều kiện nóng ẩm, có nhiều mưa hoặc tưới phun, lá ướt lâu. Đây là một trong những bệnh vi khuẩn quan trọng nhất trên ớt và cà chua, có thể làm rụng lá mạnh, trái xấu và giảm năng suất đáng kể."
+        },
+        {
+          "q": "Triệu chứng điển hình của đốm vi khuẩn trên lá ớt chuông là gì?",
+          "a": "• Ban đầu xuất hiện những đốm nhỏ úng nước, hơi bóng nhờn ở mặt dưới lá, sau đó nhìn thấy rõ cả hai mặt lá.\n• Đốm dần chuyển màu nâu sẫm đến đen, hơi lõm hoặc sần, có thể có quầng vàng xung quanh.\n• Đốm thường có dạng góc cạnh (theo gân lá), kích thước khoảng 1–3 mm, nhiều đốm liên kết lại thành mảng cháy lớn.\n• Lá bị bệnh nặng sẽ vàng, khô cháy và rụng sớm, bắt đầu từ lá già phía dưới rồi lan dần lên trên.\nHậu quả là tán lá thưa, cây dễ bị cháy nắng và suy yếu."
+        },
+        {
+          "q": "Trên thân, cuống lá và trái ớt chuông thì biểu hiện như thế nào?",
+          "a": "• Cuống lá và thân non: xuất hiện vết sọc hoặc vệt dài màu nâu đậm, có thể hơi lõm, đôi khi bao quanh cuống làm lá héo rụng.\n• Trái non: có các đốm nhỏ úng nước, sau đó nổi sần, màu nâu đến đen, bề mặt trông như sẹo hay vảy sần.\n• Trái già: đốm thường hơi nhô, vỏ trái xù xì, có thể nứt, tạo cửa ngõ cho các vi sinh vật khác xâm nhập gây thối mềm, trái rụng sớm hoặc mất giá trị thương phẩm."
+        },
+        {
+          "q": "Làm sao phân biệt đốm vi khuẩn với các bệnh đốm lá do nấm hoặc cháy nắng?",
+          "a": "Một số gợi ý phân biệt:\n• Đốm vi khuẩn:\n  – Đốm nhỏ, lúc đầu úng nước/bóng nhờn, sau đó nâu sẫm.\n  – Thường có dạng góc cạnh (theo gân lá), đôi khi có quầng vàng.\n  – Trong điều kiện ẩm, mặt đốm có thể như hơi mỡ/nhờn.\n• Bệnh nấm (như đốm vòng, thán thư...):\n  – Đốm thường tròn, có vòng tròn đồng tâm hoặc tâm nhạt viền đậm.\n  – Ít khi có cảm giác “ướt/nhờn”.\n• Cháy nắng:\n  – Mảng cháy lớn, màu trắng xám hoặc vàng nhạt, thường ở phía nắng chiếu.\n  – Mô cháy khô giòn, không có hình dạng điểm nhỏ lan dần, và không kèm quầng vàng chữ V theo gân lá.\nNếu nghi ngờ, nên xem tổng thể: điều kiện thời tiết, kiểu lan truyền, có đốm trên trái không, có lịch sử bệnh vi khuẩn trong ruộng không."
+        },
+        {
+          "q": "Nguồn lây và con đường lây lan chính của đốm vi khuẩn trên ớt chuông là gì?",
+          "a": "• Hạt giống nhiễm khuẩn (seedborne) và cây con mang mầm bệnh là nguồn quan trọng.\n• Tàn dư cây bệnh trong ruộng (lá, thân, trái còn sót lại) chứa vi khuẩn và là nơi chúng sống sót qua vụ sau.\n• Cỏ dại họ Cà (Solanaceae) hoặc cây ký chủ khác gần ruộng có thể là ổ chứa.\n• Vi khuẩn lan truyền qua nước mưa, nước tưới phun, giọt nước bắn từ đất lên lá, gió kèm mưa.\n• Hoạt động của người và dụng cụ (cắt tỉa, hái trái, chạm tay vào lá ướt) cũng góp phần làm lây lan nhanh trong ruộng hoặc trong nhà lưới."
+        },
+        {
+          "q": "Thời điểm nào cây ớt chuông dễ bị đốm vi khuẩn tấn công nhất?",
+          "a": "Cây có thể nhiễm ở mọi giai đoạn, nhưng đặc biệt nhạy cảm:\n• Giai đoạn cây con trong vườn ươm/khay gieo: mật độ dày, tưới phun nhiều, ẩm độ cao → bệnh dễ bùng lên, gây cháy lá và chết hàng loạt.\n• Giai đoạn ra hoa–đậu trái: tán lá rậm, lá đụng vào nhau, nhiều đợt mưa/tưới phun → bệnh phát triển mạnh, ảnh hưởng trực tiếp đến năng suất và chất lượng trái.\nNhiệt độ tối ưu cho bệnh thường khoảng 24–30°C kết hợp ẩm độ không khí cao và lá ướt kéo dài."
+        },
+        {
+          "q": "Đốm vi khuẩn ảnh hưởng đến năng suất ớt chuông như thế nào?",
+          "a": "• Rụng lá sớm làm giảm quang hợp, cây còi cọc, trái nhỏ.\n• Tán lá thưa khiến trái bị phơi nắng trực tiếp, dễ bị cháy nắng (sunscald), tăng tỷ lệ trái xấu.\n• Đốm trên trái làm trái bị xấu mã, giảm giá bán; vết bệnh còn là cửa ngõ cho nấm/vi khuẩn khác gây thối trái.\n• Trong điều kiện thuận lợi cho bệnh, thất thu có thể rất lớn, đặc biệt với trồng tưới phun hoặc nhà lưới thông thoáng kém."
+        },
+        {
+          "q": "Đốm vi khuẩn trên ớt chuông có lây sang các cây khác không?",
+          "a": "• Các chủng vi khuẩn gây bệnh trên ớt và cà chua có họ hàng rất gần nhau; nhiều chủng có thể gây bệnh trên cả ớt (Capsicum) và cà chua (Solanum lycopersicum).\n• Vì vậy, không nên luân canh hoặc trồng xen ớt với cà chua, cà tím, ớt cay… trên cùng chân đất nếu ruộng từng bị bệnh.\n• Các cây họ khác (hành, bắp, đậu…) nhìn chung không là ký chủ của nhóm Xanthomonas này nên được khuyến cáo để luân canh."
+        },
+        {
+          "q": "Phòng bệnh đốm vi khuẩn từ khâu giống và cây con như thế nào?",
+          "a": "• Ưu tiên mua hạt giống/cây giống từ nguồn uy tín, có chứng nhận sạch bệnh (hoặc kháng một số race vi khuẩn).\n• Không tự giữ giống từ ruộng đã từng bị bệnh nặng.\n• Có thể áp dụng xử lý hạt bằng nước nóng hoặc hóa chất chuyên dùng nếu có khuyến cáo kỹ sư BVTV tại địa phương.\n• Vườn ươm cần thoáng, không tưới phun mù cả ngày. Hạn chế để lá ướt lâu, đặc biệt vào buổi chiều tối.\n• Không đặt khay ươm quá sát nhau; loại bỏ sớm cây có dấu hiệu đốm lá nghi ngờ trước khi đem ra ruộng."
+        },
+        {
+          "q": "Những biện pháp canh tác nào giúp hạn chế đốm vi khuẩn trên ớt chuông?",
+          "a": "Một số nguyên tắc quan trọng:\n• Luân canh với cây không cùng họ Cà ít nhất 1–2 vụ, tránh trồng lặp lại ớt/cà chua trên ruộng đã bị bệnh.\n• Thu gom, tiêu hủy tàn dư cây bệnh sau thu hoạch; không để cây bệnh tồn tại qua mùa khô/mùa đông.\n• Hạn chế tưới phun trên tán lá; ưu tiên tưới nhỏ giọt hoặc rãnh để lá khô nhanh.\n• Trồng với khoảng cách hợp lý để tán lá thông thoáng, gió lưu thông, lá khô nhanh sau mưa/tưới.\n• Tránh làm việc, cắt tỉa, thu hoạch khi lá còn ướt.\n• Kiểm soát cỏ dại, đặc biệt cỏ họ Cà trong và quanh ruộng."
+        },
+        {
+          "q": "Có thuốc BVTV nào thường được dùng để quản lý đốm vi khuẩn không?",
+          "a": "• Do là bệnh vi khuẩn, nhóm thuốc thường được khuyến cáo là các sản phẩm chứa đồng (copper), đôi khi phối hợp với mancozeb hoặc hoạt chất hỗ trợ khác.\n• Một số nơi có sử dụng chế phẩm vi khuẩn đối kháng hoặc bacteriophage (thực khuẩn thể) nhưng cần theo đúng khuyến cáo kỹ thuật.\n• Lưu ý: đồng chỉ có tác dụng phòng và hạn chế lây lan, hiệu quả chữa trị trên vết bệnh đã xuất hiện thường không cao.\n• Cần luân phiên hoạt chất, kết hợp chặt chẽ với biện pháp canh tác (giảm lá ướt, vệ sinh đồng ruộng). Chỉ dùng thuốc đăng ký cho ớt, đúng liều lượng, thời gian cách ly và hướng dẫn trên nhãn."
+        },
+        {
+          "q": "Khi ruộng đã bị nhiễm nặng thì nên xử lý thế nào?",
+          "a": "• Loại bỏ bớt những cây, luống bệnh rất nặng để giảm nguồn vi khuẩn.\n• Cắt bỏ lá, cành bị bệnh nặng ở phần dưới (nếu còn khả thi), mang ra khỏi ruộng để tiêu hủy; tránh vứt ngay giữa hàng.\n• Chuyển sang tưới nhỏ giọt hoặc tưới ở gốc, không tưới phun lên tán nữa.\n• Phun đồng/bactericide theo khuyến cáo để giảm lây lan sang vùng còn khỏe.\n• Giữ cây ở trạng thái sinh trưởng tốt (bón phân cân đối, không lạm dụng đạm) để cây có sức phục hồi; chấp nhận có thể không “sạch bệnh” hoàn toàn nhưng vẫn thu được một phần năng suất."
+        },
+        {
+          "q": "Có giống ớt chuông kháng hoặc chống chịu đốm vi khuẩn không?",
+          "a": "• Nhiều giống ớt chuông thương mại đã được chọn tạo có gen kháng hoặc chống chịu một số race của vi khuẩn gây bệnh đốm vi khuẩn.\n• Tuy nhiên, quần thể vi khuẩn có nhiều race khác nhau; giống kháng một race có thể vẫn bị bệnh bởi race khác.\n• Khi chọn giống, nên xem kỹ mô tả của nhà cung cấp (ví dụ ký hiệu kháng Bs1, Bs2...), trao đổi thêm với kỹ sư/đại lý giống tại địa phương về lịch sử bệnh trong vùng để chọn giống phù hợp."
+        },
+        {
+          "q": "Nhà lưới/nhà màng có giúp giảm đốm vi khuẩn trên ớt chuông không?",
+          "a": "• Nhà lưới giúp che mưa trực tiếp, giảm giọt nước bắn, nên có thể giảm đáng kể nguy cơ lây lan so với trồng ngoài trời.\n• Tuy nhiên, nếu trong nhà lưới ẩm độ cao, tưới phun trên tán và thông gió kém thì bệnh vẫn bùng phát mạnh.\n• Mấu chốt vẫn là: thông gió tốt, hạn chế thời gian lá ướt, mật độ trồng hợp lý, và vệ sinh nhà lưới sau mỗi vụ (loại bỏ tàn dư, khử trùng giá thể/dụng cụ)."
+        },
+        {
+          "q": "Người trồng nhỏ lẻ cần ưu tiên những bước nào để tránh đốm vi khuẩn trên ớt chuông?",
+          "a": "Nếu nguồn lực hạn chế, nên ưu tiên:\n1) Chọn giống/hạt giống uy tín, cây giống khỏe, không có đốm lá lạ ngay từ đầu.\n2) Trồng với khoảng cách thoáng, tưới ở gốc, hạn chế làm ướt lá.\n3) Quan sát ruộng thường xuyên, nhất là sau các đợt mưa hoặc nóng ẩm kéo dài, để phát hiện sớm và loại bỏ lá/cây bệnh nặng.\n4) Thu gom, tiêu hủy kỹ tàn dư cây bệnh sau khi thu hoạch, luân canh sang cây khác họ."
+        },
+        {
+          "q": "Bị đốm vi khuẩn rồi có phải xịt thuốc quanh năm, xịt hoài cho cây sạch hẳn không?",
+          "a": "Không nên và cũng không thực tế để “xịt quanh năm” mong cây sạch hẳn.\n• Thuốc vi khuẩn (nhất là đồng) chỉ giúp giảm mật số vi khuẩn và hạn chế lây lan, chứ khó làm mất hoàn toàn vết bệnh đã có.\n• Xịt quá dày, kéo dài dễ gây cháy lá, tồn dư cao, tốn chi phí và có thể làm cây bị stress.\n• Trọng tâm là:\n  – Phòng sớm, phun đúng thời điểm nguy cơ cao (trước và sau các đợt mưa, nóng ẩm, lá ướt lâu).\n  – Kết hợp chặt chẽ biện pháp canh tác (tưới gốc, tỉa tán, vệ sinh đồng ruộng).\nMục tiêu quản lý là giữ bệnh ở mức thấp chấp nhận được, chứ không phải tìm mọi cách “xịt cho sạch 100%”."
+        },
+        {
+          "q": "Khi nào nên bắt đầu phun thuốc phòng đốm vi khuẩn cho ớt chuông?",
+          "a": "Một số mốc quan trọng:\n• Vườn ươm/cây con:\n  – Nếu vùng đã từng có bệnh, nên phun phòng nhẹ khi cây con đã ra 2–3 lá thật, đặc biệt sau những đợt mưa, ẩm độ cao.\n• Ngoài ruộng:\n  – Bắt đầu phun phòng khi tán lá đã khép tương đối, lá đụng nhau giữa các hàng và thời tiết bắt đầu nóng ẩm, có mưa.\n  – Ưu tiên phun trước những đợt mưa kéo dài (theo dự báo) hoặc ngay sau mưa khi lá sắp khô.\nKhông cần phun quá sớm khi cây còn nhỏ, trời khô, không có lịch sử bệnh – sẽ lãng phí và khó duy trì đều."
+        },
+        {
+          "q": "Bao lâu nên phun thuốc một lần để quản lý đốm vi khuẩn?",
+          "a": "Tùy điều kiện thời tiết và mức độ bệnh:\n• Thời tiết khô ráo, ít mưa, bệnh nhẹ:\n  – Có thể giãn 10–14 ngày/lần, tập trung vào những đợt thời tiết thay đổi (bắt đầu mưa, ẩm tăng).\n• Thời tiết nóng ẩm, mưa nhiều, lá ướt thường xuyên, ruộng đã có bệnh:\n  – Rút xuống 7–10 ngày/lần, xen kẽ hoạt chất theo khuyến cáo.\n• Sau mỗi trận mưa lớn, đặc biệt mưa kèm gió làm té nước lên lá:\n  – Ưu tiên phun lại khi lá đã ráo để “chặn” lây lan.\nKhông nên tự ý phun dày hơn 5–7 ngày/lần với thuốc chứa đồng vì dễ cháy lá, tồn dư cao."
+        },
+        {
+          "q": "Xịt thuốc vi khuẩn lúc nào trong ngày là tốt nhất?",
+          "a": "• Nên phun khi:\n  – Trời mát (sáng sớm hoặc chiều mát), tránh nắng gắt giữa trưa.\n  – Lá khô hoặc gần khô, có thời gian cho thuốc bám đều và khô dần.\n• Tránh phun:\n  – Ngay trước lúc mưa lớn (thuốc chưa kịp bám bị rửa trôi).\n  – Lúc nắng gắt, nhiệt độ cao, dễ gây cháy lá, đặc biệt với các chế phẩm đồng.\nTrong nhà lưới, có thể phun muộn hơn một chút nhưng vẫn nên chọn thời điểm thông gió tốt, ẩm độ không quá cao để lá mau khô."
+        },
+        {
+          "q": "Khi mới thấy vài lá bị đốm vi khuẩn thì nên làm gì cho đúng?",
+          "a": "Quy trình xử lý sớm:\n1) Nhận diện: kiểm tra kỹ xem đốm có đúng dạng đốm vi khuẩn hay không (đốm nhỏ góc cạnh, úng nước, nâu đậm, có quầng vàng…).\n2) Cắt bỏ lá/cành bị bệnh nặng (nếu số lượng ít), đem ra khỏi ruộng/nhà lưới để tiêu hủy, không bỏ ngay trên luống.\n3) Chuyển sang tưới gốc, hạn chế tưới phun; giữ tán lá thông thoáng.\n4) Phun thuốc vi khuẩn (thường là dạng đồng hoặc đồng + hoạt chất hỗ trợ) đều lên cả tán lá, không chỉ chỗ bị bệnh.\n5) Tăng cường theo dõi trong 5–7 ngày tới để quyết định có cần lặp lại phun hay không.\nXử lý sớm, “dập” ngay cụm bệnh nhỏ sẽ hiệu quả hơn nhiều so với chờ bệnh lan rộng rồi mới phun."
+        },
+        {
+          "q": "Có nên trộn thuốc trị vi khuẩn với thuốc sâu, thuốc nấm, phân bón lá để phun một lần cho tiện không?",
+          "a": "• Về lý thuyết có thể hỗn hợp, nhưng:\n  – Không phải sản phẩm nào cũng tương thích (pH, gốc thuốc, chất bám dính…).\n  – Một số hỗn hợp có thể làm giảm hiệu lực, kết tủa, nghẹt béc hoặc tăng nguy cơ cháy lá.\n• Nguyên tắc:\n  – Đọc kỹ nhãn, chỉ trộn khi nhà sản xuất cho phép hoặc được cán bộ kỹ thuật địa phương khuyến cáo.\n  – Thử pha nhỏ trước trong xô/bình để xem có kết tủa/đổi màu bất thường không rồi mới pha cả bình.\n  – Nếu thấy có dấu hiệu cháy lá sau phun hỗn hợp thì nên dừng, chuyển sang phun tách riêng từng loại.\nTrong điều kiện nhỏ lẻ, nếu chưa chắc tương thích, nên ưu tiên phun riêng từng nhóm vào đợt khác nhau để tránh rủi ro."
+        },
+        {
+          "q": "Có cần luân phiên hoạt chất khi phun phòng đốm vi khuẩn không?",
+          "a": "• Có. Dù vi khuẩn kháng thuốc không “rõ” như nấm, nhưng việc dựa mãi một sản phẩm vẫn không tốt.\n• Thực hành khuyến cáo:\n  – Xen kẽ các chế phẩm đồng với các sản phẩm khác có cơ chế hỗ trợ (nếu địa phương có đăng ký).\n  – Không phun duy nhất một loại lặp lại quá nhiều vụ/niên vụ.\n• Ngoài luân phiên hoạt chất, nên:\n  – Lồng ghép kỹ biện pháp không hóa chất (tưới gốc, tỉa tán, vệ sinh).\n  – Chỉ phun khi cần, tránh “phun cho yên tâm” lúc không có nguy cơ lớn."
+        },
+        {
+          "q": "Khi phun thuốc đồng trị đốm vi khuẩn cần lưu ý gì để tránh cháy lá, sượng trái?",
+          "a": "Một số lưu ý quan trọng:\n• Pha đúng liều khuyến cáo, không “tăng liều cho chắc”.\n• Phun vào thời điểm mát, không nắng gắt, tránh lúc lá đang khát nước/nóng.\n• Không phun quá nhiều lần liên tiếp với khoảng cách quá ngắn (4–5 ngày) trừ khi được kỹ sư BVTV hướng dẫn trong tình huống đặc biệt.\n• Tránh phun đồng đúng thời điểm trái sắp thu hoạch nếu sản phẩm có thời gian cách ly dài; luôn tôn trọng PHI ghi trên nhãn.\n• Theo dõi phản ứng của giống: có giống rất nhạy cảm với đồng, nếu thấy cháy lá rõ thì cần điều chỉnh nồng độ hoặc đổi sản phẩm."
+        },
+        {
+          "q": "Nhà nông nhỏ lẻ không có điều kiện đo pH nước, hiệu chỉnh bình phun thì làm sao phun cho đúng?",
+          "a": "Nếu không có dụng cụ đo chuyên nghiệp, có thể:\n• Tuân thủ chặt chẽ hướng dẫn trên nhãn về liều lượng (ml/ha, ml/bình), pha thuốc vào nước sạch (nước giếng, nước máy đã khử phèn nhiều tốt hơn nước mương bẩn).\n• Khuấy trộn kỹ trước và trong khi phun, tránh để thuốc lắng dưới đáy bình.\n• Thường xuyên vệ sinh béc phun, chọn béc tạo hạt mịn vừa phải, phun đều cả hai mặt lá.\n• Nếu nghi nước có pH quá cao (nước vôi, phèn…) nên hỏi thêm cán bộ khuyến nông về dung dịch điều chỉnh pH đơn giản phù hợp với khu vực.\nViệc phun “đều – đủ ướt” quan trọng không kém liều lượng, đặc biệt với bệnh lá như đốm vi khuẩn."
+        }
+      ]
+    },
+    {
+      "disease_id": "pepper_healthy",
+      "labels": [
+        "Pepper_bell__healthy",
+        "healthy"
+      ],
+      "name_vi": "Khỏe mạnh (Healthy)",
+      "category": "khỏe mạnh",
+      "symptoms_core": [],
+      "look_alikes": [],
+      "favorable_conditions": [],
+      "diagnostic_tips": [],
+      "immediate_actions": [
+        "Theo dõi định kỳ; chụp/quét lại nếu thấy triệu chứng mới"
+      ],
+      "cultural_management": [
+        "Tưới nhỏ giọt, thoáng tán; phủ gốc chống bắn đất",
+        "Vệ sinh dụng cụ; không thao tác khi lá ướt",
+        "Luân canh 2–3 năm; chọn giống có tính chống chịu nếu sẵn"
+      ],
+      "spray_programs": {},
+      "organic_options": [],
+      "nutrition_notes": [
+        "Bón cân đối N-P-K + Ca/K theo giai đoạn; tránh dư đạm"
+      ],
+      "product_slots": [],
+      "faq": [
+        {
+          "q": "Có cần phun phòng không?",
+          "a": "Không nên phun hóa chất khi chưa cần thiết."
+        }
+      ],
+      "refs": [
+        "Tổng hợp UMN/Cornell"
+      ]
+    }
+  ]
+}

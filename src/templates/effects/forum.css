@@ -1,0 +1,931 @@
+/* ==================== DIỄN ĐÀN NÔNG NGHIỆP – STYLE ==================== */
+
+/* -------- Lenis helpers (smooth scroll) -------- */
+html.lenis {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* -------- Font cho tab forum -------- */
+:root {
+  --forum-font-sans: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  --forum-font-serif: "Playfair Display", "Times New Roman", serif;
+}
+
+/* -------- Forum wrapper -------- */
+
+#screen-forum {
+  padding: 120px 0 80px;
+  color: #022c22;
+  font-family: var(--forum-font-sans);
+}
+
+#screen-forum.screen.is-active {
+  align-items: flex-start;
+}
+
+#screen-forum .forum-shell {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  #screen-forum {
+    padding: 110px 0 60px;
+  }
+  #screen-forum .forum-shell {
+    padding: 0 16px;
+  }
+}
+
+/* ====== Typography ====== */
+
+#screen-forum h1,
+#screen-forum h2,
+#screen-forum h3,
+#screen-forum h4 {
+  font-family: var(--forum-font-sans);
+}
+
+#screen-forum p {
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0 0 6px;
+}
+
+/* ==================== HERO (TEXT + VIDEO) ==================== */
+
+.forum-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
+  gap: 32px;
+  align-items: stretch;
+  margin: 44px 0 54px;
+}
+
+@media (max-width: 960px) {
+  .forum-hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.forum-hero-main {
+  padding: 24px 22px 22px;
+  background: linear-gradient(
+      140deg,
+      rgba(255, 255, 255, 0.96),
+      rgba(240, 253, 250, 0.96)
+    );
+  border-radius: 28px;
+  box-shadow:
+    0 22px 60px rgba(15, 23, 42, 0.16),
+    0 0 0 1px rgba(148, 163, 184, 0.32);
+  backdrop-filter: blur(22px);
+}
+
+.forum-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #155e33;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(34, 139, 34, 0.08);
+  border: 1px solid rgba(34, 139, 34, 0.18);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.forum-eyebrow::before {
+  content: "🌱";
+}
+
+.forum-title {
+  font-family: var(--forum-font-serif);
+  font-size: clamp(28px, 3.4vw, 36px);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin: 0 0 8px;
+  color: #020617;
+}
+
+.forum-title-v2 {
+  font-family: var(--forum-font-serif);
+  font-size: clamp(28px, 3.4vw, 36px);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin: 0 0 8px;
+  color: #f2f6f3;
+}
+
+.forum-title span {
+  background: linear-gradient(120deg, #22c55e, #16a34a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.forum-title-v2 span {
+  background: linear-gradient(120deg, #78ea1a, #31e774);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-overflow: clip;
+  text-decoration-line: overline;
+  outline-color: #ffffff;
+  outline-width: 5px;
+}
+
+.forum-subtitle {
+  margin: 0 0 16px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #374151;
+}
+
+/* Bài nổi bật */
+/* Style chung cho mọi nút trong hero forum */
+.forum-hero-actions .btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;           /* 🔥 full chiều ngang card */
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+/* Loại bỏ gạch chân cho link dạng nút */
+.forum-hero-actions .btn:link,
+.forum-hero-actions .btn:visited,
+.forum-hero-actions .btn:hover,
+.forum-hero-actions .btn:active{
+  text-decoration:none;
+}
+
+.forum-featured-article {
+  margin-top: 10px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(148, 163, 184, 0.6);
+}
+
+.forum-featured-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+
+.forum-featured-title {
+  font-size: 18px;
+  margin: 0 0 6px;
+  color: #022c22;
+}
+
+.forum-featured-meta {
+  font-size: 12px;
+  color: #6b7280;
+  margin: 0 0 6px;
+}
+
+.forum-featured-excerpt {
+  font-size: 13px;
+  color: #4b5563;
+  margin: 0 0 12px;
+}
+
+.forum-hero-actions{
+  display: grid;          /* xếp 2 dòng */
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+/* Buttons */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  outline: none;
+  transition:
+    transform 160ms ease-out,
+    box-shadow 160ms ease-out,
+    background-color 160ms ease-out,
+    color 160ms ease-out;
+}
+
+.btn-primary-soft {
+  background: linear-gradient(135deg, var(--green2), #16a34a);
+  color: #ffffff;
+  outline: none;
+}
+
+.btn-primary-soft:hover {
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.96);
+  color: #14532d;
+  border: 1px solid rgba(34, 139, 34, 0.2);
+}
+
+.btn-ghost:hover {
+  background: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* HERO video */
+
+.forum-hero-media {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.forum-video-card {
+  position: relative;
+  border-radius: 34px;
+  overflow: hidden;
+  min-height: 260px;
+  transform-style: preserve-3d;
+  transform: translateZ(0);
+}
+
+@media (min-width: 960px) {
+  .forum-video-card {
+    min-height: 280px;
+  }
+}
+
+.forum-video-thumb,
+.forum-video-gradient {
+  pointer-events: none;
+}
+
+.forum-video-thumb {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.forum-video-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.forum-video-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(145deg, rgba(94, 205, 107, 0.68), rgba(31, 227, 74, 0.55));
+  filter: saturate(1.05);
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.forum-video-overlay {
+  position: absolute;
+  inset: 18px 18px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #f9fafb;
+  pointer-events: none;
+}
+
+.forum-video-kicker {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  opacity: 0.9;
+  margin-bottom: 6px;
+  font-weight: 400;
+}
+
+.forum-video-title {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.forum-video-meta {
+  font-size: 13px;
+  opacity: 0.9;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.forum-video-play {
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: rgba(11, 83, 39, 0.98);
+  transition: transform 160ms ease-out, box-shadow 160ms ease-out;
+  z-index: 2; /* đảm bảo trên mọi thứ */
+  pointer-events: auto;
+}
+
+.forum-video-play-icon {
+  font-size: 23px;
+  margin-left: 2px;
+}
+
+.forum-video-play:hover {
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 24px 70px rgba(30, 111, 38, 0.85);
+}
+
+.forum-video-card.is-playing .forum-video-thumb,
+.forum-video-card.is-playing .forum-video-play {
+  display: none;
+}
+
+.forum-video-card iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ==================== ẢNH EXPAND FULL-BLEED KIỂU KETTMEIR ==================== */
+
+/* ==================== ẢNH EXPAND FULL-BLEED KIỂU KETTMEIR ==================== */
+
+.forum-photo-expand {
+  position: relative;
+  width: 100vw;                           /* ăn hết chiều ngang viewport */
+  margin: 52px calc(50% - 50vw) 60px;     /* căn giữa, không hở nền 2 bên */
+  height: clamp(420px, 80vh, 620px);      /* có height rõ ràng để khỏi “mất tiêu” */
+  color: #f9fafb;
+  overflow: hidden;
+  background: none;                       /* fallback nếu ảnh chưa load vẫn thấy block */
+}
+
+@media (max-width: 768px) {
+  .forum-photo-expand {
+    margin-top: 100px;
+    margin: 40px calc(50% - 50vw) 40px;
+    height: 70vh;
+  }
+}
+
+.forum-photo-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+/* Ảnh nền – full, KHÔNG bo góc, KHÔNG bóng */
+.forum-photo-inner {
+  position: absolute;
+  margin-top: 120px;
+  inset: 0;
+  border-radius: 0;
+  overflow: hidden;
+  background:
+    linear-gradient(145deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.18)),
+    url("https://images.pexels.com/photos/1595104/pexels-photo-1595104.jpeg?auto=compress&cs=tinysrgb&w=1600")
+      center/cover no-repeat;
+  box-shadow: none;
+  will-change: transform;
+}
+
+/* Caption & strip chữ chạy ngang */
+.forum-photo-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: clamp(24px, 9vh, 70px);
+  padding: 0 8vw;
+  text-align: center;
+  pointer-events: none;
+}
+
+.forum-photo-strip {
+  display: inline-block;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: clamp(20px, 2.4vw, 26px);
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  white-space: nowrap;
+  color: #c8deca;
+  text-shadow:
+    0 4px 18px rgba(0, 0, 0, 0.9),
+    0 0 1px rgba(0, 0, 0, 0.9);
+  border-bottom: 1px solid rgba(248, 250, 252, 0.35);
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+  font-weight: 700;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-shadow: #22c55e, #cbead6;
+}
+
+.forum-photo-body {
+  max-width: 560px;
+  margin: 0 auto;
+  font-size: 20px;
+  line-height: 2;
+  color: #d0dcd3;
+  text-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.85),
+    0 0 1px rgba(0, 0, 0, 0.85);
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+}
+
+@media (min-width: 1024px) {
+  .forum-photo-caption {
+    text-align: left;
+    padding-left: 12vw;
+    padding-right: 12vw;
+  }
+
+  .forum-photo-body {
+    margin-left: 0;
+  }
+}
+
+/* ==================== GIỚI THIỆU AGRIDETECT – CARD LỚN ==================== */
+
+/* ==================== GIỚI THIỆU AGRIDETECT – CARD LỚN ==================== */
+
+/* ==================== BIG METRIC – SPOTLIGHT CARD ==================== */
+
+.forum-macro-metric {
+  position: relative;
+  margin: 80px auto 90px;
+  padding: 52px 24px 60px;
+  max-width: 1080px;
+  text-align: center;
+
+  /* bỏ nền/card cũ, để pseudo ::before làm nền */
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.forum-macro-metric::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);   /* canh giữa so với viewport */
+  width: 100vw;                  /* ăn hết chiều ngang web */
+  height: 100%;
+
+  background: linear-gradient(
+    135deg,
+    rgba(235, 244, 236, 0.88),
+    rgba(167, 244, 195, 0.84),
+    transparent 20%
+  );
+  box-shadow: 0 2px 100px rgba(126, 241, 126, 0.5);
+  z-index: -1; /* nằm dưới chữ/số */
+}
+
+
+.forum-macro-caption,
+.forum-macro-number-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.forum-macro-caption {
+  position: relative;
+  z-index: 1;
+  font-size: 13px;
+  color: #e0f2f1;
+  max-width: 640px;
+  margin: 0 auto 14px;
+}
+
+.forum-macro-caption span {
+  opacity: 0.9;
+}
+
+.forum-macro-label {
+  position: relative;
+  z-index: 1;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: #bbf7d0;  /* xanh sáng */
+}
+
+.forum-macro-number-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.forum-macro-number {
+  font-family: var(--forum-font-serif);
+  font-size: clamp(56px, 10.5vw, 116px);
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  color: #ecfdf5;  /* gần trắng, hơi ngả xanh */
+  text-shadow:
+    0 14px 30px rgba(15, 118, 110, 0.9),
+    0 0 1px rgba(15, 23, 42, 0.6);
+}
+
+.forum-macro-unit {
+  position: relative;
+  z-index: 1;
+  margin-top: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #bbf7d0;
+}
+
+/* ==================== RESOURCES ==================== */
+
+/* ==================== RESOURCES – NHỊP SỐNG NÔNG NGHIỆP ==================== */
+
+.forum-resources {
+  position: relative;
+  margin: 96px 0 90px;
+}
+
+/* Header trên cùng */
+
+/* ==================== RESOURCES ==================== */
+
+.forum-resources {
+  margin: 72px auto 90px;
+  max-width: 1200px;
+  padding: 0 24px;
+}
+
+@media (max-width: 768px) {
+  .forum-resources {
+    margin: 56px auto 70px;
+    padding: 0 16px;
+  }
+}
+
+/* Card lớn ôm cả header + 2 cột */
+.forum-resources-card {
+  position: relative;
+  border-radius: 40px;
+  padding: 26px 26px 28px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.98),
+    rgba(240, 253, 244, 0.97)
+  );
+  box-shadow:
+    0 26px 80px rgba(15, 23, 42, 0.28),
+    0 0 0 1px rgba(148, 163, 184, 0.32);
+  backdrop-filter: blur(20px);
+}
+
+@media (max-width: 960px) {
+  .forum-resources-card {
+    border-radius: 30px;
+    padding: 20px 18px 22px;
+  }
+}
+
+/* Header trong card */
+
+.forum-resources-header {
+  max-width: 560px;
+}
+
+.forum-resources-eyebrow {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #16a34a;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(22, 163, 74, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.forum-resources-title {
+  margin: 0 0 10px;
+  font-size: clamp(24px, 2.7vw, 28px);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #022c22;
+}
+
+.forum-resources-title span {
+  background: linear-gradient(120deg, #22c55e, #16a34a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.forum-resources-subtitle {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #4b5563;
+}
+
+/* Gạch ngăn header với grid */
+
+.forum-resources-divider {
+  margin: 18px -10px 20px;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(148, 163, 184, 0),
+    rgba(148, 163, 184, 0.6),
+    rgba(148, 163, 184, 0)
+  );
+}
+
+/* Grid 2 cột */
+
+.forum-resources-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
+  gap: 18px;
+  align-items: flex-start;
+}
+
+@media (max-width: 960px) {
+  .forum-resources-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Cột */
+
+.forum-column {
+  padding: 18px 16px 20px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 16px 38px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  backdrop-filter: blur(18px);
+}
+
+.forum-column--posts {
+  background: linear-gradient(
+    145deg,
+    rgba(243, 247, 244, 0.98),
+    rgba(226, 241, 230, 0.98),
+  );
+}
+
+.forum-column--docs {
+  background: linear-gradient(
+    145deg,
+    rgba(243, 247, 244, 0.98),
+    rgba(226, 241, 230, 0.98),
+  );
+}
+
+/* Header từng cột */
+
+.forum-section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed rgba(148, 163, 184, 0.65);
+}
+
+.forum-section-header h3 {
+  font-size: 15px;
+  margin: 0;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.forum-link-btn {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+  color: #15803d;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.forum-link-btn::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  border: 1.5px solid currentColor;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  transform: rotate(45deg);
+}
+
+/* Danh sách card */
+
+.forum-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Post cards */
+
+.forum-post-card {
+  padding: 12px 12px 14px;
+  border-radius: 18px;
+  background: radial-gradient(circle at top left, #ecffec, #f0fdf4);
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  cursor: pointer;
+  transition: 
+    transform 200ms ease-out,
+    box-shadow 200ms ease-out,
+    border-color 200ms ease-out;
+}
+
+.forum-post-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.18);
+  border-color: rgba(34, 139, 34, 0.85);
+}
+
+.forum-post-pill {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+
+.forum-post-title {
+  font-size: 15px;
+  margin: 0 0 4px;
+  color: #0f172a;
+}
+
+.forum-post-excerpt {
+  font-size: 13px;
+  color: #4b5563;
+  margin: 0 0 8px;
+}
+
+.forum-post-meta {
+  font-size: 12px;
+  color: #6b7280;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* Document cards */
+
+.forum-doc-card {
+  padding: 12px 12px 14px;
+  border-radius: 18px;
+  background: radial-gradient(circle at top left, #ecffec, #f0fdf4);
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  cursor: pointer;
+  transition:
+    transform 200ms ease-out,
+    box-shadow 200ms ease-out,
+    border-color 200ms ease-out;
+}
+
+.forum-doc-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.18);
+  border-color: rgba(34, 139, 34, 0.85);
+}
+
+.forum-doc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 11px;
+}
+
+.forum-doc-badge {
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(22, 163, 74, 0.12);
+  color: #166534;
+  font-weight: 600;
+}
+
+.forum-doc-size {
+  color: #6b7280;
+}
+
+.forum-doc-title {
+  font-size: 15px;
+  margin: 0 0 4px;
+  color: #0f172a;
+}
+
+.forum-doc-excerpt {
+  font-size: 13px;
+  margin: 0;
+  color: #4b5563;
+}
+
+/* Card tài liệu là link nhưng không underline, giữ màu chữ cũ */
+.forum-doc-card,
+.forum-doc-card:hover,
+.forum-doc-card:focus,
+.forum-doc-card:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Phòng hờ: tắt luôn text-decoration trên tiêu đề / mô tả bên trong */
+.forum-post-card h4,
+.forum-post-card p {
+  text-decoration: none;
+}
+
+.forum-post-card,
+.forum-post-card:hover,
+.forum-post-card:focus,
+.forum-post-card:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Phòng hờ: tắt luôn text-decoration trên tiêu đề / mô tả bên trong */
+.forum-post-card h4,
+.forum-post-card p {
+  text-decoration: none;
+}
+
+/* Scroll-float – GSAP điều khiển transform */
+[data-scroll-float] {
+  will-change: transform;
+}
+
+/* Scroll-float – GSAP điều khiển transform */
+[data-scroll-float] {
+  will-change: transform;
+}

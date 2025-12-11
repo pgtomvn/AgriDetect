@@ -1,0 +1,1624 @@
+{
+  "plant": "tomato",
+  "schema_version": "1.0",
+  "items": [
+    {
+      "disease_id": "tomato_bacterial_spot",
+      "labels": [
+        "Tomato_Bacterial_spot",
+        "Bacterial spot"
+      ],
+      "name_vi": "Đốm vi khuẩn (Bacterial spot)",
+      "category": "vi khuẩn",
+      "pathogen": "Xanthomonas spp.",
+      "symptoms_core": [
+        "Đốm nước nhỏ sẫm dần, dễ rách thủng lá",
+        "Trái non sần sùi, sẹo hóa; bùng khi ấm ẩm, mưa/tưới phun"
+      ],
+      "look_alikes": [
+        "Bacterial speck",
+        "Early blight nhẹ"
+      ],
+      "favorable_conditions": [
+        "Nhiệt ấm + ẩm cao",
+        "Tưới phun/ mưa gió làm bắn giọt"
+      ],
+      "diagnostic_tips": [
+        "Đốm góc cạnh theo gân lá, mặt dưới lá có màu sẫm ướt",
+        "Tập trung lá thấp trước, đặc biệt sau mưa/tưới phun"
+      ],
+      "immediate_actions": [
+        "Giảm/đổi sang tưới nhỏ giọt; tránh thao tác khi lá ướt",
+        "Loại bỏ lá/trái nặng bệnh; vệ sinh dụng cụ giữa các luống"
+      ],
+      "cultural_management": [
+        "Giống/cây giống sạch bệnh; luân canh 2–3 năm không họ Cà",
+        "Phủ gốc/mulch để giảm bắn đất; tiêu hủy tàn dư & cây tình nguyện"
+      ],
+      "spray_programs": {
+        "preventive": [
+          {
+            "stage": "khi có điều kiện ẩm/ấm hoặc tiền sử vườn",
+            "actives": [
+              {
+                "ai": "copper (đồng)",
+                "FRAC": "M1",
+                "notes": "hiệu lực một phần"
+              },
+              {
+                "ai": "copper + mancozeb",
+                "FRAC": "M1 + M3",
+                "notes": "tăng hiệu lực bảo vệ"
+              }
+            ],
+            "interval_days": "7–10"
+          }
+        ],
+        "curative": [
+          {
+            "stage": "bộc phát sớm",
+            "rotation": [
+              {
+                "ai": "copper (M1)",
+                "FRAC": "M1"
+              },
+              {
+                "ai": "copper + mancozeb",
+                "FRAC": "M1 + M3"
+              }
+            ],
+            "interval_days": "5–7 ngày khi áp lực cao"
+          }
+        ]
+      },
+      "organic_options": [
+        {
+          "ai": "copper (đồng)",
+          "FRAC": "M1"
+        },
+        {
+          "ai": "dầu khoáng/xà phòng",
+          "notes": "hỗ trợ vệ sinh tán"
+        }
+      ],
+      "nutrition_notes": [
+        "Bón N-P-K cân đối, tránh dư đạm; tán thoáng giảm ẩm lá"
+      ],
+      "product_slots": [
+        {
+          "ai": "copper hydroxide (M1)",
+          "buy_link": "https://gentajsc.com/tim-hieu-hoat-chat-copper-hydroxide-va-ung-dung-trong-nong-nghiep/"
+        },
+        {
+          "ai": "mancozeb (M3)",
+          "buy_link": "https://giaiphapnongnghiep.vn/san-pham/13/thuoc-tru-benh-timan-80wp---goi-1kg-mancozeb"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Đốm vi khuẩn trên cà chua là bệnh gì, có nguy hiểm không?",
+          "a": "Đốm vi khuẩn là bệnh do nhóm vi khuẩn Xanthomonas spp. gây ra, tấn công lá, cuống, thân và trái cà chua.\nBệnh ưa điều kiện ấm ẩm, mưa nhiều hoặc tưới phun; nếu không quản lý tốt có thể làm rụng lá mạnh, trái xấu nhiều, giảm năng suất và chất lượng."
+        },
+        {
+          "q": "Nhận biết sớm đốm vi khuẩn trên lá cà chua như thế nào?",
+          "a": "• Đốm nhỏ úng nước, hơi bóng nhờn, thường thấy rõ ở mặt dưới lá.\n• Sau đó đốm chuyển nâu sẫm đến đen, hơi lõm, có thể có quầng vàng.\n• Hình dạng đốm thường góc cạnh theo gân lá; nhiều đốm liên kết thành mảng cháy.\n• Lá bệnh nặng vàng, khô và có thể rách lỗ chỗ do mô chết.\nThường xuất hiện trước trên lá tầng thấp, nhất là sau mưa hoặc tưới phun."
+        },
+        {
+          "q": "Trái cà chua bị đốm vi khuẩn trông như thế nào?",
+          "a": "• Trái non: xuất hiện các đốm nhỏ hơi lõm, màu nâu đến đen, sần sùi như sẹo.\n• Trái gần chín: đốm thường đậm màu hơn, bề mặt xù xì, có thể nứt nhẹ.\n• Đốm vi khuẩn thường không ăn sâu như thối nhũn, nhưng làm trái xấu mã, dễ bị loại khi bán.\nNhiều vết trên một trái sẽ làm trái méo mó, giảm giá trị thương phẩm."
+        },
+        {
+          "q": "Đốm vi khuẩn dễ nhầm với bệnh nào khác trên lá cà chua?",
+          "a": "• Bacterial speck: đốm rất nhỏ, đen như kim châm, thường có quầng vàng rõ; hay bùng khi trời lạnh ẩm.\n• Cháy lá sớm (Early blight): đốm to hơn, có vòng đồng tâm như mục tiêu bắn.\n• Target spot: đốm tròn, nâu, có nhiều vòng mục tiêu nhưng thường lớn hơn và không có cảm giác \"ướt\" như đốm vi khuẩn.\nQuan sát kỹ dạng đốm, vị trí xuất hiện và điều kiện thời tiết sẽ giúp phân biệt tốt hơn."
+        },
+        {
+          "q": "Đốm vi khuẩn lây lan bằng đường nào và bùng phát lúc nào mạnh nhất?",
+          "a": "• Nguồn lây: hạt giống/cây con nhiễm, tàn dư cây bệnh, cỏ dại họ Cà, dụng cụ và tay người.\n• Lây lan: qua nước mưa, nước tưới phun, giọt nước bắn từ đất lên lá, gió kèm mưa và thao tác trên ruộng khi lá ướt.\n• Bùng phát mạnh khi: nhiệt độ ấm, ẩm độ cao, lá ướt lâu (mưa kéo dài, tưới phun chiều tối) và tán lá rậm rạp."
+        },
+        {
+          "q": "Đốm vi khuẩn có chữa khỏi hẳn được không hay chỉ kìm lại?",
+          "a": "Vết đã hình thành trên lá và trái thì không \"lành\" lại được.\nMục tiêu của quản lý là:\n• Giảm tốc độ lây lan sang lá, chùm hoa và trái mới.\n• Giữ tán lá đủ xanh để cây vẫn nuôi trái.\nVì vậy cần kết hợp tỉa bỏ lá bệnh nặng, giảm ướt lá và phun thuốc kịp thời để giữ bệnh ở mức chấp nhận được, chứ không cố làm sạch hoàn toàn mọi đốm."
+        },
+        {
+          "q": "Phun mấy ngày/lần khi ruộng đang có đốm vi khuẩn?",
+          "a": "• Thời tiết tương đối khô, bệnh nhẹ: 7–10 ngày/lần theo khuyến cáo trên nhãn.\n• Thời tiết ấm ẩm, mưa nhiều, bệnh đang lan: có thể siết còn 5–7 ngày/lần trong giai đoạn cao điểm.\nLuôn đọc kỹ nhãn sản phẩm, không phun dày hơn khuyến cáo chỉ vì “cho chắc”, dễ gây cháy lá và tồn dư cao."
+        },
+        {
+          "q": "Có cần phun thuốc suốt vụ để phòng đốm vi khuẩn không?",
+          "a": "Không nên phun máy móc từ đầu đến cuối vụ.\n• Đầu vụ khi cây còn nhỏ, trời khô và chưa có tiền sử bệnh nặng, có thể ưu tiên canh tác tốt và theo dõi.\n• Tăng cường phun khi: tán lá khép, thời tiết ấm ẩm, có mưa/tưới phun nhiều hoặc ruộng/vùng từng bị đốm vi khuẩn nặng.\nPhun đúng lúc nguy cơ cao sẽ hiệu quả và kinh tế hơn phun cả vụ."
+        },
+        {
+          "q": "Đồng có đủ để quản lý đốm vi khuẩn không, có cần phối hợp thêm thuốc khác?",
+          "a": "• Thuốc chứa đồng (FRAC M1) giúp giảm mật số vi khuẩn và bảo vệ lá, nhưng hiệu lực chỉ mang tính phòng là chính.\n• Khi áp lực bệnh cao, đồng đơn lẻ thường chưa đủ; kết hợp đồng với mancozeb (M3) hoặc nền đa điểm khác thường cho hiệu quả ổn định hơn.\n• Dù dùng gì cũng cần luân phiên, không lệ thuộc vào một sản phẩm duy nhất suốt vụ để giảm nguy cơ giảm hiệu lực."
+        },
+        {
+          "q": "Nhà vườn nhỏ lẻ, kinh phí hạn chế nên ưu tiên biện pháp nào với đốm vi khuẩn?",
+          "a": "Có thể ưu tiên theo thứ tự:\n1) Chọn giống/hạt giống sạch bệnh, cây giống khỏe ngay từ đầu.\n2) Tưới nhỏ giọt hoặc rãnh, hạn chế tưới phun lên lá; không chăm cây khi lá đang ướt.\n3) Tỉa bỏ sớm lá rất nặng bệnh ở tầng dưới, tiêu hủy khỏi ruộng.\n4) Dùng 1–2 sản phẩm đồng/đồng + mancozeb cơ bản, phun đúng lúc thời tiết ấm ẩm hoặc khi bệnh bắt đầu lan.\nLàm tốt 3–4 điểm này nhiều khi hiệu quả không kém phun nhiều loại thuốc phức tạp."
+        },
+        {
+        "q": "Làm sao nhận sớm đốm vi khuẩn trước khi vườn bùng mạnh?",
+        "a": "Thường thấy trước trên lá tầng thấp gần mặt đất: các chấm nhỏ hơi ướt, sẫm màu, đôi khi chỉ như vết kim châm. Nhìn nghiêng dưới ánh sáng sẽ thấy đốm hơi bóng/ướt hơn mô lành. Sau vài ngày, đốm chuyển nâu sẫm và có thể có quầng vàng mờ."
+        },
+        {
+          "q": "Đốm vi khuẩn có vào trái chín gây thối không?",
+          "a": "Có. Trái non dễ bị tạo vết sần sùi, sẹo hóa; trái chín có thể xuất hiện đốm lõm nâu đen, sau đó bị vi sinh vật khác xâm nhập gây thối mềm. Vì vậy nên loại trái bị đốm nặng ra khỏi lô thu hoạch để tránh lây lan trong khâu bảo quản."
+        },
+        {
+          "q": "Khi cây đốm vi khuẩn nặng có nên nhổ bỏ luôn không?",
+          "a": "Nếu chỉ lác đác vài cây bị rất nặng trong ruộng tương đối sạch, nên nhổ bỏ cả cây, gom ra khỏi ruộng và tiêu hủy để giảm nguồn vi khuẩn. Nếu phần lớn vườn đã nhiễm, việc nhổ bỏ chỉ nên áp dụng với các cây gần như cháy trụi, còn lại tập trung giữ tán và hạn chế lây lan."
+        },
+        {
+          "q": "Có nên tỉa hết lá dưới gốc khi thấy đốm vi khuẩn không?",
+          "a": "Nên tỉa chọn lọc. Chỉ cắt bỏ lá già, lá bị bệnh nặng ở tầng thấp để giảm nguồn bệnh và giúp tán thoáng. Không nên tỉa quá mạnh làm cây mất nhiều lá đột ngột vì sẽ giảm quang hợp, dễ cháy nắng trái và cây bị stress."
+        },
+        {
+          "q": "Đốm vi khuẩn có lây qua hạt giống cà chua không?",
+          "a": "Có thể. Vi khuẩn có thể bám trên bề mặt hạt hoặc trong mô hạt, nhất là khi dùng giống tự để từ ruộng đã bị bệnh. Do đó nên ưu tiên mua hạt có chứng nhận sạch bệnh; nếu tự giữ giống cần hỏi kỹ thuật địa phương về phương án xử lý hạt an toàn."
+        },
+        {
+          "q": "Tưới phun mưa khác gì so với tưới nhỏ giọt với bệnh đốm vi khuẩn?",
+          "a": "Tưới phun làm lá ướt lâu và bắn giọt nước mang vi khuẩn từ lá bệnh sang lá khỏe, nên nguy cơ bùng bệnh cao hơn. Tưới nhỏ giọt hoặc tưới rãnh giúp giữ tán khô hơn, giảm tốc độ lây lan. Nếu buộc phải tưới phun, nên tưới buổi sáng sớm để lá kịp khô trước tối."
+        },
+        {
+          "q": "Có nên phun thuốc vi khuẩn ngay sau mỗi trận mưa không?",
+          "a": "Không bắt buộc sau mọi trận mưa nhẹ, nhưng sau mưa lớn, mưa kéo dài kèm gió mạnh thì nên cân nhắc phun sớm để khôi phục lớp thuốc bảo vệ, đặc biệt nếu ruộng có tiền sử đốm vi khuẩn. Cần điều chỉnh tùy theo mức độ bệnh hiện tại và khuyến cáo địa phương."
+        },
+        {
+          "q": "Có biện pháp hữu cơ nào hỗ trợ quản lý đốm vi khuẩn không?",
+          "a": "Một số lựa chọn hữu cơ gồm chế phẩm đồng được phép trong canh tác hữu cơ, các sản phẩm vi khuẩn đối kháng hoặc chiết xuất thực vật hỗ trợ. Tuy nhiên, hiệu lực thường ở mức trung bình và phụ thuộc nhiều vào điều kiện canh tác (tưới, thông thoáng, vệ sinh). Không thay thế được việc chọn giống sạch bệnh và luân canh."
+        },
+        {
+          "q": "Đốm vi khuẩn có sống được qua mùa khô không trồng gì không?",
+          "a": "Vi khuẩn không tạo bào tử bền như nấm nhưng có thể tồn tại một thời gian trong tàn dư cây bệnh, cỏ dại họ Cà và trên dụng cụ. Nếu bỏ hoang ruộng nhưng không dọn tàn dư/cỏ dại thì vẫn còn nguy cơ cho vụ sau. Vệ sinh tàn dư và luân canh là rất quan trọng."
+        },
+        {
+          "q": "Có cần phun sát khuẩn dụng cụ cắt tỉa giữa các luống không?",
+          "a": "Rất nên, nhất là khi đang cắt tỉa trong ruộng đang có đốm vi khuẩn. Có thể dùng dung dịch cồn, Javel pha loãng hay sản phẩm khử trùng được khuyến cáo để lau lưỡi kéo giữa các luống hoặc sau khi cắt cây bệnh nặng, giúp giảm lây lan cơ giới."
+        }
+      ],
+      "refs": [
+        "UC IPM Tomato – Bacterial spot"
+      ]
+    },
+    {
+      "disease_id": "tomato_early_blight",
+      "labels": [
+        "Tomato_Early_blight",
+        "Early blight"
+      ],
+      "name_vi": "Cháy lá sớm (Early blight)",
+      "category": "nấm",
+      "pathogen": "Alternaria linariae (A. tomatophila)",
+      "symptoms_core": [
+        "Vết tròn nâu với vòng đồng tâm như ‘mắt bò’",
+        "Bắt đầu từ lá già; có thể vào cuống, thân, trái"
+      ],
+      "look_alikes": [
+        "Septoria leaf spot (có chấm đen pycnidia)",
+        "Target spot"
+      ],
+      "favorable_conditions": [
+        "Ẩm cao sau mưa/tưới, tán rậm, thiếu thông thoáng"
+      ],
+      "diagnostic_tips": [
+        "Vòng đồng tâm rõ, quầng vàng xung quanh",
+        "Không có các chấm đen li ti ở tâm (khác Septoria)"
+      ],
+      "immediate_actions": [
+        "Tỉa bỏ lá tầng thấp nhiễm nặng; phủ gốc/mulch",
+        "Bắt đầu bảo vệ bằng thuốc đa điểm M3/M5 khi điều kiện thuận lợi"
+      ],
+      "cultural_management": [
+        "Luân canh 2–3 năm; khoảng cách/thoáng tán; tưới nhỏ giọt",
+        "Chọn giống có mức chịu đựng (nếu có ở thị trường)"
+      ],
+      "spray_programs": {
+        "preventive": [
+          {
+            "stage": "đầu vụ/ trước mưa kéo dài",
+            "actives": [
+              {
+                "ai": "chlorothalonil",
+                "FRAC": "M5"
+              },
+              {
+                "ai": "mancozeb",
+                "FRAC": "M3"
+              }
+            ],
+            "interval_days": "7–10"
+          }
+        ],
+        "curative": [
+          {
+            "stage": "khi xuất hiện vết sớm",
+            "rotation": [
+              {
+                "ai": "SDHI (boscalid/penthiopyrad/pydiflumetofen)",
+                "FRAC": "7"
+              },
+              {
+                "ai": "QoI (azoxystrobin)",
+                "FRAC": "11"
+              },
+              {
+                "ai": "DMI (difenoconazole/flutriafol)",
+                "FRAC": "3"
+              },
+              {
+                "ai": "tổ hợp 7+11, 7+12, 11+3",
+                "FRAC": "7+11/7+12/11+3"
+              }
+            ],
+            "interval_days": "7–10 ngày (5-7 ngày khi áp lực cao)"
+          }
+        ]
+      },
+      "organic_options": [
+        {
+          "ai": "copper (M1)"
+        },
+        {
+          "ai": "potassium bicarbonate"
+        },
+        {
+          "ai": "Bacillus (QST713, D747)"
+        }
+      ],
+      "nutrition_notes": [
+        "Giữ tán thông thoáng; tránh dư đạm; bổ sung Ca/K theo nhu cầu để tăng sức chống chịu"
+      ],
+      "product_slots": [
+        {
+          "ai": "chlorothalonil (M5)",
+          "buy_link": "https://mekongagri.com/hoat-chat-chlorothalonil-chloro-mka-555sc-phong-tri-dom-van-lem-lep-hat-ri-sat-than-thu-va-quan-li-nam-benh-pho-rong/"
+        },
+        {
+          "ai": "mancozeb (M3)",
+          "buy_link": "https://giaiphapnongnghiep.vn/san-pham/13/thuoc-tru-benh-timan-80wp---goi-1kg-mancozeb"
+        },
+        {
+          "ai": "pydiflumetofen (7)",
+          "buy_link": "https://tanphunong.vn/product/thuoc-tru-benh-syngenta-miravis-200sc/"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Cháy lá sớm trên cà chua là bệnh gì?",
+          "a": "Cháy lá sớm do nấm Alternaria linariae (A. tomatophila) gây ra.\nBệnh tạo vết tròn nâu có vòng đồng tâm như “mắt bò” trên lá, cuống, thân và trái cà chua; nếu nặng sẽ làm rụng lá mạnh, giảm kích thước và chất lượng trái."
+        },
+        {
+          "q": "Nhận biết cháy lá sớm trên lá cà chua như thế nào?",
+          "a": "• Xuất hiện trước trên lá già tầng thấp.\n• Đốm tròn hoặc gần tròn, màu nâu sẫm, đường kính thường vài mm tới hơn 1 cm.\n• Bên trong có nhiều vòng đồng tâm như mục tiêu bắn, xung quanh có quầng vàng.\n• Nhiều đốm liên kết làm lá cháy từng mảng, vàng khô rồi rụng.\nĐây là dấu hiệu kinh điển giúp phân biệt với nhiều bệnh đốm lá khác."
+        },
+        {
+          "q": "Cháy lá sớm trên thân và trái cà chua biểu hiện ra sao?",
+          "a": "• Thân và cuống: có vệt thâm nâu, hơi lõm, có thể bao vòng thân non khiến phần trên héo rũ.\n• Trái xanh: vết hơi lõm, nâu đậm, bề mặt khô, có thể thấy vòng đồng tâm; trái chín vết đậm hơn, dễ bị thối thứ cấp.\nĐốm trên trái thường làm trái bị loại, đặc biệt trong thu hoạch bán tươi."
+        },
+        {
+          "q": "Phân biệt cháy lá sớm với đốm lá Septoria và đốm vi khuẩn như thế nào?",
+          "a": "• Cháy lá sớm: đốm to hơn, nâu sẫm, có vòng đồng tâm rõ, quầng vàng nhẹ.\n• Septoria: đốm nhỏ hơn, tâm xám, viền nâu; trong tâm có nhiều chấm đen li ti (pycnidia) nhìn rõ dưới kính lúp.\n• Đốm vi khuẩn: đốm nhỏ hơn, có cảm giác úng nước lúc mới, thường góc cạnh theo gân, đôi khi rách lỗ.\nQuan sát kích thước đốm, vòng đồng tâm và chấm đen là chìa khóa phân biệt."
+        },
+        {
+          "q": "Trong điều kiện nào cháy lá sớm bùng phát mạnh trên cà chua?",
+          "a": "• Ẩm độ cao sau các đợt mưa hoặc tưới phun, lá ướt lâu.\n• Tán lá rậm, nhà lưới/ruộng thông gió kém, lá tầng thấp bị che kín.\n• Cây suy yếu do thiếu dinh dưỡng, sâu hại hoặc stress khác.\nKhi đủ các yếu tố này, bệnh sẽ lan nhanh từ lá dưới lên trên nếu không quản lý."
+        },
+        {
+          "q": "Cháy lá sớm ảnh hưởng năng suất cà chua như thế nào?",
+          "a": "• Rụng lá sớm làm giảm quang hợp, trái nhỏ, ít trái.\n• Đốm trên trái khiến trái dễ bị loại khi bán, hoặc làm điểm xâm nhập cho nấm/thối khác.\n• Lá tầng thấp trụi sớm làm trái dễ bị cháy nắng.\nNếu xuất hiện sớm và không quản lý, có thể mất một phần đáng kể năng suất và chất lượng."
+        },
+        {
+          "q": "Tỉa lá tầng thấp có giúp giảm cháy lá sớm không?",
+          "a": "Có, nếu làm đúng.\n• Tỉa bỏ lá già tầng thấp đã nhiễm nhiều đốm, nhất là lá chạm mặt đất hoặc bị bắn đất.\n• Không tỉa quá nhiều một lúc làm cây sốc; tỉa dần từng đợt.\n• Luôn tỉa khi lá khô và khử trùng dụng cụ định kỳ.\nKết hợp tỉa lá với phủ gốc/mulch giúp giảm bắn bùn và nguồn bệnh mới."
+        },
+        {
+          "q": "Khi nào nên bắt đầu phun thuốc phòng cháy lá sớm trên cà chua?",
+          "a": "• Khi dự báo có đợt mưa kéo dài, ẩm độ cao và tán lá bắt đầu rậm.\n• Ở vùng có tiền sử cháy lá sớm nặng, nên bắt đầu nền đa điểm (M3/M5) từ đầu giai đoạn thân lá sum suê.\n• Khi đã thấy vài vết kinh điển trên lá già tầng thấp, cần chuyển sang chương trình có hoạt chất đặc trị (nhóm 3, 7, 11...).\nPhòng sớm giúp giữ mật số bào tử ở mức thấp, tránh bùng dịch."
+        },
+        {
+          "q": "Có nên chỉ dùng một loại thuốc đặc trị cháy lá sớm thấy hiệu quả để phun hoài không?",
+          "a": "Không nên.\n• Nấm Alternaria có khả năng kháng thuốc cao nếu lặp đi lặp lại cùng một nhóm FRAC.\n• Nên xoay giữa các nhóm 3 (DMI), 7 (SDHI), 11 (QoI) và các tổ hợp theo đúng khuyến cáo, luôn giữ nền đa điểm M3/M5.\n• Tránh phun liên tục 3–4 lần liền cùng một hoạt chất đặc trị.\nLuân phiên hợp lý giúp kéo dài tuổi thọ hiệu lực của thuốc và giảm rủi ro kháng."
+        },
+        {
+          "q": "Nhà vườn nhỏ lẻ nên ưu tiên những bước nào để hạn chế cháy lá sớm?",
+          "a": "Có thể ưu tiên:\n1) Luân canh không họ Cà 2–3 vụ, dọn sạch tàn dư và cây tình nguyện.\n2) Trồng mật độ vừa phải, tán thoáng, tưới nhỏ giọt hoặc rãnh; hạn chế tưới phun lên lá.\n3) Tỉa lá già tầng thấp, phủ gốc/mulch để giảm bắn đất.\n4) Chuẩn bị sẵn 1–2 sản phẩm nền đa điểm (M3/M5) + 1 sản phẩm đặc trị, phun đúng lúc thời tiết thuận lợi cho bệnh.\nQuản lý canh tác tốt giúp giảm đáng kể lượng thuốc cần dùng."
+        },
+        {
+          "q": "Cháy lá sớm thường xuất hiện từ giai đoạn nào của cà chua?",
+          "a": "Thường thấy sớm trên lá già ở nửa dưới tán sau khi cây đã bắt đầu khép tán, nhất là khi có mưa xen nắng và ẩm độ cao. Tuy nhiên, nếu ruộng có nhiều tàn dư nhiễm bệnh hoặc dùng giống mẫn cảm, vết bệnh có thể xuất hiện từ khá sớm trong vụ."
+        },
+        {
+          "q": "Tại sao cháy lá sớm hay bắt đầu từ lá già phía dưới?",
+          "a": "Lá già gần mặt đất thường ẩm lâu hơn do sương, tưới bắn đất và thông gió kém; đồng thời sức đề kháng tự nhiên giảm dần theo tuổi lá. Bào tử nấm rất dễ bám và xâm nhiễm ở vùng này, sau đó mới lan lên trên."
+        },
+        {
+          "q": "Có cần nhổ bỏ cây bị cháy lá sớm nặng không?",
+          "a": "Thường không cần nhổ cả cây trừ khi cây gần như trơ thân, khó còn khả năng cho thu hoạch. Thực tế, việc tỉa bỏ lá tầng thấp và quản lý tốt tán + phun thuốc phù hợp giúp giữ cây và vẫn thu được trái, thay vì phá bỏ toàn bộ."
+        },
+        {
+          "q": "Cháy lá sớm có làm hỏng trái cà chua không?",
+          "a": "Có thể. Nấm Alternaria có thể gây vết đen lõm trên trái, thường ở gần cuống, đôi khi gọi là ‘Alternaria stem-end rot’. Những trái này kém giá trị thương phẩm và dễ hư trong bảo quản."
+        },
+        {
+          "q": "Phủ gốc (mulch) giúp gì với cháy lá sớm?",
+          "a": "Lớp phủ gốc bằng rơm, màng phủ nông nghiệp hoặc vật liệu khác giúp giảm bắn đất chứa bào tử nấm lên lá thấp khi mưa/tưới, giữ độ ẩm ổn định hơn và hạn chế cỏ dại. Tất cả đều góp phần giảm áp lực cháy lá sớm."
+        },
+        {
+          "q": "Nếu đã phun M3/M5 rồi có cần thêm thuốc nội hấp nữa không?",
+          "a": "Các thuốc đa điểm M3/M5 (mancozeb, chlorothalonil…) rất tốt cho phòng ngừa, nhưng khi áp lực bệnh cao hoặc đã có nhiều vết bệnh, thường cần phối hợp hoặc luân phiên với một số thuốc nội hấp/lưu dẫn có FRAC 3/7/11… theo khuyến cáo để tăng hiệu lực, đồng thời vẫn giữ nền M3/M5 để hạn chế kháng."
+        },
+        {
+          "q": "Cháy lá sớm và thiếu kali có liên quan gì nhau không?",
+          "a": "Thiếu kali làm lá dễ già sớm, mép lá cháy, cây yếu → dễ bị nấm tấn công hơn. Vì vậy trong ruộng thiếu K, cháy lá sớm thường nặng hơn, dù nguyên nhân trực tiếp vẫn là nấm Alternaria. Bón cân đối K giúp giảm mức độ bệnh."
+        },
+        {
+          "q": "Có nên phun phòng cháy lá sớm ngay khi mới trồng ra ruộng không?",
+          "a": "Thường chưa cần nếu thời tiết khô và ruộng chưa có tiền sử bệnh nặng. Giai đoạn cây nhỏ có thể tập trung vào canh tác (phủ gốc, khoảng cách, tưới hợp lý). Bắt đầu phun phòng khi tán lá bắt đầu khép và có dự báo mưa/ẩm kéo dài."
+        },
+        {
+          "q": "Có biện pháp sinh học nào hỗ trợ quản lý cháy lá sớm?",
+          "a": "Một số chế phẩm chứa nấm/bacteria đối kháng (như Bacillus, Trichoderma) hoặc muối bicarbonate có thể hỗ trợ giảm áp lực bệnh ở mức vừa, nhất là trong chương trình hữu cơ. Tuy nhiên, hiệu quả thường phụ thuộc rất lớn vào cách áp dụng và điều kiện ruộng, khó thay thế thuốc hóa học trong áp lực bệnh cao."
+        },
+        {
+          "q": "Sau khi thu hoạch xong, cần làm gì để giảm cháy lá sớm cho vụ sau?",
+          "a": "Nên thu dọn tối đa tàn dư cây bệnh, không để xác cây trên mặt ruộng; nếu có điều kiện có thể cày vùi sâu hoặc ủ nóng. Luân canh với cây khác họ Cà ít nhất 2–3 vụ, hạn chế trồng cà chua liên tục cùng một chân ruộng."
+        }
+      ],
+      "refs": [
+        "NC State – Early blight factsheet (2025)"
+      ]
+    },
+    {
+      "disease_id": "tomato_late_blight",
+      "labels": [
+        "Tomato_Late_blight",
+        "Late blight"
+      ],
+      "name_vi": "Sương mai muộn (Late blight)",
+      "category": "oomycete",
+      "pathogen": "Phytophthora infestans",
+      "symptoms_core": [
+        "Vết ướt, mốc trắng ở rìa dưới lá trong ẩm cao",
+        "Lan cực nhanh; có thể hủy cả luống trong vài ngày"
+      ],
+      "look_alikes": [
+        "Gray mold",
+        "Downy mildew (trên cây khác)"
+      ],
+      "favorable_conditions": [
+        "Ẩm >90%, 16–26 °C, sương mù/mưa kéo dài"
+      ],
+      "diagnostic_tips": [
+        "Theo dõi cảnh báo vùng lân cận; kiểm tra khoai tây tự mọc & dã cà (ký chủ phụ)"
+      ],
+      "immediate_actions": [
+        "Dọn bỏ ký chủ phụ; loại cây nhiễm nặng",
+        "Phun bảo vệ rộng (M3/M5) + hoạt chất chuyên oomycete"
+      ],
+      "cultural_management": [
+        "Giống có gen Ph2/Ph3 (nếu sẵn thị trường); luân canh; vệ sinh củ/khoai tồn dư",
+        "Theo dõi bản đồ/alerts Late blight để rút ngắn chu kỳ phun khi nguy cơ tăng"
+      ],
+      "spray_programs": {
+        "preventive": [
+          {
+            "stage": "nguy cơ LB trong vùng / trước mưa kéo dài",
+            "actives": [
+              {
+                "ai": "mancozeb",
+                "FRAC": "M3"
+              },
+              {
+                "ai": "chlorothalonil",
+                "FRAC": "M5"
+              }
+            ],
+            "interval_days": "5–7 ngày khi nguy cơ cao"
+          }
+        ],
+        "curative": [
+          {
+            "stage": "khi có dấu hiệu đầu tiên",
+            "rotation": [
+              {
+                "ai": "oxathiapiprolin",
+                "FRAC": "49"
+              },
+              {
+                "ai": "mandipropamid",
+                "FRAC": "40"
+              },
+              {
+                "ai": "fluopicolide",
+                "FRAC": "43"
+              },
+              {
+                "ai": "cymoxanil",
+                "FRAC": "27"
+              },
+              {
+                "ai": "cyazofamid/amisulbrom",
+                "FRAC": "21"
+              }
+            ],
+            "interval_days": "5–7 ngày; không lặp nhóm liên tiếp"
+          }
+        ]
+      },
+      "organic_options": [
+        {
+          "ai": "copper (M1)"
+        },
+        {
+          "ai": "phosphorous acid (phosphite)",
+          "notes": "hỗ trợ, không thay thế thuốc chuyên dụng"
+        }
+      ],
+      "nutrition_notes": [
+        "Tán thoáng, giảm ẩm lá kéo dài; bố trí tưới sáng sớm"
+      ],
+      "product_slots": [
+        {
+          "ai": "oxathiapiprolin (49)",
+          "buy_link": "https://quocvietagri.com/blogs/chia-se-nong-nghiep/oxathiapiprolin-b%C6%B0%E1%BB%9Bc-d%E1%BB%99t-pha-trong-vi%E1%BB%87c-ki%E1%BB%83m-soat-b%E1%BB%87nh-s%C6%B0%C6%A1ng-mai-khang-thu%E1%BB%91c?srsltid=AfmBOoqrDJeUbUrkNyBR-79l_rRNxQ1_ZqphRjGXqTna4WeRtKFa1A0N"
+        },
+        {
+          "ai": "mandipropamid (40)",
+          "buy_link": "https://h5.lazada.vn/products/thuoc-tru-benh-revus-opti-440sc-chai-100ml-mandipropamid-40gl-chlorothalonil-400gl-tri-suong-mai-than-thu-nam-i3190025792-s15182095735.html"
+        },
+        {
+          "ai": "mancozeb (M3)",
+          "buy_link": "https://giaiphapnongnghiep.vn/san-pham/13/thuoc-tru-benh-timan-80wp---goi-1kg-mancozeb"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Sương mai muộn (Late blight, mốc sương) trên cà chua là bệnh gì?",
+          "a": "Sương mai muộn trên cà chua do tác nhân Phytophthora infestans gây ra, là một loại nấm giả (oomycete) rất nguy hiểm.\nBệnh tấn công lá, thân, cuống, trái và có thể phá hủy cả ruộng trong thời gian ngắn khi thời tiết mát ẩm.\nĐây cũng là tác nhân gây mốc sương trên khoai tây, vì vậy hai cây này thường liên quan trong dịch bệnh."
+        },
+        {
+          "q": "Triệu chứng điển hình của sương mai muộn trên lá cà chua là gì?",
+          "a": "• Ban đầu xuất hiện vết nhỏ màu xanh thẫm hoặc xanh nhạt hơi úng nước, thường ở mép hoặc chóp lá.\n• Vết lan nhanh, chuyển nâu xám đến nâu đen, mô ướt và có thể rách.\n• Khi ẩm (sáng sớm, sau mưa) thường thấy mốc trắng mịn ở mặt dưới lá quanh rìa vết.\n• Lá bệnh nặng có thể thâm đen, rũ xuống và thối rũ toàn bộ."
+        },
+        {
+          "q": "Trên thân và trái cà chua, sương mai muộn biểu hiện thế nào?",
+          "a": "• Thân: vết thâm nâu hoặc đen, dạng dài, có thể bao quanh thân làm phần trên héo rũ.\n• Cuống chùm hoa, cuống trái: vệt nâu đậm, trái phía trên héo rồi thối.\n• Trái xanh hoặc chín: xuất hiện mảng nâu xám, hơi cứng, bề mặt đôi khi có vệt mốc trắng; phần thịt bên trong nâu xám, có mùi hôi khi bị vi khuẩn thứ cấp.\nTrái bị bệnh khó bảo quản, dễ thối trong quá trình vận chuyển."
+        },
+        {
+          "q": "Sương mai muộn khác gì với cháy lá sớm và đốm vi khuẩn?",
+          "a": "• Sương mai muộn: vết lan rất nhanh, mô ướt, khi ẩm có mốc trắng ở mặt dưới; có thể làm thối rũ toàn bộ phần trên của cây.\n• Cháy lá sớm: đốm nâu có vòng đồng tâm, mô khô hơn, ít khi có mốc trắng.\n• Đốm vi khuẩn: đốm nhỏ hơn, lúc đầu úng nước nhưng về sau khô, ít khi làm thối rũ cả thân trong thời gian ngắn.\nTốc độ lây lan và sự xuất hiện mốc trắng là hai dấu hiệu quan trọng của sương mai muộn."
+        },
+        {
+          "q": "Nguồn lây và chu kỳ bệnh sương mai muộn là gì?",
+          "a": "• Mầm bệnh tồn tại chủ yếu trên củ khoai tây bệnh, cây khoai tây tự mọc (volunteer) và tàn dư cây bệnh.\n• Bào tử (sporangia) phát tán nhờ gió, mưa, sương mù và có thể di chuyển đường dài.\n• Bào tử bám lên lá ướt, nảy mầm và xâm nhập vào mô, tạo vết bệnh mới.\n• Từ vết bệnh này, nấm tiếp tục sinh thêm bào tử, gây nên các đợt lây lan liên tiếp.\nDo đó, bỏ sót củ và cây khoai tây bệnh quanh vùng sẽ tăng mạnh nguy cơ cho cà chua."
+        },
+        {
+          "q": "Điều kiện thời tiết nào thuận lợi nhất cho sương mai muộn trên cà chua?",
+          "a": "• Nhiệt độ mát (thường 10–24°C) kết hợp với ẩm độ không khí rất cao.\n• Lá ướt kéo dài liên tục >8–10 giờ do mưa phùn, sương dày, sương mù hoặc tưới phun muộn.\n• Ruộng trũng, thoát nước kém, tán lá rậm.\nKhi hội tụ các điều kiện này, sương mai muộn có thể bùng phát rất nhanh."
+        },
+        {
+          "q": "Sương mai muộn gây thiệt hại năng suất và chất lượng cà chua thế nào?",
+          "a": "• Có thể làm cháy rụi tán lá và thân, khiến cây ngừng quang hợp đột ngột.\n• Nếu bệnh đến sớm, trái nhỏ, ít, thậm chí gần như mất trắng.\n• Nhiễm trên trái làm trái thối trong khi còn trên cây hoặc trong quá trình thu hoạch, vận chuyển.\n• Tổn thất có thể rất nặng, nhiều vụ trên thế giới báo cáo mất trên 50% nếu không kiểm soát."
+        },
+        {
+          "q": "Có mối liên hệ gì giữa sương mai muộn trên cà chua và khoai tây?",
+          "a": "Có.\n• Cùng một tác nhân Phytophthora infestans có thể gây bệnh trên cả hai loại cây.\n• Củ khoai tây bệnh, đống khoai loại bỏ hoặc cây khoai tây mọc tự do là ‘nguồn phát’ quan trọng cho vùng trồng cà chua lân cận.\nVì vậy, quản lý mốc sương cần xem xét cả vùng trồng khoai tây xung quanh."
+        },
+        {
+          "q": "Biện pháp canh tác nào giúp giảm nguy cơ sương mai muộn?",
+          "a": "• Luân canh với cây không cùng họ Cà, tránh trồng cà chua sau khoai tây bệnh.\n• Dọn sạch củ và cây khoai tây sót lại, không để cây volunteer.\n• Trồng trên luống cao, thoát nước tốt, mật độ vừa phải.\n• Hạn chế tưới phun, ưu tiên tưới rãnh/nhỏ giọt, tưới vào buổi sáng.\n• Giữ tán thông thoáng bằng tỉa lá, nhất là lá tầng thấp."
+        },
+        {
+          "q": "Có giống cà chua kháng sương mai muộn không?",
+          "a": "• Một số giống mang gen kháng hoặc chống chịu (Ph2, Ph3…) đã được phát triển ở một số nơi.\n• Tuy nhiên, tác nhân bệnh có nhiều dòng, có thể vượt qua một số gen kháng.\n• Ở Việt Nam, mức độ phổ biến của giống kháng còn hạn chế; cần hỏi kỹ nhà cung cấp giống địa phương.\nNgay cả khi dùng giống chống chịu, vẫn phải kết hợp canh tác và phun thuốc hợp lý."
+        },
+        {
+          "q": "Khi nào nên bắt đầu phun phòng sương mai muộn?",
+          "a": "• Khi thời tiết dự báo mát ẩm, có sương mù, mưa kéo dài.\n• Khi cây cà chua đã khép tán, điều kiện trong tán ẩm cao.\n• Khi có thông tin vùng lân cận đã xuất hiện sương mai trên cà chua hoặc khoai tây.\nPhun sớm đúng thời điểm sẽ hiệu quả hơn nhiều so với chờ có vết bệnh rồi mới xử lý."
+        },
+        {
+          "q": "Khoảng cách phun thuốc cho sương mai muộn nên là bao lâu?",
+          "a": "• Khi nguy cơ thấp: 7–10 ngày/lần với nền thuốc đa điểm (M3/M5) có thể đủ.\n• Khi nguy cơ cao hoặc đã có vết bệnh đầu tiên: thường 5–7 ngày/lần, tùy hoạt chất và khuyến cáo.\n• Sau những đợt mưa kéo dài, nên phun sớm lại khi lá đã khô để phục hồi lớp bảo vệ.\nLuôn xem hướng dẫn cụ thể của từng sản phẩm để điều chỉnh."
+        },
+        {
+          "q": "Vì sao cần luân phiên nhiều nhóm thuốc (49/40/43/27/21…) cho sương mai muộn?",
+          "a": "• Tác nhân mốc sương rất ‘khôn’, có khả năng phát triển tính kháng nhanh nếu chỉ dùng một hoạt chất đơn điểm.\n• Các nhóm như 49, 40, 43, 27, 21… đều là thuốc chuyên oomycete, nhưng cần luân phiên để tránh kháng.\n• Nền M3/M5 (đa điểm) giúp giảm áp lực kháng và bảo vệ phần lá chưa nhiễm.\nKhông nên phun một nhóm duy nhất liên tục nhiều lần trong vụ."
+        },
+        {
+          "q": "Có cần phun thuốc nội hấp mạnh ngay từ đầu vụ để tránh sương mai muộn không?",
+          "a": "Không nhất thiết.\n• Giai đoạn đầu vụ, khi thời tiết khô, nguy cơ thấp, có thể chỉ cần thuốc đa điểm.\n• Dự trữ thuốc nội hấp chuyên dụng cho giai đoạn nguy cơ cao và khi đã có cảnh báo.\nCách làm này tiết kiệm chi phí và giảm nguy cơ kháng thuốc."
+        },
+        {
+          "q": "Nếu đã thấy vài vết sương mai muộn trên lá/trái, xử lý thế nào?",
+          "a": "• Loại bỏ lá, cành, trái bị bệnh nặng nhất, mang ra khỏi vườn chôn hoặc tiêu hủy.\n• Phun ngay chương trình có thuốc chuyên oomycete + thuốc đa điểm theo khuyến cáo.\n• Điều chỉnh tưới nước: tránh ướt lá, ưu tiên tưới sáng sớm.\n• Tăng thông thoáng tán bằng tỉa lá thấp hợp lý.\nTheo dõi sát vườn trong 3–5 ngày sau phun để đánh giá mức độ kiểm soát."
+        },
+        {
+          "q": "Trồng cà chua trong nhà màng có tránh được sương mai muộn không?",
+          "a": "Không hoàn toàn.\n• Nhà màng giảm mưa trực tiếp và phần nào giảm lây lan từ ngoài, nhưng nếu ẩm độ trong nhà cao, lá vẫn ướt lâu do sương ngưng tụ.\n• Cần quạt, thông gió, mở màng hợp lý để giảm ẩm.\n• Khi điều kiện trong nhà vẫn mát ẩm kéo dài, vẫn phải phun phòng giống ngoài đồng."
+        },
+        {
+          "q": "Có biện pháp nào không dùng thuốc để hỗ trợ giảm sương mai muộn?",
+          "a": "• Luân canh, vệ sinh tàn dư, quản lý khoai tây volunteer.\n• Trồng mật độ hợp lý, tán thông thoáng, lên luống cao.\n• Bố trí thời vụ tránh trùng đỉnh điểm thời tiết mát ẩm kéo dài nếu có thể.\nNhững biện pháp này không thay thế nhưng giúp giảm số lần và liều lượng thuốc cần phun."
+        },
+        {
+          "q": "Nhà nông nhỏ lẻ cần ưu tiên điều gì khi vùng đã có cảnh báo sương mai muộn?",
+          "a": "• Theo dõi bản tin dự báo và ruộng của mình mỗi ngày.\n• Kịp thời phun phòng bằng chương trình phù hợp ngay trước hoặc ngay khi có mưa ẩm kéo dài.\n• Hạn chế các hoạt động làm lá ướt thêm (tưới phun, phun thử nghiệm không cần thiết).\n• Xử lý sớm các ruộng khoai tây, cà chua tình trạng xấu quanh khu vực.\nHành động sớm quan trọng hơn liều thuốc cao."
+        }
+      ],
+      "refs": [
+        "UC IPM – Late blight",
+        "USABlight portal",
+        "PLOS One oxathiapiprolin",
+        "FRAC Code List 2025"
+      ]
+    },
+    {
+      "disease_id": "tomato_leaf_mold",
+      "labels": [
+        "Tomato_Leaf_Mold",
+        "Leaf mold"
+      ],
+      "name_vi": "Mốc lá (Leaf mold)",
+      "category": "nấm",
+      "pathogen": "Passalora fulva (Cladosporium fulvum)",
+      "symptoms_core": [
+        "Mảng vàng mặt trên; mặt dưới có mốc ô-liu",
+        "Thường bùng trong nhà màng/hầm ẩm"
+      ],
+      "look_alikes": [
+        "Downy mildew (trên cây khác)"
+      ],
+      "favorable_conditions": [
+        "Độ ẩm cao, thông gió kém"
+      ],
+      "diagnostic_tips": [
+        "Kiểm tra mốc ô-liu mặt dưới lá; tập trung trên tầng lá thấp"
+      ],
+      "immediate_actions": [
+        "Tăng thông gió, tưới buổi sáng; tỉa lá thấp",
+        "Phun bảo vệ khi độ ẩm khó khống chế"
+      ],
+      "cultural_management": [
+        "Giãn mật độ, hạ ẩm trong nhà màng; chọn giống có gen Cf (nếu có)"
+      ],
+      "spray_programs": {
+        "preventive": [
+          {
+            "stage": "nhà màng/hầm ẩm",
+            "actives": [
+              {
+                "ai": "chlorothalonil",
+                "FRAC": "M5"
+              },
+              {
+                "ai": "difenoconazole",
+                "FRAC": "3"
+              },
+              {
+                "ai": "trifloxystrobin/azoxystrobin",
+                "FRAC": "11"
+              },
+              {
+                "ai": "SDHI (boscalid…)",
+                "FRAC": "7"
+              }
+            ],
+            "interval_days": "7–10"
+          }
+        ]
+      },
+      "organic_options": [
+        {
+          "ai": "copper (M1)"
+        }
+      ],
+      "nutrition_notes": [
+        "Tỉa tán hợp lý, tránh ẩm kéo dài; bố trí quạt/thoáng khí"
+      ],
+      "product_slots": [
+        {
+          "ai": "chlorothalonil (M5)",
+          "buy_link": "https://mekongagri.com/hoat-chat-chlorothalonil-chloro-mka-555sc-phong-tri-dom-van-lem-lep-hat-ri-sat-than-thu-va-quan-li-nam-benh-pho-rong/"
+        },
+        {
+          "ai": "difenoconazole (3)",
+          "buy_link": "https://nongnghieplamdong.com/hoat-chat-difenoconazole.html"
+        },
+        {
+          "ai": "trifloxystrobin (11)",
+          "buy_link": "https://phunthuoctudong.com/triacy-mka-525wg-thuoc-tru-benh-pho-rong-3-hoat-chat"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Mốc lá (Leaf mold) trên cà chua là bệnh gì?",
+          "a": "Mốc lá trên cà chua do nấm Passalora fulva (trước đây gọi Cladosporium fulvum) gây ra.\nBệnh chủ yếu xuất hiện trong nhà màng/nhà kính ẩm, gây mảng vàng trên mặt trên lá và lớp mốc màu ô-liu ở mặt dưới.\nNếu nặng, bệnh làm rụng lá, giảm quang hợp và ảnh hưởng nghiêm trọng đến năng suất, nhất là sản xuất cà chua nhà lưới."
+        },
+        {
+          "q": "Triệu chứng điển hình của mốc lá trên lá cà chua là gì?",
+          "a": "• Ban đầu trên mặt trên lá có những mảng vàng nhạt không rõ rìa.\n• Mặt dưới lá, tương ứng với mảng vàng đó, xuất hiện lớp mốc mịn màu ô-liu đến nâu.\n• Về sau, mảng vàng trên mặt trên lá chuyển nâu, mô khô và lá có thể rách.\n• Thường bắt đầu từ lá tầng thấp trong nhà màng, nơi ít gió và ẩm cao."
+        },
+        {
+          "q": "Mốc lá có gây hại trên trái cà chua không?",
+          "a": "Hiếm khi.\n• Mốc lá chủ yếu gây hại trên lá; trái ít khi xuất hiện vết bệnh điển hình.\n• Tuy nhiên, khi lá rụng nhiều, trái bị cháy nắng, chín không đều và dễ nhiễm các bệnh khác.\nDo đó, dù không trực tiếp làm hư trái, mốc lá vẫn gây giảm năng suất và chất lượng."
+        },
+        {
+          "q": "Mốc lá dễ bị nhầm với bệnh nào khác?",
+          "a": "• Downy mildew trên cây khác (nhìn chung không phải trên cà chua) cũng có mốc mặt dưới nhưng màu sắc và ký chủ khác.\n• Một số cháy lá do vi khuẩn hoặc cháy nắng có mảng vàng nhưng không có lớp mốc ô-liu rõ ở mặt dưới.\nKiểm tra mặt dưới lá, tìm lớp mốc xanh ô-liu đặc trưng là chìa khóa nhận diện mốc lá."
+        },
+        {
+          "q": "Điều kiện nào khiến mốc lá bùng phát trong nhà màng?",
+          "a": "• Độ ẩm không khí rất cao (>85%) và lá ướt lâu do ngưng tụ hơi nước trên màng.\n• Thông gió kém, mật độ trồng dày, tán lá chạm nhau.\n• Nhiệt độ tương đối ấm (khoảng 18–24°C).\nKhi nhà màng đóng kín nhiều ngày liên tục trong thời tiết ẩm, mốc lá rất dễ phát triển."
+        },
+        {
+          "q": "Nguồn lây bệnh mốc lá đến từ đâu?",
+          "a": "• Bào tử nấm tồn tại trên tàn dư lá bệnh, trên cấu trúc nhà màng (cọc, dây, màng), trong khe hở.\n• Có thể lây từ vụ trước nếu không vệ sinh kỹ nhà màng.\n• Bào tử phát tán ngắn trong nhà nhờ gió nhẹ, hơi ẩm và nước bắn.\nVì vậy, khử trùng nhà màng giữa các vụ là bước quan trọng."
+        },
+        {
+          "q": "Biện pháp canh tác nào giúp phòng mốc lá trong nhà màng?",
+          "a": "• Giãn mật độ trồng, tỉa bớt lá dưới để tăng thông thoáng.\n• Tưới nhỏ giọt, hạn chế tưới phun trên tán.\n• Mở màng, dùng quạt để giảm ẩm vào ban đêm nếu có thể.\n• Thu gom lá bệnh rụng, không để chất đống trong nhà.\nNhững bước này vừa giảm bệnh, vừa giảm nhu cầu phun thuốc."
+        },
+        {
+          "q": "Có giống cà chua kháng mốc lá không?",
+          "a": "• Một số giống có gen kháng Cf đã được phát triển, nhưng mức độ kháng có thể khác nhau giữa chủng nấm.\n• Nên hỏi nhà cung cấp giống về thông tin kháng mốc lá (Leaf mold resistance) trước khi chọn.\nNgay cả giống ‘kháng’, nếu ẩm kéo dài và áp lực bệnh quá cao, vẫn có thể bị nhiễm nhẹ."
+        },
+        {
+          "q": "Khi nào nên bắt đầu phun phòng mốc lá trong nhà màng?",
+          "a": "• Khi ẩm độ trong nhà cao, bề mặt màng thường xuyên đọng nước.\n• Khi thấy những mảng vàng mờ đầu tiên trên lá tầng thấp, dù mốc mặt dưới chưa rõ.\n• Trong nhà màng có lịch sử mốc lá, nên phun phòng ngay khi cây đã khép tán và điều kiện ẩm khó kiểm soát."
+        },
+        {
+          "q": "Khoảng cách phun thuốc cho mốc lá nên là bao lâu?",
+          "a": "• Khi điều kiện ẩm vừa phải, có thể 10 ngày/lần với chương trình luân phiên thích hợp.\n• Trong giai đoạn ẩm rất cao, bệnh xuất hiện nhiều: 7 ngày/lần, thậm chí 5–7 ngày/lần nếu áp lực nặng và nhãn cho phép.\nSong song phun thuốc, cần chỉnh thông gió để giảm ẩm, nếu không thuốc khó phát huy tối đa hiệu quả."
+        },
+        {
+          "q": "Có cần dùng thuốc nội hấp mạnh cho mốc lá không?",
+          "a": "• Thuốc tiếp xúc (M5, M1…) kết hợp với một số thuốc nội hấp (FRAC 3, 7, 11) thường đủ.\n• Nên dựa nền thuốc đa điểm và luân phiên các nhóm đơn điểm khi cần.\n• Không nên lạm dụng một nhóm nội hấp nào đó quá nhiều lần trong vụ để tránh kháng."
+        },
+        {
+          "q": "Có thể chỉ điều chỉnh ẩm mà không dùng thuốc cho mốc lá được không?",
+          "a": "Trong trường hợp bệnh mới xuất hiện rất nhẹ và có điều kiện điều chỉnh ẩm tốt, đôi khi chỉ cần cải thiện thông gió, tỉa lá và giảm ẩm cũng giúp bệnh dừng lại.\nTuy nhiên, trong thực tế nhiều nhà màng khó kiểm soát ẩm hoàn toàn, nên thường vẫn cần kết hợp thuốc bảo vệ, nhất là trong mùa mưa."
+        },
+        {
+          "q": "Khi đã xuất hiện nhiều lá bị mốc lá, xử lý thế nào?",
+          "a": "• Tỉa bỏ lá bệnh nặng ở tầng dưới, mang ra khỏi nhà để tiêu hủy.\n• Điều chỉnh tưới, tăng thông gió để giảm ẩm.\n• Phun thuốc theo khuyến cáo, chú ý phủ đều mặt dưới lá nơi có mốc.\n• Theo dõi 5–7 ngày sau phun, nếu còn lá mới bị nhiễm, cần xem lại kỹ thuật phun và điều kiện ẩm."
+        },
+        {
+          "q": "Mốc lá có lây sang các cây trong nhà màng khác không?",
+          "a": "Nấm gây mốc lá khá chuyên tính trên cà chua, không gây hại trên hầu hết cây trồng khác.\nTuy nhiên, nếu trong cùng nhà màng có nhiều cây ký chủ cà chua, mầm bệnh vẫn được duy trì mạnh.\nVì vậy cần tránh để cây cà chua tự mọc hoặc tàn dư vụ cũ trong nhà."
+        },
+        {
+          "q": "Có lưu ý gì khi phun thuốc trị mốc lá để đạt hiệu quả tốt?",
+          "a": "• Tập trung phun kỹ mặt dưới lá – nơi có mốc.\n• Dùng lượng nước đủ để thuốc trải đều nhưng không chảy ròng.\n• Phun lúc trời mát, tránh khi ẩm quá cao làm thuốc khó khô.\n• Vệ sinh béc phun, đảm bảo tia mịn và đều.\nKỹ thuật phun tốt giúp giảm số lần phun cần thiết."
+        },
+        {
+          "q": "Nhà nông nhỏ lẻ bị mốc lá lặp đi lặp lại mỗi vụ thì nên thay đổi gì?",
+          "a": "• Làm vệ sinh nhà màng kỹ trước vụ mới: rửa màng, khử trùng cọc, dây, sàn.\n• Xem lại mật độ trồng, có thể giãn hàng hoặc tỉa tán mạnh hơn.\n• Lắp thêm cửa thoáng hoặc quạt nếu có điều kiện.\n• Xem xét thời vụ trồng tránh giai đoạn ẩm kéo dài nếu vùng khí hậu cho phép.\nKết hợp những thay đổi này với chương trình thuốc hợp lý sẽ giúp giảm dần áp lực mốc lá."
+  }
+      ],
+      "refs": [
+        "UMN Extension – Leaf mold"
+      ]
+    },
+    {
+      "disease_id": "tomato_septoria_leaf_spot",
+      "labels": [
+        "Tomato_Septoria_leaf_spot",
+        "Septoria leaf spot"
+      ],
+      "name_vi": "Đốm lá Septoria",
+      "category": "nấm",
+      "pathogen": "Septoria lycopersici",
+      "symptoms_core": [
+        "Đốm nhỏ, tâm xám, có nhiều chấm đen (pycnidia)",
+        "Lan từ lá thấp lên; trái hiếm khi bị"
+      ],
+      "look_alikes": [
+        "Early blight (không có pycnidia)"
+      ],
+      "favorable_conditions": [
+        "Mát vừa + mưa/ẩm kéo dài"
+      ],
+      "diagnostic_tips": [
+        "Dùng kính lúp 10x thấy pycnidia màu đen trong tâm vết"
+      ],
+      "immediate_actions": [
+        "Vệ sinh lá bệnh, phủ gốc, tránh tưới phun",
+        "Bắt đầu bảo vệ bằng M3/M5, sau đó xoay nhóm"
+      ],
+      "cultural_management": [
+        "Luân canh 2–3 năm; giống có mức chịu đựng (nếu có)"
+      ],
+      "spray_programs": {
+        "preventive": [
+          {
+            "stage": "khi điều kiện thuận lợi",
+            "actives": [
+              {
+                "ai": "mancozeb",
+                "FRAC": "M3"
+              },
+              {
+                "ai": "chlorothalonil",
+                "FRAC": "M5"
+              }
+            ],
+            "interval_days": "7–10"
+          }
+        ],
+        "curative": [
+          {
+            "stage": "khi xuất hiện đốm sớm",
+            "rotation": [
+              {
+                "ai": "DMI",
+                "FRAC": "3"
+              },
+              {
+                "ai": "SDHI",
+                "FRAC": "7"
+              },
+              {
+                "ai": "QoI",
+                "FRAC": "11"
+              },
+              {
+                "ai": "AP",
+                "FRAC": "9"
+              },
+              {
+                "ai": "Phenylpyrrole",
+                "FRAC": "12"
+              }
+            ],
+            "interval_days": "7–10 ngày"
+          }
+        ]
+      },
+      "organic_options": [
+        {
+          "ai": "copper (M1)"
+        },
+        {
+          "ai": "potassium bicarbonate"
+        }
+      ],
+      "nutrition_notes": [
+        "Thoáng tán, cân đối dinh dưỡng; tránh ướt lá kéo dài"
+      ],
+      "product_slots": [
+        {
+          "ai": "mancozeb (M3)",
+          "buy_link": "https://giaiphapnongnghiep.vn/san-pham/13/thuoc-tru-benh-timan-80wp---goi-1kg-mancozeb"
+        },
+        {
+          "ai": "chlorothalonil (M5)",
+          "buy_link": "https://mekongagri.com/hoat-chat-chlorothalonil-chloro-mka-555sc-phong-tri-dom-van-lem-lep-hat-ri-sat-than-thu-va-quan-li-nam-benh-pho-rong/"
+        },
+        {
+          "ai": "difenoconazole (3)",
+          "buy_link": "https://nongnghieplamdong.com/hoat-chat-difenoconazole.html"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Đốm lá Septoria (Septoria leaf spot) trên cà chua là bệnh gì?",
+          "a": "Đốm lá Septoria là bệnh nấm do tác nhân Septoria lycopersici gây ra, tấn công chủ yếu lá cà chua, đôi khi cả cuống, thân và đài hoa.\nNấm tạo ra rất nhiều đốm nhỏ trên lá, sau đó làm vàng và rụng lá mạnh, nhất là tầng lá thấp.\nNếu không quản lý, cây có thể trơ cành, trái bị cháy nắng và năng suất giảm rõ rệt."
+        },
+        {
+          "q": "Triệu chứng điển hình của đốm lá Septoria trên lá cà chua là gì?",
+          "a": "• Đốm nhỏ, tròn hoặc hơi bất quy tắc, kích thước khoảng 1–3 mm (cỡ đầu bút chì).\n• Tâm đốm màu xám nhạt hoặc trắng xám, viền ngoài nâu sẫm.\n• Ở trung tâm đốm có nhiều chấm đen li ti (pycnidia – ổ bào tử), nhìn như hạt tiêu rải trong vết.\n• Đốm rất nhiều, dày đặc, có thể liên kết lại làm từng mảng lá vàng rồi cháy.\n• Lá bệnh nặng sẽ vàng, khô và rụng, bắt đầu từ lá già phía dưới."
+        },
+        {
+          "q": "Đốm lá Septoria thường xuất hiện ở vị trí nào trên cây trước?",
+          "a": "• Thường xuất hiện trước trên các lá già ở tầng thấp, gần mặt đất.\n• Lý do: bào tử nấm tồn tại trong đất/tàn dư cây bệnh, rồi bắn lên lá thấp nhờ mưa hoặc tưới phun.\n• Từ lá dưới, bệnh lan dần lên các lá phía trên theo giọt nước và gió, đặc biệt khi tán rậm và ẩm."
+        },
+        {
+          "q": "Trên thân, cuống lá và đài hoa cà chua có bị đốm lá Septoria không?",
+          "a": "• Thân và cuống lá: có thể xuất hiện những vết nhỏ, dài hoặc bầu dục, màu nâu sẫm.\n• Đài hoa và cuống chùm trái: đôi khi cũng có đốm nhỏ nâu xám.\n• Trái: hiếm khi bị nhiễm trực tiếp; nếu có thì chỉ những đốm nhỏ nông trên vỏ, không phải dạng thối sâu như mốc sương hay thán thư.\nTổn thương chính vẫn là ở lá, gây rụng lá mạnh."
+        },
+        {
+          "q": "Làm sao phân biệt đốm lá Septoria với cháy lá sớm (Early blight)?",
+          "a": "• Đốm lá Septoria:\n  – Đốm nhỏ (1–3 mm), tròn, tâm xám nhạt, viền nâu sẫm.\n  – Luôn có nhiều chấm đen li ti (pycnidia) trong tâm vết nếu nhìn kỹ hoặc dùng kính lúp.\n  – Rất nhiều đốm nhỏ dày khắp mặt lá.\n• Cháy lá sớm (Alternaria):\n  – Đốm lớn hơn, màu nâu, có vòng đồng tâm rất rõ (như mục tiêu bắn).\n  – Số đốm ít hơn nhưng to hơn, thường có quầng vàng rộng xung quanh.\nNếu thấy đốm nhỏ dày đặc, tâm xám và có chấm đen, rất nhiều khả năng là đốm lá Septoria."
+        },
+        {
+          "q": "Làm sao phân biệt đốm lá Septoria với đốm vi khuẩn hoặc các bệnh cháy lá khác?",
+          "a": "• Đốm vi khuẩn (bacterial spot/speck):\n  – Đốm thường rất nhỏ, sẫm, đôi khi hơi gồ, có thể có quầng vàng; mô quanh vết có cảm giác úng nước lúc đầu.\n  – Không có nhiều chấm đen rõ trong tâm như Septoria.\n• Đốm mục tiêu, cháy lá khác:\n  – Thường có vòng đồng tâm hoặc mô khô nứt khác biệt.\n• Septoria:\n  – Đốm rất nhiều, nhỏ, tâm xám nhạt, có chấm đen (pycnidia) là dấu hiệu rất quan trọng.\nQuan sát kỹ bằng kính lúp 10x sẽ giúp phân biệt chắc chắn hơn."
+        },
+        {
+          "q": "Điều kiện thời tiết nào thuận lợi cho đốm lá Septoria trên cà chua?",
+          "a": "• Ẩm độ không khí cao, lá ướt kéo dài (sương đêm dày, mưa liên tục, tưới phun nhiều).\n• Nhiệt độ ấm vừa, thường trong khoảng 18–27 °C.\n• Tán lá rậm, thông gió kém, ruộng trũng khó thoát nước.\nTrong thời tiết mưa ẩm kéo dài, chỉ sau 7–10 ngày sau nhiễm đã thấy đốm mới xuất hiện dày đặc."
+        },
+        {
+          "q": "Nguồn mầm bệnh đốm lá Septoria đến từ đâu?",
+          "a": "• Tàn dư cây cà chua bệnh (lá, thân, cọc buộc dính lá bệnh) của vụ trước.\n• Cây họ Cà hoang dại (dã cà, cà dại, một số cỏ dại họ Solanaceae) gần ruộng.\n• Cây cà chua mọc lại từ củ/quả bỏ sót (volunteer) trên ruộng cũ.\n• Hạt giống nhiễm nấm cũng có thể mang mầm bệnh, nhất là hạt tự giữ từ ruộng bệnh.\nVì vậy, vệ sinh tàn dư và luân canh là rất quan trọng để giảm áp lực bệnh đầu vụ."
+        },
+        {
+          "q": "Đốm lá Septoria lây lan như thế nào trong ruộng?",
+          "a": "• Bào tử nấm hình thành trong các chấm đen (pycnidia) rồi được bắn ra khi có nước.\n• Nước mưa, nước tưới phun và giọt nước bắn từ đất lên sẽ mang bào tử lên lá khỏe.\n• Gió, người đi lại, dụng cụ, quần áo chạm vào lá ướt cũng có thể làm bào tử phát tán.\n• Khi bám lên lá ướt, bào tử nảy mầm, xâm nhập và sau vài ngày hình thành đốm mới.\nChu kỳ này lặp đi lặp lại nhiều lần trong mùa mưa nên bệnh có thể tăng rất nhanh."
+        },
+        {
+          "q": "Đốm lá Septoria ảnh hưởng đến năng suất và chất lượng trái cà chua như thế nào?",
+          "a": "• Rụng lá sớm: tán lá bị trụi, cây giảm quang hợp nên trái nhỏ, số lượng trái ít.\n• Trái dễ bị cháy nắng (sunscald) do không còn lá che, tạo mảng trắng cứng trên trái, dễ bị loại khi bán.\n• Cây suy yếu, dễ nhạy cảm với các bệnh khác.\n• Nếu bệnh xuất hiện sớm và nặng, thất thu có thể rất đáng kể, đặc biệt ở ruộng trồng dày, tưới phun."
+        },
+        {
+          "q": "Đốm lá Septoria có làm trái ăn không được hoặc gây độc không?",
+          "a": "• Nấm Septoria chủ yếu gây hại trên lá; trái hiếm khi bị nhiễm sâu vào bên trong.\n• Trái từ cây bị bệnh nhưng bản thân trái không bị thối, không có mốc, thường vẫn ăn được sau khi rửa sạch.\n• Tuy nhiên, những trái bị cháy nắng hoặc có vết bệnh trên vỏ dễ bị vi sinh vật khác tấn công gây thối, lúc đó nên loại bỏ.\nNói chung, đây không phải loại bệnh sinh độc tố trên quả như một số nấm độc khác."
+        },
+        {
+          "q": "Đốm lá Septoria có lây sang các cây họ Cà khác không?",
+          "a": "• Nấm Septoria lycopersici chủ yếu gây hại trên cà chua, nhưng một số cây họ Cà và cỏ dại họ Cà có thể là ký chủ phụ.\n• Nếu quanh ruộng có cà chua hoang, dã cà, cà dại… bị bệnh, đây có thể là nguồn bào tử cho ruộng trồng.\n• Do đó, nên dọn cỏ dại họ Cà và cây tự mọc lại trong/ngoài ruộng để giảm áp lực bệnh."
+        },
+        {
+          "q": "Những biện pháp canh tác nào quan trọng nhất để hạn chế đốm lá Septoria?",
+          "a": "• Luân canh 2–3 năm với cây không cùng họ Cà (bắp, đậu, lúa…); tránh trồng cà chua/khoai tây liên tục một chỗ.\n• Thu gom và tiêu hủy tàn dư cây bệnh sau vụ; cào dọn lá rụng, không để thành đống ngay cạnh ruộng.\n• Phủ gốc (mulch, rơm, nilon) để hạn chế bắn đất lên lá.\n• Trồng với khoảng cách hợp lý, có cọc/giàn để tán lá thoáng, mau khô sau mưa.\n• Hạn chế tưới phun; ưu tiên tưới nhỏ giọt/tưới rãnh.\n• Tránh làm việc, tỉa cành khi lá còn ướt để không kéo bào tử đi khắp ruộng."
+        },
+        {
+          "q": "Nhà vườn nhỏ lẻ nên làm gì khi mới thấy vài lá dưới bị đốm lá Septoria?",
+          "a": "• Cắt bỏ những lá thấp bị đốm nhiều, mang ra khỏi ruộng để đốt/chôn, không vứt ngay ở rãnh.\n• Nếu mới xuất hiện ít, có thể làm chậm bệnh rất nhiều chỉ bằng vệ sinh lá và phủ gốc.\n• Chuyển sang tưới gốc, giảm tưới phun; tỉa bớt lá quá rậm để tăng thông gió nhưng không tỉa trụi.\n• Bắt đầu phun thuốc bảo vệ (nền đa điểm như mancozeb/chlorothalonil) nếu thời tiết vẫn ẩm ướt và có nguy cơ lan nhanh.\nXử lý càng sớm thì càng ít tốn thuốc về sau."
+        },
+        {
+          "q": "Có cần phun thuốc ngay khi thấy đốm lá Septoria hay đợi bệnh nặng hơn?",
+          "a": "• Nấm lá nói chung (Septoria, Early blight...) càng để trễ càng khó kiểm soát vì bào tử nhân nhanh.\n• Khi đã xác định đúng là đốm lá Septoria và thời tiết còn ẩm ướt, nên phun sớm theo khuyến cáo.\n• Thuốc chỉ có tác dụng phòng và hạn chế lan rộng, hầu như không làm biến mất vết đã có.\nDo đó, chiến lược là bảo vệ phần tán lá còn khỏe, không để bệnh leo lên cao."
+        },
+        {
+          "q": "Nên phun thuốc mấy ngày/lần khi quản lý đốm lá Septoria?",
+          "a": "• Khi điều kiện chỉ hơi thuận lợi, bệnh nhẹ:\n  – 7–10 ngày/lần với nền thuốc đa điểm (M3/M5) thường là đủ.\n• Khi thời tiết ẩm kéo dài, mưa nhiều, bệnh đang lan mạnh:\n  – Có thể rút ngắn 5–7 ngày/lần, tùy nhãn thuốc và tư vấn địa phương.\n• Sau các trận mưa lớn hoặc tưới phun nhiều, nên cân nhắc phun sớm lại để khôi phục lớp bảo vệ.\nLuôn tuân thủ đúng liều, đúng thời gian cách ly ghi trên nhãn sản phẩm."
+        },
+        {
+          "q": "Những nhóm hoạt chất nào thường được dùng cho đốm lá Septoria và vì sao phải xoay FRAC?",
+          "a": "• Nền bảo vệ (phòng):\n  – Mancozeb (FRAC M3), chlorothalonil (FRAC M5), đồng (FRAC M1).\n• Khi đã có vết và áp lực cao:\n  – Có thể luân phiên thêm các nhóm nội hấp/lưu dẫn như DMI (FRAC 3), SDHI (7), QoI (11), AP (9), phenylpyrrole (12) tùy sản phẩm đăng ký cho cà chua.\n• Lý do xoay FRAC:\n  – Nấm có thể hình thành tính kháng nếu lặp lại một cơ chế tác động quá nhiều lần.\n  – Xoay nhóm giúp kéo dài tuổi thọ hiệu lực thuốc và giảm nguy cơ kháng thuốc trên ruộng của bạn."
+        },
+        {
+          "q": "Có lựa chọn hữu cơ/sinh học nào hỗ trợ quản lý đốm lá Septoria không?",
+          "a": "• Một số chế phẩm đồng được chứng nhận dùng trong hữu cơ có thể giúp giảm mức độ bệnh khi phun đều và sớm.\n• Kali bicacbonat (potassium bicarbonate) cũng được dùng như một lựa chọn hỗ trợ trong một số khuyến cáo.\n• Một số chế phẩm vi sinh (Bacillus, dầu thực vật) có thể giúp giảm phần nào áp lực bệnh nhưng thường không đủ nếu dùng đơn lẻ trong điều kiện rất ẩm.\nTrong sản xuất hữu cơ, biện pháp canh tác (luân canh, phủ gốc, tưới nhỏ giọt, tỉa tán) vẫn là trụ cột chính."
+        },
+        {
+          "q": "Có giống cà chua kháng hoặc chịu đựng đốm lá Septoria không?",
+          "a": "• Một số giống/hybrid mới do các chương trình chọn tạo (như Cornell, v.v.) đã có mức kháng hoặc chịu đựng tốt hơn với đốm lá Septoria.\n• Trong catalog hạt giống, đôi khi giống có ký hiệu thêm về khả năng kháng/chịu Septoria (ví dụ ký hiệu S hoặc ghi rõ Septoria leaf spot).\n• Tuy nhiên, kháng không phải là \"miễn nhiễm\"; vẫn cần quản lý ẩm, vệ sinh và phun phòng trong điều kiện rất thuận lợi cho bệnh.\nKhi chọn giống, nên hỏi thêm nơi bán giống hoặc cán bộ kỹ thuật về giống phù hợp với vùng canh tác của bạn."
+        },
+        {
+          "q": "Có lưu ý gì riêng khi trồng cà chua trong nhà lưới/nhà màng để tránh đốm lá Septoria?",
+          "a": "• Nhà lưới có thể hạn chế mưa tạt và bắn đất, nhưng nếu ẩm độ cao, thông gió kém thì đốm lá Septoria vẫn bùng phát mạnh.\n• Cần:\n  – Bố trí thông gió tốt (mở màng, dùng quạt nếu có) để lá khô nhanh sau khi tưới.\n  – Ưu tiên tưới nhỏ giọt, hạn chế phun nước lên tán.\n  – Không xếp cây quá sát nhau; tỉa bớt lá tầng thấp chạm đất.\n  – Vệ sinh kỹ giá thể, dây buộc, cọc, khay ươm sau mỗi vụ.\nKết hợp những việc này với phun phòng hợp lý sẽ giúp nhà màng ít bị đốm lá Septoria hơn."
+        }
+      ],
+      "refs": [
+        "NC State – Septoria leaf spot (2021/2025 review)"
+      ]
+    },
+    {
+      "disease_id": "tomato_target_spot",
+      "labels": [
+        "Tomato__Target_Spot",
+        "Target spot"
+      ],
+      "name_vi": "Đốm mục tiêu (Target spot)",
+      "category": "nấm",
+      "pathogen": "Corynespora cassiicola",
+      "symptoms_core": [
+        "Vết tròn nâu với vòng mục tiêu; rụng lá mạnh, ‘cháy’ tán",
+        "Dễ nhầm với Alternaria/Septoria trên lá"
+      ],
+      "look_alikes": [
+        "Early blight",
+        "Bacterial spot"
+      ],
+      "favorable_conditions": [
+        "Nhiệt ấm ẩm vùng nhiệt đới/ cận nhiệt"
+      ],
+      "diagnostic_tips": [
+        "Kiểm tra ‘melting out’ (lọt tán) phía trong do rụng lá sớm"
+      ],
+      "immediate_actions": [
+        "Thông thoáng tán, giảm ẩm lá; dọn tàn dư ngay",
+        "Dùng nền đa điểm (M3/M5) và xoay nhóm có hiệu lực"
+      ],
+      "cultural_management": [
+        "Chưa có giống thương mại kháng; vệ sinh & phun phòng là trụ cột"
+      ],
+      "spray_programs": {
+        "preventive": [
+          {
+            "stage": "vùng có tiền sử bệnh",
+            "actives": [
+              {
+                "ai": "chlorothalonil",
+                "FRAC": "M5"
+              },
+              {
+                "ai": "mancozeb",
+                "FRAC": "M3"
+              }
+            ],
+            "interval_days": "7"
+          }
+        ],
+        "curative": [
+          {
+            "stage": "khi có vết sớm",
+            "rotation": [
+              {
+                "ai": "DMI (difenoconazole…)",
+                "FRAC": "3"
+              },
+              {
+                "ai": "SDHI (boscalid…)",
+                "FRAC": "7"
+              },
+              {
+                "ai": "QoI (azoxystrobin…)",
+                "FRAC": "11"
+              }
+            ],
+            "interval_days": "5–7 ngày; lưu ý nguy cơ kháng 7/11"
+          }
+        ]
+      },
+      "organic_options": [
+        {
+          "ai": "copper (M1)"
+        }
+      ],
+      "nutrition_notes": [
+        "Cân đối N/K; hạn chế tán rậm ẩm"
+      ],
+      "product_slots": [
+        {
+          "ai": "chlorothalonil (M5)",
+          "buy_link": "https://mekongagri.com/hoat-chat-chlorothalonil-chloro-mka-555sc-phong-tri-dom-van-lem-lep-hat-ri-sat-than-thu-va-quan-li-nam-benh-pho-rong/"
+        },
+        {
+          "ai": "mancozeb (M3)",
+          "buy_link": "https://anbio.vn/thuoc-tru-benh-dithane-m-45-80wp-100g"
+        },
+        {
+          "ai": "difenoconazole (3)",
+          "buy_link": "https://www.toamxanh.com/products/thuoc-tru-benh-score-250ec-100ml"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Đốm mục tiêu (Target spot) trên cà chua là bệnh gì?",
+          "a": "Đốm mục tiêu (Target spot) trên cà chua là bệnh do nấm Corynespora cassiicola gây ra. Đây là bệnh lá quan trọng ở vùng nhiệt đới và cận nhiệt đới, có thể gây cháy lá mạnh, rụng lá sớm và làm trái bị đốm lõm, xấu mã.\nNấm tấn công cả lá, cuống, thân và trái; khi điều kiện nóng ẩm thuận lợi, bệnh có thể lan rất nhanh, làm phần trong tán cây bị “lọt tán” (trống lá) và ảnh hưởng nặng đến năng suất lẫn chất lượng trái."
+        },
+        {
+          "q": "Triệu chứng điển hình của đốm mục tiêu trên lá cà chua là gì?",
+          "a": "• Đốm ban đầu nhỏ màu nâu sẫm hoặc đen, thường xuất hiện trên lá giữa và lá trong tán.\n• Sau đó lớn dần, tâm đốm chuyển màu nâu nhạt hoặc xám nâu, có các vòng đồng tâm như mục tiêu bắn, viền ngoài có thể có quầng vàng.\n• Đốm có thể to đến 5–10 mm, đôi khi liên kết lại thành mảng lớn làm cháy cả phần lá.\n• Lá bị bệnh nặng sẽ vàng, khô và rụng, đặc biệt ở phía trong tán – nhìn xa giống như cây bị “rỗng ruột”."
+        },
+        {
+          "q": "Đốm mục tiêu trên thân, cuống và trái cà chua trông như thế nào?",
+          "a": "• Thân và cuống lá: có các vết thon dài hoặc bầu dục màu nâu đậm đến đen, hơi lõm, làm cành lá phía trên dễ héo gãy.\n• Cuống chùm hoa/trái: vết bệnh có thể làm cuống yếu, hoa rụng hoặc chùm trái còi.\n• Trái xanh hoặc chín: xuất hiện đốm tròn hoặc bất quy tắc, hơi lõm, màu nâu sẫm. Tâm đốm có thể xám nhạt hơn, đôi khi nhìn giống vết trái bị đá hoặc mưa đá (hạt vùi).\nTrái có nhiều vết lõm sẽ bị xếp loại kém, dễ bị loại khi bán tươi."
+        },
+        {
+          "q": "‘Melting out’ (lọt tán) trong đốm mục tiêu là gì?",
+          "a": "Trong đốm mục tiêu, người ta hay nhắc đến hiện tượng “melting out” – nhìn vào bên trong tán thấy lá bị rụng nhiều, trống tuột từ trong ra ngoài.\nLý do: đốm mục tiêu thường tấn công lá bên trong tán, nơi ẩm độ cao, ánh sáng ít. Lá trong tán bị đốm, vàng rồi rụng trước, khiến phần trong cây bị “lọt tán”, chỉ còn lớp lá phía ngoài nhìn vẫn còn xanh.\nĐây là dấu hiệu rất gợi ý cho đốm mục tiêu, khác với nhiều bệnh khác thường cháy từ ngoài vào trong."
+        },
+        {
+          "q": "Làm sao phân biệt đốm mục tiêu với cháy lá sớm (Early blight) và đốm lá Septoria?",
+          "a": "• Đốm mục tiêu (Corynespora):\n  – Đốm tương đối lớn (vài mm đến 1 cm), màu nâu, có vòng đồng tâm nhưng nền mô xung quanh thường bị cháy rộng hơn, dễ gây rụng lá mạnh, đặc biệt ở phần trong tán.\n  – Lá trong tán bị rụng tạo hiện tượng “lọt tán”.\n• Cháy lá sớm (Alternaria):\n  – Vết tròn nâu với vòng đồng tâm rất rõ, hay gặp trước trên lá già phía dưới; xung quanh thường có quầng vàng rõ.\n• Đốm lá Septoria:\n  – Đốm rất nhỏ (1–3 mm), tâm xám nhạt, viền nâu sẫm, có nhiều chấm đen li ti (pycnidia) ở giữa.\n• Đốm vi khuẩn:\n  – Đốm nhỏ, sẫm, lúc đầu hơi úng nước, không có vòng đồng tâm rõ như Corynespora.\nQuan sát kỹ kích thước vết, vị trí trên tán và hiện tượng “lọt tán” giúp gợi ý đốm mục tiêu."
+        },
+        {
+          "q": "Làm sao phân biệt đốm mục tiêu với thiếu dinh dưỡng hoặc cháy thuốc?",
+          "a": "• Thiếu dinh dưỡng (N, Mg, K…):\n  – Thường gây vàng lá theo gân hoặc mép lá, hiếm khi tạo đốm tròn rõ ràng với vòng đồng tâm.\n  – Phân bố khá đều trên tán, không tập trung thành ổ cháy lan mạnh.\n• Cháy thuốc, cháy phân:\n  – Vết cháy thường ở mép lá, dạng loang cháy không rõ viền, thường xuất hiện ngay sau khi phun/ rải phân sai kỹ thuật.\n• Đốm mục tiêu:\n  – Đốm tròn/nửa tròn có vòng đồng tâm, tâm nâu nhạt, viền nâu đậm, có thể kèm quầng vàng.\n  – Thường xuất hiện thành ổ, nhất là trong tán, sau đó lan ra, kèm rụng lá mạnh.\nNếu không chắc, nên xem lại lịch sử bón/phun gần đây và quan sát nhiều cây khác nhau trong ruộng."
+        },
+        {
+          "q": "Đốm mục tiêu thường bắt đầu ở phần nào của cây và ruộng?",
+          "a": "• Trên cây: thường thấy trước ở các lá giữa đến lá trên, đặc biệt là lá ở phần trong tán nơi ẩm độ cao và ánh sáng yếu.\n• Trong ruộng: có thể xuất phát từ những cây gần nguồn tàn dư bệnh, gần các ruộng cũ hoặc gần cây ký chủ khác (như đu đủ) bị bệnh.\nKhi phát hiện một vài cụm có hiện tượng “lọt tán”, cần kiểm tra cả ruộng vì bệnh rất dễ lan rộng nếu thời tiết thuận lợi."
+        },
+        {
+          "q": "Điều kiện thời tiết nào làm đốm mục tiêu bùng phát mạnh?",
+          "a": "Đốm mục tiêu phát triển mạnh trong điều kiện:\n• Nhiệt độ ấm đến nóng (thường trên 20 °C) kết hợp ẩm độ không khí cao, lá ướt nhiều giờ liền (sương đêm, mưa kéo dài, tưới phun nhiều).\n• Ruộng tán rậm, thông gió kém, sekitar trong tán luôn âm ẩm.\n• Trồng xen hoặc gần ruộng/cây đã có bệnh từ trước.\nTrong những đợt thời tiết nóng ẩm kéo dài, bệnh có thể tăng rất nhanh chỉ trong 1–2 tuần nếu không được quản lý."
+        },
+        {
+          "q": "Nguồn mầm bệnh đốm mục tiêu thường đến từ đâu?",
+          "a": "• Tàn dư cây cà chua bệnh (lá, thân, cọc buộc dính lá bệnh) từ vụ trước.\n• Cây tình nguyện (cà chua mọc lại từ quả rơi, cây bỏ sót) trên ruộng cũ hoặc quanh khu vực.\n• Một số cây ký chủ khác trong vùng như đu đủ, dưa leo, bông, các cây rau màu khác cũng có thể bị Corynespora cassiicola gây đốm mục tiêu, trở thành nguồn bào tử phát tán.\n• Gió, mưa, tưới phun mang bào tử từ ruộng này sang ruộng khác, đặc biệt khi các ruộng trồng liên kề nhiều thế hệ.\nVì vậy việc dọn tàn dư, hạn chế trồng sát ruộng cũ và ký chủ phụ là rất quan trọng."
+        },
+        {
+          "q": "Đốm mục tiêu ảnh hưởng tới năng suất và chất lượng trái cà chua như thế nào?",
+          "a": "• Rụng lá mạnh (đặc biệt phần trong tán) làm cây giảm quang hợp, trái chậm lớn và dễ bị cháy nắng.\n• Trái có thể bị đốm lõm, sần sùi, nhìn như bị đá hoặc mưa đá, làm giảm giá trị thương phẩm.\n• Khi bệnh nặng, tán lá suy kiệt nhanh, cây mệt, số chùm trái về sau giảm, thời gian thu hoạch rút ngắn lại.\n• Tổn thất có thể rất lớn ở vùng nóng ẩm nếu không quản lý tốt, vì vừa mất tán lá vừa giảm tỷ lệ trái loại 1."
+        },
+        {
+          "q": "Nhà vườn nhỏ lẻ nên làm gì khi mới thấy vài vết đốm mục tiêu đầu tiên?",
+          "a": "• Kiểm tra kỹ xem vết có dạng “mục tiêu” (vòng đồng tâm) và có xu hướng tập trung trong tán không; nếu đúng, nên hành động sớm.\n• Tỉa bỏ những lá/cành nhiễm nặng trong ổ bệnh, mang ra khỏi ruộng để tiêu hủy, không vứt ngay giữa hàng.\n• Chuyển sang tưới gốc/tưới rãnh, hạn chế tưới phun ướt tán, đặc biệt chiều tối.\n• Làm thoáng tán vừa phải (tỉa lá chạm đất, lá quá rậm trong tán) để gió và ánh sáng vào được.\n• Bắt đầu phun thuốc bảo vệ theo khuyến cáo (nền đa điểm như mancozeb/chlorothalonil + xoay nhóm đặc hiệu) nếu thời tiết còn nóng ẩm.\nXử lý sớm sẽ giúp giảm rất nhiều chi phí và thiệt hại về sau."
+        },
+        {
+          "q": "Những biện pháp canh tác nào quan trọng nhất để hạn chế đốm mục tiêu?",
+          "a": "• Luân canh: không trồng cà chua liên tục nhiều vụ trên cùng ruộng; nên luân canh với cây không cùng họ Cà (bắp, đậu, lúa…).\n• Bố trí ruộng: tránh trồng sát ruộng cà chua già đã bệnh nặng; nếu có cây đu đủ/dưa/cây ký chủ khác bị đốm mục tiêu gần đó thì nên cách ly tối đa.\n• Vệ sinh: thu gom, tiêu hủy tàn dư cây bệnh sau thu hoạch; không để đống cây bệnh hoặc trái bỏ gần ruộng mới.\n• Phủ gốc: dùng rơm, cỏ khô hoặc màng phủ để giảm bắn đất và bào tử lên lá.\n• Tưới: ưu tiên tưới nhỏ giọt hoặc tưới rãnh, tưới buổi sáng để lá kịp khô, tránh tưới phun chiều tối.\n• Tán lá: trồng với khoảng cách hợp lý, cắm cọc/giàn, tỉa lá thấp chạm đất để ruộng thông thoáng."
+        },
+        {
+          "q": "Tỉa lá có giúp giảm đốm mục tiêu không, và tỉa thế nào cho đúng?",
+          "a": "• Tỉa lá thấp bị bệnh và lá chạm đất giúp giảm nguồn bào tử và tăng thông thoáng, là biện pháp có ích.\n• Tuy nhiên, không nên tỉa quá mạnh một lúc làm cây sốc, mất nhiều lá khỏe, càng dễ cháy nắng trái.\n• Nguyên tắc:\n  – Ưu tiên tỉa lá đã có đốm nhiều hoặc rất gần mặt đất.\n  – Chỉ tỉa 1–2 lá/tầng mỗi lần, trải đều trong nhiều ngày nếu tán quá rậm.\n  – Dụng cụ tỉa nên được vệ sinh định kỳ (cồn, nước vôi, chất sát khuẩn) để không mang nấm đi khắp ruộng.\nKết hợp tỉa lá hợp lý với phun phòng và tưới phù hợp sẽ hiệu quả hơn chỉ làm một biện pháp."
+        },
+        {
+          "q": "Khi nào nên bắt đầu phun thuốc phòng đốm mục tiêu trên cà chua?",
+          "a": "• Ở vùng đã có tiền sử đốm mục tiêu, nên bắt đầu phun phòng khi:\n  – Cây đã khép tán, lá chạm nhau giữa các hàng.\n  – Dự báo có thời kỳ nóng ẩm kéo dài, mưa nhiều hoặc sương đêm dày.\n• Nếu ruộng/cánh đồng lân cận đã ghi nhận ổ đốm mục tiêu, nên phun phòng sớm hơn, không chờ đến khi thấy vết.\n• Với vùng ít bệnh, có thể đợi đến khi thấy vết đầu tiên nhưng phải xử lý ngay, không chờ bệnh lan rộng.\nMục tiêu là có lớp thuốc bảo vệ trên lá trước hoặc ngay khi bào tử bắt đầu xuất hiện nhiều."
+        },
+        {
+          "q": "Bao lâu nên phun thuốc một lần khi quản lý đốm mục tiêu?",
+          "a": "• Thời tiết tương đối khô, bệnh nhẹ hoặc mới xuất hiện:\n  – Thường 7–10 ngày/lần với nền thuốc đa điểm (M3/M5) là đủ, kết hợp theo dõi ruộng kỹ.\n• Thời tiết nóng ẩm, mưa nhiều, bệnh đang lan mạnh:\n  – Có thể phải 5–7 ngày/lần theo nhãn sản phẩm và khuyến cáo địa phương.\n• Sau mưa lớn kéo dài, đặc biệt nếu trước đó lâu chưa phun, nên cân nhắc phun sớm lại để khôi phục lớp bảo vệ.\nLuôn tuân thủ liều lượng, thời gian cách ly và không phun dày hơn khuyến cáo chỉ vì nôn nóng."
+        },
+        {
+          "q": "Vì sao không nên chỉ dựa vào thuốc nhóm QoI (FRAC 11) như azoxystrobin để trị đốm mục tiêu?",
+          "a": "• Một số nghiên cứu đã ghi nhận nấm Corynespora cassiicola gây đốm mục tiêu ở một số vùng đã phát triển tính kháng với thuốc nhóm QoI (FRAC 11), làm hiệu lực giảm rõ rệt nếu dùng đơn lẻ, lặp lại nhiều lần.\n• Nếu chỉ dựa vào một nhóm như 11, nấm rất dễ “quen thuốc”, về lâu dài càng khó trị, tốn kém hơn.\n• Chiến lược tốt hơn là dùng nền đa điểm (M3/M5) kết hợp xoay vòng các nhóm đơn điểm (3, 7, 11, 9, 21...) theo khuyến cáo, tránh lặp cùng FRAC nhiều lần liền nhau.\nNói ngắn gọn: QoI hữu ích nhưng không nên là “cây gậy duy nhất” cho đốm mục tiêu."
+        },
+        {
+          "q": "Những nhóm hoạt chất/FRAC nào thường được dùng cho đốm mục tiêu, và xoay thế nào cho an toàn?",
+          "a": "• Nền bảo vệ: mancozeb (FRAC M3), chlorothalonil (M5), đồng (M1) – tác động đa điểm, nguy cơ kháng thấp, thường được dùng làm nền.\n• Nhóm nội hấp/lưu dẫn hay dùng: DMI (FRAC 3), SDHI (7), QoI (11), và một số nhóm khác được đăng ký tại từng nước.\n• Nguyên tắc xoay:\n  – Không phun liên tiếp quá 2 lần cùng một nhóm FRAC đơn điểm.\n  – Trong cả vụ, hạn chế số lần dùng mỗi nhóm đơn điểm theo khuyến cáo (ví dụ 3–4 lần/vụ cho một nhóm là tối đa).\n  – Luôn kết hợp/đan xen với thuốc đa điểm (M3/M5) để giảm áp lực kháng.\nChi tiết tỷ lệ, số lần/vụ nên theo nhãn thuốc và tài liệu quản lý kháng nấm của từng quốc gia/vùng."
+        },
+        {
+          "q": "Có giống cà chua kháng hoặc chịu đựng tốt với đốm mục tiêu không?",
+          "a": "• Hiện nhiều nơi báo cáo là chưa có giống thương mại nào hoàn toàn kháng, nhưng một số giống/hybrid mới, hoặc dòng chọn tạo từ nguồn gen hoang dại, đang cho thấy mức chịu đựng khá hơn.\n• Các chương trình chọn giống gần đây đã phát hiện một số nguồn gen kháng trong các dòng cà chua dại, đang được lai tạo vào giống thương mại.\n• Trong thực tế sản xuất, nên hỏi thêm nhà cung cấp giống/cán bộ kỹ thuật xem giống nào có ghi nhận “chịu đựng tốt target spot” để ưu tiên dùng.\nDù dùng giống chịu đựng, vẫn phải kết hợp canh tác tốt và phun phòng hợp lý khi điều kiện thời tiết rất thuận lợi cho bệnh."
+        },
+        {
+          "q": "Có lựa chọn hữu cơ/sinh học nào hỗ trợ quản lý đốm mục tiêu không?",
+          "a": "• Một số chế phẩm đồng được chấp nhận trong canh tác hữu cơ có thể giúp giảm áp lực đốm mục tiêu nếu phun đều, đúng thời điểm.\n• Một số sản phẩm vi sinh (Bacillus spp., Trichoderma…) và chất kích kháng (SAR, phosphite) có thể hỗ trợ nhưng hiếm khi đủ nếu dùng một mình trong điều kiện bệnh rất nặng.\n• Trong sản xuất hữu cơ, trụ cột vẫn là: luân canh, phủ gốc, tưới nhỏ giọt, tán thông thoáng, dọn tàn dư và bố trí mùa vụ hợp lý.\nHữu cơ quản lý được đốm mục tiêu, nhưng cần chấp nhận ngưỡng bệnh “chấp nhận được” chứ khó mà sạch hoàn toàn."
+        },
+        {
+          "q": "Tại sao không nên trồng cà chua liên tục nhiều lứa sát nhau trên cùng khu vực khi đã có đốm mục tiêu?",
+          "a": "• Trồng liên tục nhiều lứa trên cùng chân ruộng, hoặc trồng lứa mới sát ruộng cà chua già đã bệnh nặng, làm cho mầm bệnh luôn hiện diện với mật số cao.\n• Nấm có thêm “thời gian” để nhân số lượng và phát triển kháng thuốc, khiến vụ sau khó trị hơn vụ trước.\n• Tốt nhất là ngắt vụ, luân canh sang cây không cùng họ Cà, tránh trồng lứa mới ngay sát lứa cũ bệnh nặng; nếu bất khả kháng, cần dọn tàn dư thật sạch rồi mới xuống giống.\nĐây là nguyên tắc chung cho nhiều bệnh lá nhưng đặc biệt quan trọng với đốm mục tiêu vì áp lực bào tử cao và nguy cơ kháng thuốc."
+        },
+        {
+          "q": "Nếu điều kiện và ngân sách hạn chế, nông hộ nhỏ lẻ nên ưu tiên những bước nào để kìm đốm mục tiêu?",
+          "a": "Có thể ưu tiên theo thứ tự:\n1) Vệ sinh và luân canh: không trồng sát ruộng cũ bệnh nặng; dọn sạch tàn dư, cây tình nguyện, cỏ dại họ Cà.\n2) Tưới và tán lá: ưu tiên tưới gốc, tưới buổi sáng; cắm cọc/giàn, tỉa bớt lá thấp để ruộng thông thoáng.\n3) Phủ gốc: tận dụng rơm rạ, cỏ khô để giảm bắn đất lên lá, nhất là trong mùa mưa.\n4) Theo dõi ruộng: thường xuyên kiểm tra phần trong tán để phát hiện sớm hiện tượng “lọt tán” và vết đốm mục tiêu.\n5) Phun thuốc hợp lý: khi thấy điều kiện nóng ẩm + vết sớm, dùng nền đa điểm (M3/M5) và nếu có điều kiện thì xoay thêm 1–2 nhóm đặc hiệu theo khuyến cáo.\nChỉ cần làm tốt vài điểm này đã giúp giảm đáng kể mức độ đốm mục tiêu so với chỉ trông chờ vào thuốc."
+        }
+      ],
+      "refs": [
+        "UF/IFAS – Target spot PP351",
+        "UF/IFAS Target_Spot PDF"
+      ]
+    },
+    {
+      "disease_id": "tomato_spider_mites",
+      "labels": [
+        "Tomato_Spider_mites_Two_spotted_spider_mite",
+        "Two-spotted spider mite"
+      ],
+      "name_vi": "Nhện đỏ hai đốm (TSSM)",
+      "category": "nhện hại",
+      "pathogen": "Tetranychus urticae (arthropod pest)",
+      "symptoms_core": [
+        "Lá bạc lấm tấm, vàng/đồng; tơ mịn khi mật số cao",
+        "Bùng khi nóng & khô"
+      ],
+      "look_alikes": [
+        "Thiếu dinh dưỡng nhẹ",
+        "Chích hút khác"
+      ],
+      "favorable_conditions": [
+        "Khô nóng, bụi bặm; thiếu thiên địch"
+      ],
+      "diagnostic_tips": [
+        "Soi mặt dưới lá; dùng kính lúp 10x thấy nhện & trứng"
+      ],
+      "immediate_actions": [
+        "Tưới/ẩm hợp lý; rửa bụi; tránh dùng pyrethroid làm bộc phát",
+        "Bảo tồn thiên địch (bọ rùa Stethorus, bọ nhện ăn mồi, bọ cánh lưới)"
+      ],
+      "cultural_management": [
+        "Vệ sinh cỏ dại, tàn dư; tăng ẩm không khí vừa phải trong nhà màng"
+      ],
+      "spray_programs": {
+        "curative": [
+          {
+            "stage": "khi vượt ngưỡng",
+            "rotation": [
+              {
+                "ai": "abamectin",
+                "IRAC": "6",
+                "notes": "thường pha dầu khoáng theo nhãn"
+              },
+              {
+                "ai": "bifenazate",
+                "IRAC": "20D"
+              },
+              {
+                "ai": "fenpyroximate/pyridaben",
+                "IRAC": "21A"
+              },
+              {
+                "ai": "spiromesifen/spirodiclofen/spirotetramat",
+                "IRAC": "23"
+              },
+              {
+                "ai": "cyflumetofen",
+                "IRAC": "25"
+              }
+            ],
+            "interval_days": "theo nhãn; không >2 lượt liên tiếp cùng MOA"
+          }
+        ]
+      },
+      "organic_options": [
+        {
+          "ai": "dầu khoáng/xà phòng"
+        },
+        {
+          "ai": "Beauveria/Metarhizium (EPF)",
+          "notes": "tùy điều kiện ẩm"
+        }
+      ],
+      "nutrition_notes": [
+        "Tránh stress khô; cân đối dinh dưỡng để tán khỏe"
+      ],
+      "product_slots": [
+        {
+          "ai": "abamectin (IRAC 6)",
+          "buy_link": "https://www.smagrichem.com/vi/thuoc-tru-sau/abamectin-18g-l-ec-thuoc-tru-sau/"
+        },
+        {
+          "ai": "bifenazate (IRAC 20D)",
+          "buy_link": "https://www.pomais.com/vi/product/bifenazate-20-spirodiclofen-10-sc-insecticide/"
+        },
+        {
+          "ai": "spiromesifen (IRAC 23)",
+          "buy_link": "https://vi.bkherb.com/nguy%C3%AAn-li%E1%BB%87u-l%C3%A0m-thu%E1%BB%91c/Spiromesifen/"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Nhện đỏ hai đốm (Two-spotted spider mite, TSSM) trên cà chua là gì?",
+          "a": "Nhện đỏ hai đốm là loài nhện rất nhỏ (Tetranychus urticae), thuộc nhóm nhện hại (không phải côn trùng), chuyên chích hút dịch bào của lá.\n• Cơ thể rất nhỏ, thường màu vàng xanh đến đỏ nâu, trên lưng có hai đốm sẫm khi nhìn bằng kính lúp.\n• Chúng sống chủ yếu ở mặt dưới lá, dùng kim chích hút tế bào lá làm lá bị bạc, vàng đồng, khô dần.\n• Vòng đời rất ngắn (vài ngày đến khoảng 2 tuần tùy nhiệt độ), nên quần thể có thể bùng lên rất nhanh trong điều kiện nóng và khô."
+        },
+        {
+          "q": "Triệu chứng điển hình của nhện đỏ trên lá cà chua là gì?",
+          "a": "Một số dấu hiệu thường gặp:\n• Mặt trên lá xuất hiện lấm tấm vàng hoặc bạc, giống như bị chấm kim rất nhiều, sau đó chuyển vàng đồng hoặc nâu.\n• Mặt dưới lá có thể thấy mạng tơ mịn, đặc biệt khi mật số cao.\n• Lá bị hại nặng sẽ vàng, khô, quăn mép rồi rụng, thường bắt đầu từ lá giữa/lá dưới rồi lan lên.\n• Nếu để lâu, cả cây có thể trông xỉn màu, kém bóng, tán lá thưa và cây suy rõ.\nKhi thấy lá bạc lấm tấm + có tơ mịn mặt dưới, rất nên nghĩ đến nhện đỏ và soi kỹ lại."
+        },
+        {
+          "q": "Nhện đỏ có gây hại trực tiếp trên trái cà chua không?",
+          "a": "• Nhện đỏ chủ yếu gây hại trên lá; trái ít khi là nơi cư trú chính.\n• Tuy nhiên, khi mật số rất cao, chúng có thể chích hút ở cuống, đài hoặc bề mặt trái làm trái bị sần nhẹ hoặc mất bóng.\n• Tác hại chính vẫn là gián tiếp: cây mất lá → quang hợp giảm → trái nhỏ, ít, dễ bị cháy nắng và chín không đều.\nVì vậy, bảo vệ tán lá khỏe là cách tốt nhất để giữ năng suất và chất lượng trái."
+        },
+        {
+          "q": "Làm sao phân biệt lá bị nhện đỏ với thiếu dinh dưỡng hay cháy nắng?",
+          "a": "• Nhện đỏ:\n  – Lá lấm tấm vàng/bạc rất nhỏ, sau đó cả phiến lá ngả vàng đồng hoặc nâu; mặt dưới thường có tơ mịn.\n  – Lật mặt dưới lá sẽ thấy chấm li ti di chuyển như \"bụi sống\" nếu nhìn bằng kính lúp hoặc mắt tinh.\n• Thiếu dinh dưỡng:\n  – Thường vàng theo gân, hoặc vàng từ mép vào, nhưng không có tơ và không có chấm li ti di chuyển.\n• Cháy nắng:\n  – Thường tạo mảng lớn trắng xám hoặc nâu, cứng, tập trung ở phía nắng chiếu nhiều, không có tơ.\nNếu nghi ngờ, nên dùng kính lúp 10x soi mặt dưới lá; thấy được nhện và trứng là chắc chắn."
+        },
+        {
+          "q": "Tại sao nhện đỏ thường bùng phát mạnh khi trời nóng và khô?",
+          "a": "• Nhiệt độ cao làm vòng đời nhện đỏ rút ngắn, chúng đẻ và nở rất nhanh.\n• Điều kiện khô nóng làm cho nhiều loại nấm, vi khuẩn có ích và một số thiên địch hoạt động kém, trong khi nhện đỏ lại chịu được.\n• Bụi bặm bám trên lá (đường đất, gió, xe cộ...) cũng làm cây stress và giảm hiệu quả của thiên địch.\n• Ở nhà màng/nông hộ tưới không đều, cây hay bị khô hạn rồi tưới dồn → rất dễ bùng nhện.\nVì vậy, nhện đỏ thường là \"dịch mùa khô, nóng\" trên cà chua."
+        },
+        {
+          "q": "Nhện đỏ lây lan sang cây và ruộng khác bằng cách nào?",
+          "a": "• Nhện bò từ lá này sang lá khác, từ cây này sang cây kia khi tán lá chạm nhau.\n• Gió, dòng khí, dụng cụ, quần áo, tay người, khay cây cũng có thể mang nhện từ chỗ này sang chỗ khác.\n• Cây ký chủ khác (đậu, dưa, cỏ dại, cây cảnh…) trong hoặc quanh ruộng có nhện đỏ sẽ là ổ chứa cho vụ sau.\n• Cây giống đã nhiễm nhện từ nhà ươm mang thẳng nhện vào ruộng.\nVì vậy cần vệ sinh cỏ dại, không kê khay giống sát ruộng đã bệnh, và hạn chế sờ tay vào nhiều cây khi lá đang nhiễm nặng."
+        },
+        {
+          "q": "Nhện đỏ ảnh hưởng đến năng suất cà chua như thế nào?",
+          "a": "• Lá bị hút nhiều sẽ mất màu xanh, khô rụng → cây mất diện tích lá quang hợp.\n• Cây bị stress nặng: trái ít, nhỏ, dễ bị cháy nắng, chất lượng (độ cứng, màu sắc) giảm.\n• Khi tán lá thưa, trái bị nắng trực tiếp, mặt trái dễ bị cháy, xốp, giảm giá bán.\n• Nếu bùng phát sớm và không quản lý, nhện đỏ có thể làm sản lượng giảm rất mạnh, đặc biệt trong nhà màng/nơi trồng thâm canh."
+        },
+        {
+          "q": "Có cần đợi thấy tơ trắng dày mới xử lý nhện đỏ không?",
+          "a": "Không nên.\n• Khi đã thấy tơ trắng dày chằng chịt, mật số nhện thường đã rất cao, cây đã bị hại nặng, lá mất nhiều.\n• Lúc này xử lý sẽ tốn rất nhiều thuốc, khó cứu được tán lá đã mất.\n• Tốt nhất là xử lý khi:\n  – Thấy lá bắt đầu bạc lấm tấm + lật mặt dưới đã thấy rải rác nhện và trứng.\n  – Hoặc khi một số lá giữa tán có tơ mỏng, chưa dày.\nXử lý sớm luôn rẻ tiền và hiệu quả hơn chờ bệnh nặng mới làm."
+        },
+        {
+          "q": "Nên theo dõi nhện đỏ trên cà chua như thế nào cho đơn giản mà hiệu quả?",
+          "a": "• Ít nhất mỗi tuần nên chọn vài cây ở nhiều vị trí trong ruộng/nhà màng để kiểm tra.\n• Chú ý các lá giữa đến lá trên, đặc biệt ở mép luống và nơi gần đường bụi.\n• Lật mặt dưới lá, dùng kính lúp 10x hoặc đặt lên tờ giấy trắng, gõ nhẹ; nếu thấy chấm li ti bò thì là nhện.\n• Ghi lại khu vực có nhện nhiều để ưu tiên xử lý trước.\nNếu thấy nhiều hơn vài con/lá trên phần lớn cây ở một khu, nên tính chuyện can thiệp (rửa, dùng dầu/xà phòng, hoặc miticide chuyên dụng)."
+        },
+        {
+          "q": "Biện pháp canh tác đơn giản nào giúp giảm nhện đỏ trước khi nghĩ đến thuốc?",
+          "a": "Một số việc ít tốn mà rất đáng làm:\n• Tưới nước đều, tránh để cây bị khô hạn kéo dài; ưu tiên tưới buổi sáng.\n• Hạn chế bụi bằng cách tưới rãnh/đường đi, trồng hàng cây chắn gió nếu phù hợp.\n• Vệ sinh cỏ dại trong và quanh ruộng – nhiều cỏ là ký chủ của nhện đỏ.\n• Trong nhà màng, tăng ẩm không khí vừa phải (nhưng không quá ẩm để tránh bệnh nấm), không để không khí cực khô.\n• Không trồng cà chua ngay sát cây khác đang bị nhện đỏ nặng.\nCác bước này giúp giữ mật số nhện thấp hơn ngay cả khi chưa dùng thuốc."
+        },
+        {
+          "q": "Rửa lá bằng nước mạnh có giúp giảm nhện đỏ trên cà chua không?",
+          "a": "• Với quy mô nhỏ, xịt/rửa mạnh mặt dưới lá bằng nước (vòi phun) vào buổi sáng mát có thể rửa bớt nhện và bụi.\n• Cần chú ý:\n  – Chỉ làm khi mật số còn vừa phải; đây là biện pháp hỗ trợ chứ không thay thế hoàn toàn thuốc.\n  – Sau khi rửa, lá cần đủ thời gian để khô trong ngày, tránh để lá ướt kéo dài gây bệnh nấm.\n  – Không dùng tia nước quá mạnh làm rách lá, gãy thân.\nRửa lá tốt nhất kết hợp với các biện pháp khác như dầu khoáng/xà phòng và bảo tồn thiên địch."
+        },
+        {
+          "q": "Những thiên địch nào quan trọng trong việc khống chế nhện đỏ trên cà chua?",
+          "a": "Một số nhóm thiên địch rất hữu ích:\n• Nhện ăn mồi (phytoseiid) như Phytoseiulus persimilis, Neoseiulus spp. – chuyên ăn trứng, ấu trùng và nhện đỏ trưởng thành.\n• Bọ rùa nhỏ chuyên ăn nhện (Stethorus spp.).\n• Bọ cánh lưới (lacewing), bọ cướp (minute pirate bug), một số bọ xít ăn thịt khác.\n• Một số loài bọ rùa, ruồi ăn rệp cũng có thể ăn nhện đỏ khi gặp.\nỞ nhà màng, nhiều nơi còn chủ động thả nhện ăn mồi để khống chế nhện đỏ theo hướng sinh học."
+        },
+        {
+          "q": "Làm sao để bảo tồn và thu hút thiên địch nhện đỏ trong ruộng nhỏ lẻ?",
+          "a": "• Hạn chế dùng thuốc sâu phổ rộng (pyrethroid, organophosphate, carbamate...) tràn lan; chỉ dùng khi thật cần.\n• Ưu tiên miticide/thuốc ít hại thiên địch hoặc chọn thời điểm phun sao cho ảnh hưởng thấp nhất.\n• Giảm bụi trong ruộng, vì bụi nhiều làm nhiều loại thiên địch hoạt động kém.\n• Có thể trồng xen một ít cây có hoa nhỏ (cúc, thì là, ngò rí...) quanh ruộng để cung cấp phấn/mật cho thiên địch (nếu không ảnh hưởng đến quy trình canh tác).\nBảo tồn thiên địch tốt sẽ làm nhện đỏ khó bùng phát mạnh và giảm nhu cầu phun thuốc."
+        },
+        {
+          "q": "Thuốc sâu phổ rộng (như pyrethroid) có kiểm soát nhện đỏ tốt không?",
+          "a": "• Một số thuốc sâu phổ rộng có thể giết được một phần nhện đỏ, nhưng thường giết thiên địch mạnh hơn nhện.\n• Sau khi phun, thiên địch chết nhiều, nhện đỏ ít bị kiểm soát tự nhiên → vài tuần sau thường thấy nhện bùng lên mạnh hơn.\n• Ở nhiều nơi, nhện đỏ còn đã kháng với một số hoạt chất phổ rộng, nên hiệu lực càng kém.\nVì vậy, pyrethroid thường chỉ nên dùng cho các mục tiêu khác và rất hạn chế, không phải là trụ cột trong quản lý nhện đỏ trên cà chua."
+        },
+        {
+          "q": "Khi nào cần dùng thuốc đặc trị nhện (miticide/acaricide)?",
+          "a": "• Khi đã áp dụng các biện pháp canh tác, rửa lá, tăng ẩm hợp lý nhưng mật số nhện vẫn tăng.\n• Khi thấy:\n  – Nhiều lá bạc/vàng đồng rõ trên 1/3–1/2 số cây trong một khu, và\n  – Lật mặt dưới lá thấy nhện đỏ dày, có tơ mỏng–dày.\n• Lúc đó nên chọn thuốc chuyên trị nhện (miticide) được đăng ký cho cà chua, pha đúng liều, phun kỹ mặt dưới lá.\n• Sau khi phun, vẫn cần tiếp tục theo dõi và kết hợp canh tác tốt, tránh phụ thuộc hoàn toàn vào thuốc."
+        },
+        {
+          "q": "Vì sao phải xoay nhóm IRAC/MOA khi phun thuốc trị nhện đỏ?",
+          "a": "• Nhện đỏ có vòng đời rất ngắn, mỗi năm có thể nhiều thế hệ → khả năng xuất hiện cá thể kháng thuốc rất cao.\n• Nếu liên tục xài một hoạt chất hoặc một nhóm IRAC (cùng cơ chế tác động) nhiều lần liền nhau, các cá thể nhện còn sống sẽ là những con \"quen thuốc\" → dần dần thuốc mất tác dụng.\n• Xoay nhóm IRAC nghĩa là:\n  – Không phun quá 1–2 lần liên tiếp cùng một nhóm.\n  – Trong cả vụ, giới hạn số lần dùng mỗi nhóm theo khuyến cáo (ví dụ 2–3 lần/vụ cho một MOA).\n• Kết hợp xoay MOA với liều đúng, phun đúng kỹ thuật và giữ mật số ở mức thấp bằng canh tác tốt.\nLàm vậy giúp giữ thuốc còn hiệu lực lâu hơn và tránh phải đổi sang thuốc đắt tiền hơn."
+        },
+        {
+          "q": "Những lỗi thường gặp khi phun thuốc trị nhện đỏ là gì?",
+          "a": "Một số lỗi phổ biến:\n• Pha loãng hơn khuyến cáo \"cho đỡ tốn\" → không đủ liều, nhện dễ kháng.\n• Phun không kỹ mặt dưới lá – nơi nhện trú chính.\n• Phun giữa trưa nắng nóng → lá bị cháy, thuốc bay hơi nhanh, hiệu lực kém.\n• Lặp đi lặp lại cùng một hoạt chất/cùng nhóm IRAC suốt vụ.\n• Dùng thuốc sâu phổ rộng không chuyên trị nhện, tưởng là \"trừ được tất\" nhưng thực tế chỉ làm bùng nhện.\nTránh được các lỗi này đã cải thiện rất nhiều hiệu quả phòng trừ nhện."
+        },
+        {
+          "q": "Dầu khoáng/xà phòng có vai trò gì trong quản lý nhện đỏ trên cà chua?",
+          "a": "• Dầu khoáng và xà phòng nông nghiệp (insecticidal soap) hoạt động chủ yếu bằng cách:\n  – Làm nghẹt lỗ thở, phá vỡ màng của nhện và trứng khi tiếp xúc trực tiếp.\n  – Hỗ trợ rửa trôi nhện, trứng và bụi bẩn khỏi bề mặt lá.\n• Lưu ý khi dùng:\n  – Phải phun ướt đều mặt dưới lá, nơi nhện tập trung.\n  – Tránh phun lúc nắng gắt/nhiệt độ quá cao để không cháy lá.\n  – Có thể phải lặp lại vài lần cách nhau 3–5 ngày trong ổ dịch nhỏ.\nDầu khoáng/xà phòng phù hợp cho nông hộ nhỏ lẻ, ổ dịch nhẹ–trung bình, hoặc dùng xen giữa các lần dùng miticide mạnh để giảm áp lực kháng."
+        },
+        {
+          "q": "Các chế phẩm nấm ký sinh (Beauveria, Metarhizium) dùng cho nhện đỏ như thế nào?",
+          "a": "• Đây là các nấm ký sinh côn trùng/nhện, khi bào tử bám lên cơ thể nhện sẽ nảy mầm, xuyên vỏ, giết nhện sau vài ngày.\n• Hiệu quả phụ thuộc nhiều vào:\n  – Ẩm độ không khí (thường cần ẩm cao hơn).\n  – Nhiệt độ phù hợp với loài nấm.\n  – Cách bảo quản và pha/bón đúng hướng dẫn.\n• Tác dụng thường chậm hơn thuốc hóa học nhưng an toàn hơn cho thiên địch.\nTrong IPM, có thể dùng nấm ký sinh để hỗ trợ, nhất là trong nhà màng có thể giữ ẩm tốt, nhưng vẫn cần kết hợp canh tác và các biện pháp khác."
+        },
+        {
+          "q": "Trồng xen hoặc bố trí ruộng khác đi có giúp giảm nhện đỏ không?",
+          "a": "• Một số nghiên cứu cho thấy trồng xen cà chua với hành, hẹ, ngò rí hoặc một số cây gia vị khác có thể làm giảm mật số nhện đỏ do thay đổi vi khí hậu và gây nhiễu mùi thu hút.\n• Tuy nhiên, hiệu quả còn phụ thuộc giống, mật độ, khí hậu từng vùng và phải bố trí sao cho không cản trở chăm sóc, thu hoạch.\n• Dù không phải “thuốc thần”, trồng xen hợp lý kết hợp với vệ sinh cỏ dại và tưới/ẩm tốt có thể là một mảnh ghép thú vị trong IPM nhện đỏ.\nNếu diện tích nhỏ, bạn có thể thử trên một phần ruộng để tự so sánh trước khi áp dụng rộng."
+        },
+        {
+          "q": "Quản lý nhện đỏ trong nhà màng/nhà lưới khác gì ngoài đồng ruộng?",
+          "a": "• Trong nhà màng:\n  – Khô nóng, thiếu gió dễ bùng nhện mạnh hơn ngoài trời.\n  – Ít thiên địch tự nhiên bay vào, nên nhện đỏ dễ \"làm chủ\" hệ sinh thái.\n• Bù lại, nhà màng cho phép:\n  – Tăng/điều chỉnh ẩm độ không khí ở mức vừa phải để nhện phát triển chậm hơn.\n  – Thả nhện ăn mồi (Phytoseiulus, Neoseiulus...) có kiểm soát.\n  – Hạn chế mưa rửa trôi thuốc sinh học.\nQuản lý tốt nhện đỏ trong nhà màng thường dựa vào: giống khỏe + tưới/ẩm hợp lý + bảo tồn/thả thiên địch + dùng dầu/xà phòng/miticide chọn lọc khi vượt ngưỡng."
+        },
+        {
+          "q": "Nếu điều kiện và ngân sách hạn chế, nông hộ nhỏ lẻ nên ưu tiên những bước nào khi bị nhện đỏ?",
+          "a": "Có thể ưu tiên theo thứ tự:\n1) Tưới nước đều, tránh cây khô hạn; giảm bụi đường, vệ sinh cỏ dại quanh ruộng.\n2) Thường xuyên kiểm tra mặt dưới lá, phát hiện sớm.\n3) Khi mới chớm: rửa lá buổi sáng + dùng dầu khoáng/xà phòng nông nghiệp đúng liều, phun kỹ mặt dưới lá.\n4) Chỉ khi ổ dịch nặng, diện tích lớn mới tính đến miticide chuyên dùng, cố gắng xoay ít nhất 2 nhóm IRAC khác nhau.\n5) Hạn chế tối đa thuốc sâu phổ rộng dễ giết thiên địch.\nLàm tốt vài bước này thường đã giúp giữ nhện đỏ ở mức chấp nhận được mà không phải chi quá nhiều tiền thuốc."
+        }
+      ],
+      "refs": [
+        "IRAC MoA brochure (2025)",
+        "UC IPM – Spider mites (cảnh báo pyrethroid)"
+      ]
+    },
+    {
+      "disease_id": "tomato_tylcv",
+      "labels": [
+        "Tomato__Tomato_YellowLeaf__Curl_Virus",
+        "TYLCV"
+      ],
+      "name_vi": "Virus xoăn vàng lá (TYLCV)",
+      "category": "virus (bọ phấn truyền)",
+      "pathogen": "Tomato yellow leaf curl virus (Begomovirus)",
+      "symptoms_core": [
+        "Lá nhỏ, quăn và vàng mép; cây lùn, rụng hoa",
+        "Nhiễm sớm → giảm năng suất nặng"
+      ],
+      "look_alikes": [
+        "Thiếu vi lượng",
+        "Khảm khác"
+      ],
+      "favorable_conditions": [
+        "Mùa bọ phấn cao điểm; vùng lưu hành TYLCV"
+      ],
+      "diagnostic_tips": [
+        "Quan sát bọ phấn Bemisia; test nhanh nếu có điều kiện"
+      ],
+      "immediate_actions": [
+        "Nhổ bỏ sớm cây nghi nhiễm (bọc nilon khi nhổ); quản lý cỏ dại/ký chủ",
+        "Che phủ phản quang ở đầu vụ để xua bọ"
+      ],
+      "cultural_management": [
+        "Giống kháng/chịu TYLCV (nếu có); ngắt vụ 6–8 tuần; phá vụ nhanh sau thu hoạch",
+        "Vệ sinh nhà ươm; chắn côn trùng khi ươm"
+      ],
+      "spray_programs": {
+        "preventive": [
+          {
+            "stage": "vườn ươm/đầu vụ",
+            "rotation": [
+              {
+                "ai": "imidacloprid/thiamethoxam/dinotefuran",
+                "IRAC": "4A",
+                "notes": "xử lý đất/drench duy nhất theo nhãn"
+              },
+              {
+                "ai": "cyantraniliprole",
+                "IRAC": "28",
+                "notes": "dạng tưới lá/đất theo nhãn"
+              }
+            ],
+            "interval_days": "theo nhãn"
+          }
+        ],
+        "curative": [
+          {
+            "stage": "sau khi hiệu lực xử lý đất suy giảm",
+            "rotation": [
+              {
+                "ai": "cyantraniliprole",
+                "IRAC": "28"
+              },
+              {
+                "ai": "buprofezin",
+                "IRAC": "16"
+              },
+              {
+                "ai": "pyriproxyfen",
+                "IRAC": "7C"
+              },
+              {
+                "ai": "spiromesifen/spirotetramat",
+                "IRAC": "23"
+              }
+            ],
+            "interval_days": "theo nhãn; hạn chế pyrethroid cuối vụ chỉ để hạ bầy trưởng thành di trú"
+          }
+        ]
+      },
+      "organic_options": [
+        {
+          "ai": "dầu khoáng/xà phòng"
+        },
+        {
+          "ai": "màng phủ phản quang",
+          "notes": "giảm đáp bám bọ phấn đầu vụ"
+        }
+      ],
+      "nutrition_notes": [
+        "Giữ cây sinh trưởng khỏe để đỡ mất năng suất khi nhiễm muộn"
+      ],
+      "product_slots": [
+        {
+          "ai": "cyantraniliprole (IRAC 28)",
+          "buy_link": "https://nongnghiepavn.com/hoat-chat-cyantraniliprole-trong-phong-tru-sau-hai/"
+        },
+        {
+          "ai": "buprofezin (IRAC 16)",
+          "buy_link": "https://ducthanhagri.com/buprofezin-hoat-chat-tru-ray-an-toan-cham-ma-chac/"
+        },
+        {
+          "ai": "pyriproxyfen (IRAC 7C)",
+          "buy_link": "https://www.pomais.com/vi/product/pyriproxyfen-insecticide/"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Virus xoăn vàng lá cà chua (Tomato yellow leaf curl virus – TYLCV) là bệnh gì?",
+          "a": "TYLCV là một bệnh virus thuộc nhóm Begomovirus, lây chủ yếu qua bọ phấn trắng (Bemisia tabaci).\n• Cây bị nhiễm thường: lá nhỏ lại, vàng mép, xoăn lên trên, chùm ngọn quăn queo, cây lùn hẳn.\n• Bệnh không chỉ có ở vùng nhiệt đới mà còn xuất hiện ở nhiều nước ôn đới, gây thiệt hại rất lớn cho sản xuất cà chua.\nĐiểm quan trọng: virus không có thuốc đặc trị, quản lý chủ yếu bằng giống kháng + quản lý bọ phấn + vệ sinh đồng ruộng."
+        },
+        {
+          "q": "Triệu chứng điển hình của TYLCV trên lá và cây cà chua là gì?",
+          "a": "Một số dấu hiệu dễ nhận biết:\n• Lá non nhỏ lại, dày hơn, mép lá vàng rồi cuốn ngược lên trên (leaf curl).\n• Vàng chủ yếu ở mép và giữa gân (vàng liên gân), gân chính vẫn còn xanh.\n• Tán cây teo nhỏ, đọt chụm lại như \"chổi phù thủy\", cây lùn rõ, ít phân cành.\n• Hoa dễ rụng, trái ít, nếu trái có cũng nhỏ và chín không đều.\nNếu cây nhiễm sớm (khi còn nhỏ) thường gần như không cho thu hoạch."
+        },
+        {
+          "q": "Nhiễm TYLCV sớm khác gì so với nhiễm muộn trong vụ?",
+          "a": "• Nhiễm sớm (khi cây 2–4 tầng lá hoặc mới ra hoa):\n  – Cây lùn rõ, ít hoa, ít đậu trái.\n  – Nhiều trường hợp gần như mất trắng năng suất ở cây đó.\n• Nhiễm muộn (khi cây đã mang nhiều chùm trái):\n  – Cây vẫn giữ được một phần trái đã hình thành trước khi nhiễm.\n  – Đợt lứa trái sau sẽ ít hơn, cây già nhanh và kết thúc vụ sớm.\nVì vậy, chiến lược chính là bảo vệ giai đoạn cây con – đầu vụ, hạn chế nhiễm sớm."
+        },
+        {
+          "q": "Làm sao phân biệt TYLCV với thiếu dinh dưỡng hay khảm khác trên cà chua?",
+          "a": "• TYLCV:\n  – Lá nhỏ lại, dày, vàng mép, xoăn lên trên, cả cây lùn và ngọn chụm.\n  – Vàng lá thường kèm biến dạng (leaf curl), hoa rụng nhiều.\n• Thiếu dinh dưỡng (Fe, Mg, N…):\n  – Lá vàng nhưng ít bị xoăn, gân lá vẫn bình thường, cây không lùn đột ngột như virus.\n• Virus khảm khác (ToMV/TMV…):\n  – Thường tạo vân khảm xanh–vàng trên lá, dạng \"lá dương xỉ\", lá méo nhưng không xoăn cuốn mạnh kiểu TYLCV.\nNếu nghi ngờ, nên nhìn tổng thể: cây lùn chung, ngọn chụm, vàng–xoăn lá + có bọ phấn trắng thì rất đáng nghi TYLCV."
+        },
+        {
+          "q": "TYLCV lây bằng con đường nào? Có lây từ cây sang cây khi chạm nhau không?",
+          "a": "• Con đường chính: bọ phấn trắng Bemisia tabaci chích hút nhựa cây nhiễm rồi bay sang cây khỏe, truyền virus.\n• Virus đi theo đường miệng–ruột–huyết dịch của bọ phấn (truyền bền vững, lưu hành trong cơ thể), bọ nhiễm rồi có thể truyền cả đời.\n• TYLCV không lây qua không khí như bệnh nấm; chạm lá vào nhau mà không có bọ phấn thì nguy cơ rất thấp.\n• Lây cơ giới (qua tay/dụng cụ) không phải đường chính như ToMV/TMV, nhưng vẫn nên giữ vệ sinh khi thao tác.\nNói ngắn gọn: không có bọ phấn thì gần như không có TYLCV bùng dịch."
+        },
+        {
+          "q": "Bọ phấn trắng (bọ phấn) trông như thế nào và hay trú ở đâu trên cây?",
+          "a": "• Côn trùng rất nhỏ, màu trắng, giống con rệp có cánh, hay bay tung lên thành từng đám khi chạm vào cây.\n• Thường bám mặt dưới lá non, nơi mát và nhiều nhựa.\n• Trứng và ấu trùng (dạng vảy nhỏ dính) bám chặt trên lá, khó thấy bằng mắt thường.\nNếu lắc nhẹ cành cà chua mà thấy \"bụi trắng\" bay lên, đó thường là bọ phấn – vector chính của TYLCV."
+        },
+        {
+          "q": "Một con bọ phấn bị nhiễm TYLCV rồi có truyền virus suốt đời không?",
+          "a": "• Có. TYLCV là virus truyền theo kiểu bền vững–tuần hoàn trong cơ thể bọ phấn.\n• Bọ phấn chỉ cần hút nhựa cây bệnh một thời gian ngắn (từ vài chục phút đến vài giờ) là có thể mang virus.\n• Sau một thời gian ủ trong cơ thể, nó có thể truyền virus suốt đời cho nhiều cây khác nhau.\nVì vậy, chỉ cần để bọ phấn tồn tại với mật số cao vài ngày là đủ tạo ra nhiều cây nhiễm mới."
+        },
+        {
+          "q": "TYLCV có lây qua hạt giống cà chua không?",
+          "a": "• Nhiều tài liệu khuyến nông truyền thống coi TYLCV chủ yếu lây qua bọ phấn, không phải bệnh hạt giống, nên nguồn chính vẫn là bọ phấn + cây nhiễm sẵn.\n• Một số nghiên cứu gần đây phát hiện TYLCV có thể hiện diện trong hạt (seedborne), nhưng đa số thử nghiệm cho thấy không hoặc hầu như không lây sang cây con trong điều kiện sản xuất bình thường.\n• Với thực tế nông hộ, nên hiểu đơn giản: nguồn lây quan trọng nhất vẫn là bọ phấn và cây/ký chủ bị nhiễm quanh vườn; chọn giống/hạt từ nguồn uy tín là đủ an toàn.\nTóm lại: đừng quá lo hạt, hãy tập trung quản lý bọ phấn và vệ sinh đồng ruộng."
+        },
+        {
+          "q": "Ngoài cà chua, TYLCV còn ký chủ trên cây nào khác không?",
+          "a": "• TYLCV có thể nhiễm trên một số cây họ Cà khác như ớt, cà tím, khoai tây, thuốc lá… và cả một số cây họ Đậu, cỏ dại, hoa cảnh.\n• Trong thực tế, các cây dại như dã cà, jimsonweed, một số loài cỏ hoa… có thể là \"ổ chứa\" virus quanh ruộng cà chua.\n• Pepper/ớt, đậu hoặc cây cảnh gần ruộng cũng có thể tham gia vào vòng lây bệnh nếu bị bọ phấn hút và mang virus.\nVì vậy, dọn cỏ dại và không để quá nhiều cây ký chủ khác mọc sát ruộng cà chua là rất quan trọng."
+        },
+        {
+          "q": "TYLCV ảnh hưởng đến năng suất và chất lượng trái cà chua như thế nào?",
+          "a": "• Nhiễm sớm: cây lùn, ít hoa, gần như không cho trái → có thể mất tới 80–100% năng suất ở cây đó.\n• Nhiễm muộn: giảm số lứa trái về sau, trái nhỏ hơn, lứa thu hoạch ngắn lại.\n• Cây yếu dễ bị thêm các sâu bệnh khác (bọ phấn, rầy, nhện, bệnh nấm…) làm tình hình càng nặng.\nNhiều vùng trồng cà chua trên thế giới coi TYLCV là một trong những bệnh gây thất thu nặng nhất nếu không quản lý tốt."
+        },
+        {
+          "q": "Khi mới thấy vài cây bị xoăn vàng lá nghi TYLCV thì nên làm gì?",
+          "a": "• Đánh dấu và theo dõi: nếu đúng triệu chứng điển hình (lá nhỏ, xoăn, vàng mép, cây lùn) và có nhiều bọ phấn thì nên xử lý sớm.\n• Ở giai đoạn cây còn nhỏ và tỷ lệ cây bệnh thấp: nên nhổ bỏ cả cây bệnh (bọc trong túi nilon) rồi mang ra khỏi ruộng để tiêu hủy.\n• Ngay sau đó, cần tập trung hạ nhanh mật số bọ phấn trên cả ruộng (dùng bẫy vàng, lưới, thuốc trừ bọ phấn theo khuyến cáo...).\nChần chừ vài ngày để \"xem thêm\" thường đủ thời gian cho bọ phấn lan virus sang rất nhiều cây khác."
+        },
+        {
+          "q": "Có thuốc hoặc phân bón lá nào ‘trị’ được virus TYLCV trên cây đã nhiễm không?",
+          "a": "• Không có thuốc BVTV nào tiêu diệt được virus trong cây đã nhiễm.\n• Một số phân bón lá/kích kháng có thể giúp cây đỡ suy hơn, giữ lá xanh lâu hơn, nhưng không làm hết virus.\n• Phun quá nhiều sản phẩm \"tăng đề kháng\" với hy vọng chữa khỏi thường tốn tiền mà không cải thiện được năng suất.\nChiến lược đúng là: ngừa nhiễm sớm (giống kháng + quản lý bọ phấn), xử lý sớm cây nhiễm nặng, giữ cây khỏe để giảm mất mát khi nhiễm muộn."
+        },
+        {
+          "q": "Giống cà chua kháng/chịu TYLCV có vai trò gì và cần lưu ý gì khi chọn giống?",
+          "a": "• Nhiều giống hiện nay mang các gen Ty (Ty-1, Ty-2, Ty-3, Ty-4, Ty-5, Ty-6…), giúp cây ít biểu hiện triệu chứng nặng hoặc vẫn đậu trái tốt hơn khi bị nhiễm.\n• Tuy nhiên, không có kháng tuyệt đối: nếu bọ phấn rất nhiều và áp lực virus cao, cây vẫn có thể nhiễm và giảm năng suất.\n• Cần đọc kỹ mô tả giống (ký hiệu TY/TYLCV/Ty-1, Ty-3…) và hỏi thêm đại lý/cán bộ kỹ thuật về kinh nghiệm thực tế tại vùng của bạn.\n• Dù dùng giống kháng, vẫn phải quản lý bọ phấn, vệ sinh vườn và bố trí mùa vụ hợp lý."
+        },
+        {
+          "q": "Những biện pháp không dùng thuốc nào giúp hạn chế TYLCV và bọ phấn trắng?",
+          "a": "Một vài biện pháp rất hữu ích:\n• Màng phủ phản quang (màu bạc): làm bọ phấn khó đáp xuống, giảm số bọ vào ruộng.\n• Lưới chắn côn trùng cho nhà lưới/nhà ươm, hạn chế bọ phấn bay vào.\n• Bẫy dính màu vàng để theo dõi và bắt bớt bọ trưởng thành.\n• Vệ sinh cỏ dại, cây ký chủ phụ trong và quanh ruộng.\n• Ngắt vụ (crop-free period) 6–8 tuần không trồng cây ký chủ ở khu vực để cắt vòng đời virus–bọ phấn.\nNhững biện pháp này đặc biệt hiệu quả khi kết hợp với giống kháng và dùng thuốc đúng cách."
+        },
+        {
+          "q": "Nguyên tắc dùng thuốc trừ bọ phấn để hạn chế TYLCV là gì?",
+          "a": "• Chỉ dùng thuốc đã đăng ký cho cà chua/bọ phấn và tuân thủ liều, thời gian cách ly.\n• Đầu vụ/vườn ươm: ở một số nơi áp dụng xử lý gốc/đất bằng nhóm IRAC 4A hoặc 28 theo nhãn, sau đó chuyển sang phun lá xoay vòng các nhóm khác (16, 23, 7C…).\n• Khi phun: tập trung mặt dưới lá – nơi bọ và ấu trùng bám nhiều nhất.\n• Không phun đi phun lại một nhóm MOA (IRAC) suốt vụ; mỗi nhóm chỉ nên dùng vài lần/vụ và không quá 1–2 lần liên tiếp.\n• Hạn chế dùng pyrethroid phổ rộng vì dễ diệt thiên địch và có thể làm bùng bọ phấn về sau.\nQuan trọng: thuốc chỉ giúp hạ bớt bọ phấn, chứ không chữa virus trong cây."
+        },
+        {
+          "q": "Có nên phun thuốc sâu ‘mạnh’ phòng TYLCV liên tục từ đầu đến cuối vụ không?",
+          "a": "• Không nên.\n• Phun liên tục, không xoay nhóm dễ làm bọ phấn kháng thuốc, về sau càng khó trị.\n• Dư lượng thuốc trên trái có thể vượt ngưỡng, ảnh hưởng an toàn thực phẩm.\n• Chi phí thuốc đội lên rất cao mà vẫn không đảm bảo tránh được TYLCV nếu giống không kháng và biện pháp canh tác kém.\nCách tốt hơn là: kết hợp giống kháng + màng phủ + lưới/bẫy + ngắt vụ + dùng thuốc hợp lý khi mật số bọ phấn vượt ngưỡng."
+        },
+        {
+          "q": "Giai đoạn nào cây cà chua nhạy cảm với TYLCV nhất?",
+          "a": "• Nhạy cảm nhất là từ giai đoạn cây con đến trước–sau ra hoa.\n• Nhiễm ở giai đoạn này thường gây lùn cây nặng, rụng hoa, gần như mất lứa trái đầu.\n• Về sau, khi cây đã mang nhiều chùm trái, nhiễm vẫn gây hại nhưng mức độ mất năng suất thường thấp hơn so với nhiễm rất sớm.\nDo đó, bảo vệ tốt vườn ươm và 3–4 tuần đầu sau trồng là ưu tiên hàng đầu."
+        },
+        {
+          "q": "Nhà lưới/nhà màng cần lưu ý gì riêng để tránh TYLCV?",
+          "a": "• Dùng lưới chắn côn trùng (mắt nhỏ) ở cửa, mái, lỗ thông gió; nếu được thì làm cửa 2 lớp (air-lock) hạn chế bọ bay vào.\n• Không đưa cây giống từ ngoài vào nếu không rõ tình trạng bọ phấn/virus.\n• Dùng bẫy vàng dính để giám sát bọ phấn trong nhà.\n• Vệ sinh nhà ươm/nhà màng giữa các vụ (dọn bỏ cây cũ, khử trùng khay, giá thể nếu có thể).\n• Quản lý cỏ dại, cây ký chủ phụ xung quanh nhà lưới.\nTrong nhà lưới, nếu bọ phấn đã vào và TYLCV xuất hiện, bệnh thường rất khó kiểm soát do không có thiên địch tự nhiên."
+        },
+        {
+          "q": "Cỏ dại và cây tình nguyện (mọc lại) quanh vườn có vai trò gì trong TYLCV?",
+          "a": "• Nhiều cỏ dại và cây tình nguyện (cà chua mọc lại từ quả rơi, dã cà…) có thể nhiễm TYLCV mà không được chú ý.\n• Bọ phấn hút nhựa những cây này rồi bay sang ruộng cà chua mới, mang theo virus.\n• Nếu sau vụ cà chua không dọn sạch và để cây mọc lại, đó trở thành \"nhà trọ\" cho virus giữa hai vụ.\nVì vậy, cần:\n• Nhổ bỏ cây tình nguyện, dọn cỏ dại họ Cà quanh ruộng.\n• Không để cà chua/ớt/tobacco già bệnh đứng sát ruộng mới trồng."
+        },
+        {
+          "q": "Trồng cà chua ít cây trên sân/thùng xốp thì phòng TYLCV như thế nào?",
+          "a": "• Ưu tiên chọn giống có ghi kháng/chịu TYLCV.\n• Đặt chậu/thùng cách xa ruộng rau, ớt, cà… đang bị nhiều bọ phấn.\n• Có thể dùng lưới mùng mịn phủ khung che quanh vài chậu, mở ra chăm sóc khi cần.\n• Treo bẫy vàng dính xung quanh để bắt bớt bọ phấn trưởng thành.\n• Nếu thấy nhiều bọ phấn, có thể dùng dầu khoáng/xà phòng nông nghiệp hoặc thuốc trừ bọ phấn phù hợp, phun kỹ mặt dưới lá và tuân thủ thời gian cách ly.\nDiện tích nhỏ nên kết hợp kỹ che chắn + giống kháng là đã giảm rủi ro rất nhiều."
+        },
+        {
+          "q": "Có nên giữ lại trái/cây bị TYLCV để làm giống không?",
+          "a": "• Không nên tự giữ giống từ ruộng đang có TYLCV nặng, nhất là nếu không kiểm soát được nguồn bọ phấn và cây ký chủ phụ.\n• Dù nguy cơ lây qua hạt trong sản xuất thực tế được xem là thấp, nhưng cây mẹ bệnh cũng thường cho trái nhỏ, kém chất lượng, không đáng để làm giống lâu dài.\n• Tốt nhất là mua hạt/giống đã được chọn lọc kháng/chịu TYLCV từ nhà cung cấp uy tín.\nNhư vậy vừa an toàn vừa tiết kiệm thời gian so với tự giữ giống từ ruộng bệnh."
+        },
+        {
+          "q": "Nếu nguồn lực hạn chế, nông hộ nhỏ lẻ nên ưu tiên những bước nào để kìm TYLCV?",
+          "a": "Có thể ưu tiên theo thứ tự:\n1) Giống: chọn giống có kháng/chịu TYLCV, không tự giữ giống từ ruộng bệnh nặng.\n2) Vệ sinh và bố trí vụ: dọn bỏ cây già, cây tình nguyện, cỏ dại; tránh trồng cà chua mới sát ruộng cà/ớt/tobacco đang bệnh; cố gắng ngắt vụ 6–8 tuần.\n3) Canh tác: dùng màng phủ (nếu có), trồng thoáng, chăm sóc đều nước – dinh dưỡng để cây khỏe.\n4) Quản lý bọ phấn: bẫy vàng, dầu khoáng/xà phòng; chỉ dùng thuốc trừ bọ phấn khi mật số cao và nhớ xoay nhóm MOA.\n5) Xử lý sớm cây bệnh: nhổ bỏ cây nhiễm sớm và nặng, không cố giữ những cây gần như không cho năng suất.\nLàm tốt vài điểm này thường đã giảm mạnh thiệt hại do TYLCV so với chỉ trông chờ vào phun thuốc."
+        }
+      ],
+      "refs": [
+        "UF/IFAS ENY-735 IN695",
+        "UF IPM whitefly templates"
+      ]
+    },
+    {
+      "disease_id": "tomato_mosaic_virus",
+      "labels": [
+        "Tomato__Tomato_mosaic_virus",
+        "ToMV/TMV",
+        "mosaic"
+      ],
+      "name_vi": "Virus khảm cà chua (ToMV/TMV)",
+      "category": "virus (lây tiếp xúc)",
+      "pathogen": "Tomato mosaic virus / Tobacco mosaic virus",
+      "symptoms_core": [
+        "Lá khảm xanh-vàng, dạng ‘fernleaf’, còi cọc",
+        "Lây mạnh qua tay/dụng cụ/thuốc lá"
+      ],
+      "look_alikes": [
+        "Thiếu dinh dưỡng vi lượng",
+        "Herbicide drift nhẹ"
+      ],
+      "favorable_conditions": [
+        "Vệ sinh kém trong nhà ươm/nhà lưới"
+      ],
+      "diagnostic_tips": [
+        "Test nhanh (dipstick) nếu có; xem lịch sử thao tác trong vườn"
+      ],
+      "immediate_actions": [
+        "Rửa tay xà phòng; khử trùng dụng cụ bằng trisodium phosphate (TSP) 10% theo hướng dẫn",
+        "Loại bỏ cây bệnh; không dùng lại khay/tray nhiễm"
+      ],
+      "cultural_management": [
+        "Hạt/giống sạch bệnh; xử lý hạt bằng nhiệt hoặc TSP theo khuyến cáo",
+        "Ưu tiên giống mang gen Tm-2² (nếu có)"
+      ],
+      "spray_programs": {},
+      "organic_options": [
+        {
+          "ai": "TSP/khử trùng",
+          "notes": "không phải thuốc BVTV; là vệ sinh sinh học"
+        }
+      ],
+      "nutrition_notes": [
+        "Không có thuốc đặc trị; tập trung vệ sinh + giống"
+      ],
+      "product_slots": [
+        {
+          "ai": "trisodium phosphate (TSP) 10%",
+          "buy_link": "https://hacochem.com.vn/san-pham/trisodium-phosphate-tsp-na3po4-12h2o-98-trung-quoc-25kg-bao/"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Virus khảm cà chua (Tomato mosaic virus / Tobacco mosaic virus – ToMV/TMV) là bệnh gì?",
+          "a": "Virus khảm cà chua thuộc nhóm Tobamovirus, gây ra các triệu chứng khảm xanh–vàng, lá biến dạng, cây còi cọc và giảm năng suất.\n• ToMV và TMV rất gần nhau, đều có thể gây triệu chứng trên cà chua.\n• Đặc điểm nổi bật là lây chủ yếu qua tiếp xúc cơ giới (tay, dụng cụ, nhựa cây, giá thể bẩn…), không phụ thuộc côn trùng môi giới như TYLCV.\n• Virus cực kỳ bền, tồn tại lâu trong hạt, tàn dư, đất, dụng cụ và bề mặt nhà kính.\nĐiểm quan trọng: không có thuốc BVTV “trị” được virus; quản lý dựa vào giống sạch/kháng + vệ sinh nghiêm ngặt."
+        },
+        {
+          "q": "Triệu chứng điển hình của virus khảm cà chua trên lá là gì?",
+          "a": "Một số dấu hiệu thường gặp:\n• Lá có vân khảm xanh–vàng không đều, nhìn như loang lổ hoặc lốm đốm.\n• Gân lá có thể vẫn xanh, vùng giữa gân vàng → lá như có hoa văn loang.\n• Lá biến dạng, xoăn nhẹ, hẹp lại hoặc có dạng \"lá dương xỉ\" (fernleaf).\n• Lá non thường bị nặng hơn, mép lá gợn sóng, xoắn.\nMức độ biểu hiện tùy giống và dòng virus, nhưng khảm + méo lá là gợi ý quan trọng."
+        },
+        {
+          "q": "Trên toàn cây, virus khảm làm cây cà chua trông như thế nào?",
+          "a": "• Cây thường thấp hơn cây khỏe cùng tuổi, cành nhánh ngắn, tán lưa thưa.\n• Đọt non quăn, lá nhỏ và dày hơn bình thường.\n• Có thể thấy các đoạn thân hơi đen/xanh đậm, lồi lõm nhẹ.\n• Cả cây nhìn không đồng đều: chỗ xanh đậm, chỗ vàng nhạt, chỗ lá biến dạng.\nTriệu chứng có thể nhẹ hoặc nặng tùy giống, điều kiện trồng và thời điểm nhiễm."
+        },
+        {
+          "q": "Virus khảm cà chua gây triệu chứng gì trên trái?",
+          "a": "• Trái có thể bị sọc hoặc đốm xanh đậm–nhạt không đều khi chưa chín.\n• Khi chín, bề mặt trái có thể có vệt/vân màu không đều, chỗ đậm chỗ nhạt.\n• Một số trường hợp bề mặt trái hơi gồ ghề, lõm nhẹ, vỏ dày hơn.\n• Nặng có thể làm trái nhỏ, méo, ít hạt.\nKhông phải ruộng nào cũng thấy rõ trên trái, nhưng virus thường gây giảm số lượng và chất lượng trái."
+        },
+        {
+          "q": "Làm sao phân biệt virus khảm cà chua với thiếu dinh dưỡng hoặc khảm khác (TYLCV, CMV…)?",
+          "a": "• Virus khảm ToMV/TMV:\n  – Vân khảm xanh–vàng trên lá, lá méo, có thể dạng “lá dương xỉ”.\n  – Cây không nhất thiết lùn nhiều như TYLCV, nhưng tán xấu, trái ít.\n• TYLCV (xoăn vàng lá):\n  – Lá nhỏ, dày, vàng mép rõ, xoăn cuốn lên, cây lùn mạnh, ngọn chụm.\n  – Liên quan mật thiết tới bọ phấn trắng.\n• Thiếu dinh dưỡng (Fe, Mg, N…):\n  – Vàng theo gân, vùng lớn, ít khảm đốm nhỏ; lá ít bị méo.\n• Các virus khác (CMV…):\n  – Có thể cũng gây khảm, nhưng mẫu khảm, dạng méo lá/héo khác nhau; chỉ xét nghiệm labo mới chắc chắn.\nNếu nghi khảm, nên xem tổng thể cây, lịch sử ruộng và (nếu quan trọng) gửi mẫu xét nghiệm."
+        },
+        {
+          "q": "Virus khảm cà chua lây lan bằng những con đường nào là chính?",
+          "a": "• Tiếp xúc cơ giới:\n  – Tay người chạm cây bệnh rồi chạm cây khỏe.\n  – Dụng cụ cắt tỉa, dây buộc, cọc, dây treo, khay ươm, bao tay, quần áo dính nhựa cây bệnh.\n• Tàn dư cây bệnh, đất/giá thể bị nhiễm: virus tồn tại trong tàn dư, đất, bụi → bám lên tay/dụng cụ.\n• Hạt giống nhiễm virus hoặc bị nhiễm bề mặt.\n• Một số sản phẩm thuốc lá (thuốc lá, thuốc lào, xì gà) chứa TMV; tay người hút thuốc có thể mang virus lên cây.\nVirus không cần côn trùng môi giới chuyên biệt để lây."
+        },
+        {
+          "q": "Virus khảm có lây qua hạt giống không, và mức độ đáng lo tới đâu?",
+          "a": "• ToMV/TMV có thể hiện diện trên/Trong hạt cà chua, đặc biệt nếu lấy hạt từ quả cây bệnh.\n• Hạt giống thương mại thường được kiểm soát và/hoặc xử lý để giảm nguy cơ (nhiệt, hóa chất như TSP…).\n• Trên thực tế, nguồn hạt tự giữ từ ruộng bệnh là rủi ro lớn; hạt từ nhà cung cấp uy tín an toàn hơn rất nhiều.\nDo đó, lời khuyên là không tự giữ giống từ ruộng đang có khảm nặng, mà dùng hạt sạch/bản quyền có ghi rõ tình trạng virus."
+        },
+        {
+          "q": "Virus khảm có lây qua côn trùng chích hút (rầy, bọ phấn…) giống TYLCV không?",
+          "a": "• Không. ToMV/TMV là virus lây chủ yếu qua tiếp xúc cơ giới (sap-transmitted), không phải loại phụ thuộc côn trùng môi giới như TYLCV, TSWV…\n• Côn trùng có thể góp phần cơ giới (ví dụ cơ thể dính nhựa cây rồi bò sang cây khác), nhưng không phải vector chuyên nghiệp như bọ phấn đối với TYLCV.\nVì vậy, quản lý virus khảm tập trung vào vệ sinh và giống sạch hơn là xịt thuốc sâu để “cắt vector”."
+        },
+        {
+          "q": "Virus khảm cà chua sống dai tới mức nào trong môi trường?",
+          "a": "• Tobamovirus cực kỳ bền vững:\n  – Tồn tại trong tàn dư khô, đất, bụi, giá thể, bề mặt nhà kính, dây buộc… trong thời gian dài (nhiều tháng tới vài năm).\n  – Chịu được khô, chịu được nhiều điều kiện khắc nghiệt mà vẫn còn khả năng lây.\n• Vì vậy, chỉ nhổ vài cây bệnh nhưng không vệ sinh kỹ tàn dư, dụng cụ thì virus vẫn “ở đó”, chờ lứa sau.\nĐây là lý do tại sao khâu vệ sinh – khử trùng trong nhà lưới rất được nhấn mạnh với virus khảm."
+        },
+        {
+          "q": "Virus khảm cà chua ảnh hưởng năng suất và chất lượng như thế nào?",
+          "a": "• Cây nhiễm sớm: sinh trưởng kém, ít hoa, ít trái, trái nhỏ → giảm năng suất mạnh.\n• Lá khảm, biến dạng → quang hợp kém, trái chín không đều, màu xấu.\n• Vụ sau phải tăng chi phí vệ sinh, giống, đôi khi phải bỏ cả lứa cây trong nhà kính nếu nhiễm nặng.\nỞ quy mô lớn, thiệt hại không chỉ là năng suất mà còn là chi phí khử trùng, thay giá thể, mất thời gian trống vụ."
+        },
+        {
+          "q": "Khi ruộng/nhà màng mới thấy vài cây nghi nhiễm virus khảm thì nên xử lý thế nào?",
+          "a": "• Đánh dấu cây nghi nhiễm, so sánh với cây khỏe; nếu triệu chứng điển hình và ruộng từng có tiền sử khảm, nên xử lý sớm.\n• Nhổ bỏ nguyên cây (bao cả rễ) – tốt nhất bọc vào túi nilon trước khi nhổ để tránh văng nhựa.\n• Mang cây bệnh ra khỏi khu trồng để tiêu hủy, không bỏ vào rãnh ngay cạnh luống.\n• Rửa tay, khử trùng dụng cụ, giày dép trước khi quay lại chăm sóc cây khác.\nMục tiêu là giảm tối đa lượng virus và tránh mang nhựa cây bệnh đi khắp vườn."
+        },
+        {
+          "q": "Có thuốc BVTV hoặc phân bón lá nào ‘trị’ được virus khảm cà chua không?",
+          "a": "Không.\n• Không có thuốc hóa học nào tiêu diệt virus bên trong cây đã nhiễm.\n• Các loại phân bón lá, kích kháng, vitamin… có thể giúp cây đỡ suy hơn, nhưng không \"xóa\" virus.\n• Phun thuốc trừ nấm, vi khuẩn, sâu… không làm giảm virus, nếu lạm dụng còn gây tốn kém, cháy lá và hại thiên địch.\nChiến lược đúng là: giống sạch/kháng + vệ sinh + loại cây bệnh + luân canh, chứ không phải phun thuốc để “trị virus”."
+        },
+        {
+          "q": "Xử lý hạt giống bằng trisodium phosphate (TSP) 10% nghĩa là sao và làm thế nào cho an toàn?",
+          "a": "Khái niệm chung (tóm lược từ khuyến cáo kinh điển):\n• TSP 10% là dung dịch chứa khoảng 10% natri photphat ba (Na3PO4) dùng để rửa hạt, giúp loại virus bám ngoài vỏ hạt.\n• Nguyên tắc:\n  – Cân TSP theo tỉ lệ (ví dụ 100 g TSP + 900 ml nước sạch ≈ 10%).\n  – Ngâm hạt thời gian theo khuyến cáo (thường 15–30 phút tùy tài liệu), khuấy nhẹ vài lần.\n  – Rửa lại thật sạch bằng nước, sau đó hong khô hạt trước khi gieo.\n• Cần cẩn thận: nếu làm sai nồng độ/thời gian có thể ảnh hưởng sức nảy mầm.\nVới nông hộ nhỏ lẻ, an toàn nhất vẫn là mua hạt đã được xử lý/kiểm tra từ hãng uy tín; chỉ nên tự xử lý khi có hướng dẫn kỹ của cán bộ kỹ thuật."
+        },
+        {
+          "q": "TSP/khử trùng dùng ở đâu ngoài hạt giống trong quản lý virus khảm?",
+          "a": "• TSP hoặc các dung dịch khử trùng tương đương có thể dùng để:\n  – Ngâm/nhúng dụng cụ cắt tỉa, dây buộc tái sử dụng, khay ươm.\n  – Lau rửa bàn ươm, kệ, máng, tay nắm cửa trong nhà kính.\n• Ngoài TSP, nhiều nơi dùng:\n  – Dung dịch chlor (thuốc tẩy/bleach) ở nồng độ phù hợp.\n  – Các chế phẩm khử trùng chuyên cho nhà kính (theo nhãn).\nĐiểm quan trọng: phải tuân thủ nồng độ và thời gian tiếp xúc; khử trùng phải đi kèm rửa sạch đất, nhựa cây, mùn bám trước thì mới hiệu quả."
+        },
+        {
+          "q": "Trong nhà lưới/nhà kính, cần tổ chức vệ sinh thế nào để hạn chế virus khảm?",
+          "a": "Một vài nguyên tắc thực hành tốt:\n• Bố trí \"khu vệ sinh\" trước khi vào: thảm khử trùng giày, chậu rửa tay, chỗ thay/che giày.\n• Rửa tay bằng xà phòng hoặc dung dịch sát khuẩn trước khi vào nhà màng và giữa các khu trồng.\n• Dụng cụ cắt tỉa, dây buộc phải được rửa sạch và ngâm khử trùng định kỳ.\n• Hạn chế người ra vào; không để khách/nhân công từ ruộng khác, đặc biệt ruộng nghi bệnh, vào trực tiếp.\n• Dọn tàn dư, lá rụng, cây bệnh ra khỏi nhà kính mỗi ngày, không để ủ lại bên trong.\nNhà lưới có vệ sinh tốt sẽ khác hẳn về nguy cơ virus so với nhà lưới “ra vào tự do”."
+        },
+        {
+          "q": "Đất/giá thể đã nhiễm virus khảm thì xử lý thế nào?",
+          "a": "• Virus khảm có thể tồn tại trong tàn dư cây bệnh và đất/giá thể dính nhựa cây.\n• Trong sản xuất thâm canh nhà kính:\n  – Thường khuyến cáo loại bỏ giá thể nặng nhiễm hoặc hấp/steam giá thể ở nhiệt độ cao trong thời gian đủ dài.\n  – Vệ sinh, khử trùng khay, chậu, rọ, ống, máng.\n• Ngoài đồng ruộng:\n  – Thu gom tàn dư, không để cây bệnh sót lại mọc tiếp.\n  – Luân canh 1–2 vụ với cây không ký chủ; kết hợp cày vùi hợp lý.\nKhử trùng hoàn toàn đất ngoài đồng thường khó, nên tập trung vào tàn dư + luân canh + giống kháng."
+        },
+        {
+          "q": "Hút thuốc lá, thuốc lào có làm tăng nguy cơ virus khảm trên cà chua không?",
+          "a": "Có thể có.\n• TMV (cùng nhóm với ToMV) thường có mặt trong nguyên liệu thuốc lá; tay người hút thuốc/phơi chế biến thuốc có thể dính virus.\n• Nếu sau khi hút thuốc chạm vào lá, thân cà chua mà không rửa tay, virus có thể truyền sang cây.\nDo đó:\n• Không nên hút thuốc trong/ gần khu trồng cà chua.\n• Nên rửa tay kỹ bằng xà phòng sau khi hút thuốc hoặc xử lý sản phẩm thuốc lá trước khi vào vườn/nhà màng."
+        },
+        {
+          "q": "Virus khảm cà chua khác gì so với virus nặng mới nổi như ToBRFV?",
+          "a": "• ToMV/TMV và ToBRFV đều thuộc nhóm Tobamovirus, lây mạnh qua tiếp xúc cơ giới và rất bền trong môi trường.\n• Nhiều giống cà chua đã mang gen kháng Tm-2² khống chế khá tốt ToMV/TMV trong nhiều năm, nhưng ToBRFV có thể vượt qua gen kháng này.\n• Triệu chứng ToBRFV thường rõ trên trái (rugose – nhăn, sần, thâm nâu), thiệt hại thương phẩm rất nặng.\n• Về mặt hiện trường, khó phân biệt chính xác các tobamovirus chỉ qua mắt thường; cần xét nghiệm labo.\nThông điệp chính: dùng giống kháng + vệ sinh chặt để giảm nguy cơ với cả nhóm tobamovirus (khảm cũ và khảm mới)."
+        },
+        {
+          "q": "Có cần gửi mẫu đi xét nghiệm khi nghi virus khảm không, hay nhìn là đủ?",
+          "a": "• Nhiều triệu chứng khảm/biến dạng lá do nhiều virus khác nhau (ToMV, TMV, CMV, ToBRFV…) hoặc thuốc/thiếu dinh dưỡng gây nên.\n• Chẩn đoán chính xác loại virus chỉ bằng mắt thường rất khó, nhất là khi cần quyết định lớn (nhổ cả lứa, thay giống...).\n• Gửi mẫu đến phòng thí nghiệm (ELISA, PCR…) là cách duy nhất để xác nhận loại virus cụ thể.\nỞ quy mô nhỏ lẻ, có thể chỉ cần nhìn và áp dụng vệ sinh tổng quát; nhưng với nhà màng lớn/nhà giống, xét nghiệm là rất nên làm khi nghi tobamovirus."
+        },
+        {
+          "q": "Virus khảm cà chua gây tác động kinh tế như thế nào cho nhà vườn?",
+          "a": "• Giảm năng suất: ít trái, trái nhỏ, chất lượng kém → giảm thu nhập trực tiếp.\n• Tăng chi phí: phải mua giống kháng, tăng chi phí vệ sinh, khử trùng, thậm chí bỏ cả lứa cây.\n• Nguy cơ lâu dài: nếu vệ sinh kém, virus tiếp tục tồn tại giữa các vụ, làm vụ sau cũng bị.\nỞ quy mô vùng, các vụ dịch tobamovirus có thể làm giá giống, giá vật tư và yêu cầu kiểm dịch (plant health certificate) trở nên nghiêm ngặt hơn."
+        },
+        {
+          "q": "Nếu chỉ có điều kiện hạn chế, nông hộ nhỏ lẻ nên ưu tiên những bước nào để kìm virus khảm?",
+          "a": "Có thể ưu tiên theo thứ tự:\n1) Giống: mua giống/hạt từ nguồn uy tín, có thông tin về kháng ToMV/TMV nếu có; không giữ giống từ ruộng đang khảm nặng.\n2) Vườn ươm: ươm ở nơi riêng, sạch; không dùng khay, giá thể từ ruộng bệnh mà không khử trùng.\n3) Vệ sinh tay & dụng cụ: rửa tay bằng xà phòng trước khi chăm cây; dụng cụ cắt tỉa/ dây buộc tái sử dụng được rửa sạch và ngâm khử trùng định kỳ.\n4) Quy tắc đi ruộng: chăm ruộng/luống khỏe trước, ruộng/băng nghi bệnh sau cùng; tránh đi ngược lại.\n5) Tàn dư & cây bệnh: nhổ bỏ sớm cây nhiễm nặng, dọn sạch tàn dư sau thu hoạch.\nNếu làm tốt vài việc này, nguy cơ khảm sẽ giảm đi rất nhiều mà không cần tốn tiền phun “thuốc trị virus”."
+        }
+      ],
+      "refs": [
+        "UConn IPM – Mosaic diseases",
+        "Cornell Vegetables – Managing tomato diseases"
+      ]
+    },
+    {
+      "disease_id": "tomato_healthy",
+      "labels": [
+        "Tomato_healthy",
+        "healthy"
+      ],
+      "name_vi": "Khỏe mạnh (Healthy)",
+      "category": "healthy",
+      "symptoms_core": [],
+      "look_alikes": [],
+      "favorable_conditions": [],
+      "diagnostic_tips": [],
+      "immediate_actions": [
+        "Tiếp tục theo dõi định kỳ; chụp/quét lại nếu thấy triệu chứng mới"
+      ],
+      "cultural_management": [
+        "Tưới nhỏ giọt, thoáng tán; phủ gốc chống bắn đất",
+        "Vệ sinh dụng cụ; không thao tác khi lá ướt",
+        "Luân canh 2–3 năm; dùng giống có tính chống chịu khi có sẵn"
+      ],
+      "spray_programs": {},
+      "organic_options": [],
+      "nutrition_notes": [
+        "Bón cân đối N-P-K + Ca/K theo giai đoạn; tránh dư đạm",
+        "Theo dõi rệp/bọ phấn/nhện đỏ để xử lý sớm bằng biện pháp sinh học"
+      ],
+      "product_slots": [],
+      "faq": [
+        {
+          "q": "Có cần phun phòng không?",
+          "a": "Không nên phun hóa chất khi chưa cần thiết. Ưu tiên vệ sinh và canh tác tốt."
+        }
+      ],
+      "refs": [
+        "UMN/Cornell các mục quản lý tổng hợp"
+      ]
+    }
+  ]
+}

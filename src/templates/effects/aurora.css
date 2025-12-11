@@ -1,0 +1,29 @@
+/* aurora.css */
+
+/* nếu bạn đã có body {} rồi thì chỉ cần giữ background, có thể bỏ block này */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  /* fallback nếu webgl không chạy */
+  background: #c3f0c3;
+}
+
+/* Div chứa canvas hiệu ứng aurora */
+#aurora-bg {
+  position: fixed;
+  inset: 0;          /* top:0; right:0; bottom:0; left:0 */
+  z-index: -1;       /* nằm dưới nội dung */
+  overflow: hidden;
+  pointer-events: none; /* cho click xuyên qua */
+}
+
+/* Canvas full màn hình */
+#aurora-bg canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

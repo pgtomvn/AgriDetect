@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AgriDetect</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="{{ url_for('static', filename='logo.png') }}" type="image/png" />
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='logo.png') }}">
+  <link rel="preload" as="image" href="{{ url_for('static', filename='logo.png') }}">
+
+  <style>
+    html, body{
+      overflow-x: hidden;
+    }
+
+    html{
+      scrollbar-width: none;           /* Firefox */
+    }
+
+    html::-webkit-scrollbar{
+      width: 0;
+      height: 0;                       /* Chrome / Edge / Safari */
+    }
+
+    body{
+      -ms-overflow-style: none;        /* IE / Edge cũ */
+    }
+    :root{
+      --green:#228b22; --green2:#28a745; --blue:#007bff;
+      --bg1:#c3f0c3; --bg2:#c3f0c3; --panel:#fff; --muted:#155724;
+      --danger:#d93025; --border:#cfe8cf;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    html{scroll-behavior:smooth}
+    body {
+      font-family: system-ui,-apple-system,"Inter",Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background: linear-gradient(to bottom right, var(--bg1), var(--bg2));
+      margin: 0;
+      min-height: 100vh;
+    }
+
+    /* ===== Aurora background ===== */
+    #aurora-bg{
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    #aurora-bg canvas{
+      width:100%;
+      height:100%;
+      display:block;
+    }
+    /* ============================= */
+
+    /* ===== Splash logo ===== */
+    #splash{
+      position:fixed;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: linear-gradient(to bottom right, var(--bg1), var(--bg2));
+      z-index:9999;
+      opacity:1;
+      transition:opacity 0.8s ease-out;
+    }
+    #splash-logo{
+      width:500px;
+      height:500px;
+      object-fit:contain;
+      animation:splash-pop 0.8s ease-out;
+    }
+    #splash.fade-out{
+      opacity:0;
+      pointer-events:none;
+    }
+    @keyframes splash-pop{
+      0%{transform:scale(.8);opacity:0;}
+      50%{transform:scale(1.05);opacity:1;}
+      100%{transform:scale(1);opacity:1;}
+    }
+    /* ======================= */
+
+    /* ===== Multi screen (diagnosis / tools) ===== */
+    .screen{
+      display:none;                 /* chỉ screen active mới hiện */
+      width:100%;
+      box-sizing:border-box;
+      padding:135px 0 40px;        /* chừa chỗ cho thanh menu trên cùng + xịch xuống một chút */
+    }
+    .screen.is-active{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:calc(100vh - 72px);
+    }
+
+    /* hiệu ứng fade-in mỗi lần đổi screen */
+    .screen-enter{
+      animation:screenFadeIn .4s ease-out;
+    }
+    @keyframes screenFadeIn{
+      from{
+        opacity:0;
+        transform:translateY(8px) scale(.985);
+      }
+      to{
+        opacity:1;
+        transform:none;
+      }
+    }
+
+    /* ===== Card chẩn đoán ===== */
+    .container {
+      padding: 28px 24px;
+      background: var(--panel);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,.08);
+      width: min(520px, 92vw);
+      display: grid;
+      gap: 14px;
+      text-align: center;
+      margin: 0 auto;             /* nằm giữa theo chiều ngang */
+    }
+
+    h1 { color: var(--green); font-size: clamp(20px,4vw,26px); font-weight: 800; margin: 0 0 4px 0 }
+    p.subtitle{ margin:0 0 4px 0; color:#2c6b2c; font-size:13px; font-family: Helvetica, Arial, sans-serif;}
+    .upload-box {
+      border: 2px dashed var(--green);
+      border-radius: 15px;
+      padding: 18px;
+      margin-top: 6px;
+      width: 100%;
+      background: #f5fff5;
+      cursor: pointer;
+      transition: .25s;
+      position: relative;
+      display: grid;
+      place-items: center;
+      gap: 10px;
+      outline: none;
+    }
+    .upload-box:hover, .upload-box.drag { background: #e6ffe6 }
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    @media (max-width:520px){ .row{grid-template-columns:1fr} }
+    button {
+      border: none; color: white; padding: 12px 18px; font-size: 16px;
+      border-radius: 10px; cursor: pointer; width: 100%; transition: .2s; font-weight: 700;
+    }
+    .camera-btn { background-color: var(--blue); }
+    .camera-btn:hover { filter:brightness(.92) }
+    #analyzeBtn { background-color: var(--green2); }
+    #analyzeBtn[disabled]{ opacity:.6; cursor:not-allowed }
+    #analyzeBtn:hover { filter:brightness(.92) }
+    #preview, #cameraStream {
+      width: 100%; max-height: 300px; margin-top: 10px; border-radius: 10px;
+      object-fit: contain; background:#fafafa; display: none;
+    }
+    #cameraStream{
+      transform: scaleX(-1);
+      transform-origin: center center;
+    }
+    .toolbar{display:flex; gap:8px; justify-content:center; flex-wrap:wrap}
+    .ghost{background:#eef7ee; color:#1c4d1c; border:1px solid var(--border)}
+    .ghost:hover{filter:brightness(.98)}
+    #result { margin-top: 6px; font-weight: 600; color: var(--muted); min-height: 1.4em }
+    .small{font-size:12px; color:#255a25}
+    .hint{ font-size:12px; color:#3a6b3a }
+    .visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap;border:0;padding:0;margin:-1px}
+  </style>
+
+  <!-- Nav bar CSS -->
+  <link rel="stylesheet" href="effects/menu.css">
+  <!-- GSAP core + ScrollTrigger cho hiệu ứng scroll -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Smooth scroll (Lenis) -->
+  <script src="https://unpkg.com/lenis@1.3.15/dist/lenis.min.js"></script>
+  <!-- Tool CSS riêng -->
+  <link rel="stylesheet" href="effects/tools.css">
+  <link rel="stylesheet" href="effects/forum.css">
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.15/dist/lenis.css">
+</head>
+<body>
+  <!-- Aurora background layer -->
+  <div id="aurora-bg"></div>
+
+  <!-- Splash logo lúc mới vào trang -->
+  <div id="splash">
+    <img id="splash-logo" src="{{ url_for('static', filename='logo.png') }}" alt="AgriDetect logo">
+  </div>
+
+  <!-- Top navigation bar -->
+  <header class="top-nav">
+    <div class="top-nav-inner">
+      <div class="nav-brand">
+        <img class="nav-logo"
+             src="{{ url_for('static', filename='logo.png') }}"
+             alt="AgriDetect logo">
+        <span class="nav-brand-name">AgriDetect</span>
+      </div>
+
+      <nav class="nav-links" aria-label="AgriDetect main navigation">
+        <div class="nav-indicator"></div>
+
+        <button class="nav-link-btn" type="button" data-nav="tools">
+          <span class="nav-label">
+            <span class="nav-label-main"><strong>CÔNG CỤ TÍNH TOÁN</strong></span>
+            <span class="nav-label-hover" aria-hidden="true"><strong>CÔNG CỤ TÍNH TOÁN</strong></span>
+          </span>
+        </button>
+
+        <button class="nav-link-btn" type="button" data-nav="diagnosis">
+          <span class="nav-label">
+            <span class="nav-label-main"><strong>NHẬN DIỆN BỆNH</strong></span>
+            <span class="nav-label-hover" aria-hidden="true"><strong>NHẬN DIỆN BỆNH</strong></span>
+          </span>
+        </button>
+
+        <button class="nav-link-btn" type="button" data-nav="forum">
+          <span class="nav-label">
+            <span class="nav-label-main"><strong>CẨM NANG NÔNG NGHIỆP</strong></span>
+            <span class="nav-label-hover" aria-hidden="true"><strong>CẨM NANG NÔNG NGHIỆP</strong></span>
+          </span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MÀN HÌNH 1: Nhận diện bệnh -->
+  <main id="screen-diagnosis" class="screen is-active">
+    <div class="container">
+      <div>
+        <h1>AGRIDETECT - MÔ HÌNH NHẬN DIỆN BỆNH Ở CÂY TRỒNG</h1>
+        <p class="subtitle" style="font-family: system-ui, sans-serif;">
+          <em>Tải ảnh lá/trái rõ nét; nền đơn giản sẽ cho kết quả tốt hơn.</em>
+        </p>
+      </div>
+
+      <div class="upload-box" id="dropZone" tabindex="0" role="button" aria-label="Kéo ảnh vào hoặc bấm để chọn ảnh">
+        <div>📸 <strong>Kéo ảnh vào đây</strong> hoặc nhấn để chọn ảnh</div>
+        <input type="file" id="imageInput" hidden accept="image/*" capture="environment" />
+        <img id="preview" alt="Xem trước ảnh" />
+        <video id="cameraStream" autoplay playsinline></video>
+      </div>
+
+      <div class="row">
+        <button class="camera-btn" id="cameraBtn">🎥 Mở camera</button>
+        <button id="analyzeBtn" disabled>🔎 Phân tích ảnh</button>
+      </div>
+
+      <div class="toolbar">
+        <button class="ghost" id="torchBtn" style="display:none">🔦 Bật đèn</button>
+        <button class="ghost" id="clearBtn" style="display:none">🗑️ Xóa ảnh</button>
+        <a class="ghost" href="/health" target="_blank"
+           style="text-decoration:none;display:inline-grid;place-items:center;padding:.7rem 1rem">
+          📊 Trạng thái model
+        </a>
+      </div>
+
+      <div id="result" aria-live="polite"></div>
+
+      <details>
+        <summary><strong>💡 Mẹo chụp ảnh tốt</strong></summary>
+        <ul class="hint" style="text-align:left;margin:.4rem 0 0 0">
+          <li>Chụp gần vùng nghi bệnh, tránh rung tay & ánh sáng gắt.</li>
+          <li>Hạn chế nền lẫn nhiều vật; 1–2 lá/tán là đẹp.</li>
+          <li>Trong nhà lưới: thêm 1 ảnh mặt trên & 1 ảnh mặt dưới lá.</li>
+        </ul>
+      </details>
+
+      <p id="srStatus" class="visually-hidden" aria-live="polite"></p>
+    </div>
+  </main>
+
+  <!-- MÀN HÌNH 2: Công cụ tính -->
+  <main id="screen-tools" class="screen">
+    <div class="tool-shell">
+      <header class="tool-header">
+        <h2>CÔNG CỤ TÍNH TOÁN NÔNG NGHIỆP</h2>
+        <p>
+          Chọn một công cụ bên trái. Các công thức đều quy đổi về ha & m² để bám sát thực tế sản xuất
+          cho cà chua, khoai tây, ớt…
+        </p>
+      </header>
+
+      <section class="tool-layout">
+        <!-- cột trái: danh sách tool -->
+        <aside class="tool-nav" aria-label="Danh sách công cụ">
+          <div class="tool-nav-title">Nhóm công cụ</div>
+          <div class="tool-nav-list">
+            <button class="tool-nav-btn is-active" type="button" data-tool="fert">
+              <span>Tính lượng phân theo diện tích</span>
+              <small>Diện tích + liều lượng (kg/ha) → tổng kg</small>
+            </button>
+
+            <button class="tool-nav-btn" type="button" data-tool="spray">
+              <span>Pha thuốc & dung dịch</span>
+              <small>Thể tích bình, nồng độ, số bình...</small>
+            </button>
+
+            <button class="tool-nav-btn" type="button" data-tool="density">
+              <span>Mật độ trồng & số cây</span>
+              <small>Ước lượng số cây giống cần chuẩn bị</small>
+            </button>
+
+            <button class="tool-nav-btn" type="button" data-tool="yield">
+              <span>Ước tính sản lượng & doanh thu</span>
+              <small>Diện tích hoặc số cây → tấn, kg</small>
+            </button>
+          </div>
+        </aside>
+
+        <!-- cột phải: nội dung tool -->
+        <section class="tool-panel">
+          <!-- Tool 1: tính lượng phân -->
+          <div class="tool-panel-inner" data-tool-panel="fert">
+            <h3>🌱 Tính lượng phân bón thông minh</h3>
+            <p class="desc">
+              Tự động tính toán lượng phân bón dựa trên quy trình chuẩn của từng loại cây và giai đoạn phát triển.
+            </p>
+
+            <div class="tool-grid">
+              <div>
+                <div class="field">
+                  <label for="area-value">Diện tích cần bón</label>
+                  <div style="display:flex; gap:8px;">
+                    <input id="area-value" type="number" min="0" step="0.01" placeholder="VD: 1.5" style="flex:1" />
+                    <select id="area-unit" style="width:110px">
+                      <option value="ha">Hecta</option>
+                      <option value="sao-bac">Sào Bắc</option>
+                      <option value="sao-nam">Sào Nam</option>
+                      <option value="m2">m²</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="crop-select">Loại cây trồng</label>
+                  <select id="crop-select">
+                    <option value="">-- Chọn loại cây --</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                  <label for="stage-select">Giai đoạn bón</label>
+                  <select id="stage-select" disabled>
+                    <option value="full">Cả vụ (Tổng lượng)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <div class="field">
+                  <label for="fert-product">Loại phân sử dụng</label>
+                  <select id="fert-product">
+                    <option value="">-- Chọn loại phân --</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                  <label for="nutrient-target">Nhu cầu dinh dưỡng (kg chất/ha)</label>
+                  <input id="nutrient-target" type="number" step="0.1" placeholder="Tự động gợi ý..." />
+                  <small id="nutrient-hint" style="color:#16a34a; font-size:11px; display:block; margin-top:2px;"></small>
+                </div>
+                
+                <div class="field" id="calc-basis-info" style="display:none; background:#f0fdf4; padding:6px; border-radius:8px; border:1px dashed #86efac;">
+                  <span style="font-size:11px; color:#166534">
+                    Đang tính dựa trên hàm lượng: <strong id="basis-name">N</strong>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tool-actions">
+              <button class="btn-main" type="button" id="btnCalcFert">Tính toán ngay</button>
+              <button class="btn-ghost-small" type="button" id="btnResetFert">Làm mới</button>
+            </div>
+
+            <div class="result-card" id="fertResult">
+              <div style="width:100%">
+                <div style="margin-bottom:4px; font-weight:600; color:#064e3b">Kết quả tính toán:</div>
+                <div style="display:flex; align-items:baseline; gap:8px;">
+                  <span class="value" id="fertKg" style="font-size:24px; color:#16a34a;">0</span>
+                  <span style="font-weight:600" id="fertUnitLabel">kg</span>
+                </div>
+                <div id="fertDetail" style="font-size:13px; color:#4b5563; margin-top:6px; line-height:1.4;">
+                  </div>
+              </div>
+            </div>
+
+            <div class="tool-note" id="crop-note" style="display:none; margin-top:12px; font-style:italic; border-left:3px solid #fbbf24; padding-left:8px;">
+              </div>
+          </div>
+
+          <!-- Tool 2: pha thuốc & dung dịch -->
+          <div class="tool-panel-inner" data-tool-panel="spray" style="display:none">
+            <h3>🧴 Tính toán pha thuốc BVTV</h3>
+            <p class="desc">
+              Hỗ trợ tính lượng thuốc dựa trên các loại bình phun (bình điện, phuy) hoặc quy đổi tỷ lệ pha.
+            </p>
+
+            <div class="tool-grid">
+              <div>
+                <div class="field">
+                  <label>Phương thức tính</label>
+                  <select id="spray-mode">
+                    <option value="basic">Pha theo bình (Đã biết liều/bình)</option>
+                    <option value="rate">Quy đổi tỷ lệ (VD: 20ml/16L -> Phuy 200L)</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label>Dụng cụ chứa nước</label>
+                  <select id="tank-type">
+                    <option value="16">Bình đeo vai (16 Lít)</option>
+                    <option value="20">Bình điện (20 Lít)</option>
+                    <option value="25">Bình máy (25 Lít)</option>
+                    <option value="200">Phuy (200 Lít)</option>
+                    <option value="custom">Tự nhập thể tích...</option>
+                  </select>
+                  <input id="tank-volume" type="number" step="0.1" placeholder="Nhập thể tích (Lít)" style="margin-top:5px; display:none;" value="16">
+                </div>
+
+                <div class="field">
+                  <label>Số lượng bình dự kiến phun</label>
+                  <input id="tank-count" type="number" min="1" step="1" value="1" />
+                </div>
+              </div>
+
+              <div>
+                <div id="input-mode-basic">
+                  <div class="field">
+                    <label>Liều lượng thuốc quy định</label>
+                    <div style="display:flex; gap:8px;">
+                      <input id="dose-amount" type="number" step="0.1" placeholder="VD: 50" style="flex:1" />
+                      <select id="dose-unit" style="width:90px;">
+                        <option value="ml">ml</option>
+                        <option value="g">gram</option>
+                      </select>
+                    </div>
+                    <small style="color:#6b7280; font-size:11px;">(Nhập lượng thuốc cho 1 bình)</small>
+                  </div>
+                </div>
+
+                <div id="input-mode-rate" style="display:none;">
+                  <div class="field">
+                    <label>Tỷ lệ pha ghi trên nhãn</label>
+                    <div style="display:flex; gap:4px; align-items:center;">
+                      <input id="rate-dose" type="number" placeholder="20" style="width:60px">
+                      <span style="font-size:12px">ml (g) cho</span>
+                      <input id="rate-water" type="number" placeholder="16" style="width:50px">
+                      <span style="font-size:12px">L nước</span>
+                    </div>
+                    <small style="color:#6b7280; font-size:11px;">Hệ thống sẽ tự quy đổi ra liều cho dụng cụ chứa của bạn.</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tool-actions">
+              <button class="btn-main" type="button" id="btnCalcSpray">Tính pha chế</button>
+              <button class="btn-ghost-small" type="button" id="btnResetSpray">Làm mới</button>
+            </div>
+
+            <div class="result-card" id="sprayResult">
+              <div style="width:100%">
+                <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+                  <span>Tổng nước: <b id="sprayWater" class="value">0</b> Lít</span>
+                  <span>Tổng thuốc: <b id="sprayPesticide" class="value">0</b> <span id="sprayPesticideUnit">ml</span></span>
+                </div>
+                <div id="sprayGuide" style="background:#fff; padding:8px; border-radius:8px; font-size:13px; color:#374151; border:1px solid #e5e7eb;">
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tool 3: mật độ trồng & số cây -->
+          <div class="tool-panel-inner" data-tool-panel="density" style="display:none">
+            <h3>📏 Mật độ & Dự trù hạt giống</h3>
+            <p class="desc">
+              Tính số lượng cây và lượng hạt giống cần chuẩn bị (có bù hao hụt nảy mầm).
+            </p>
+
+            <div class="tool-grid">
+              <div>
+                <div class="field">
+                  <label>Chọn cây (để lấy chuẩn)</label>
+                  <select id="density-crop-select">
+                    <option value="">-- Tùy chọn --</option>
+                    </select>
+                </div>
+                <div class="field">
+                  <label>Diện tích trồng</label>
+                  <div style="display:flex; gap:8px;">
+                    <input id="area-density" type="number" step="0.01" placeholder="VD: 1000" style="flex:1" />
+                    <select id="area-unit-density" style="width:100px">
+                      <option value="m2">m²</option>
+                      <option value="ha">ha</option>
+                      <option value="sao-bac">Sào Bắc</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="field">
+                  <label>Kiểu trồng</label>
+                  <select id="plant-pattern">
+                    <option value="single">Hàng đơn (1 hàng/luống)</option>
+                    <option value="double">Hàng đôi (2 hàng/luống)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <div class="field">
+                  <label>Khoảng cách hàng (m)</label>
+                  <input id="row-spacing" type="number" step="0.1" placeholder="VD: 1.2 (Tim luống)" />
+                </div>
+                <div class="field">
+                  <label>Khoảng cách cây (m)</label>
+                  <input id="plant-spacing" type="number" step="0.1" placeholder="VD: 0.4" />
+                </div>
+                
+                <div class="field" style="background:#fff7ed; padding:8px; border-radius:8px; border:1px dashed #fdba74;">
+                  <label style="color:#9a3412">Dự tính hạt giống (Tùy chọn)</label>
+                  <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
+                    <div>
+                      <span style="font-size:11px">Tỷ lệ nảy mầm (%)</span>
+                      <input id="germination-rate" type="number" value="85" />
+                    </div>
+                    <div>
+                      <span style="font-size:11px">Dự phòng dặm (%)</span>
+                      <input id="extra-rate" type="number" value="5" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tool-actions">
+              <button class="btn-main" type="button" id="btnCalcDensity">Tính mật độ</button>
+              <button class="btn-ghost-small" type="button" id="btnResetDensity">Làm mới</button>
+            </div>
+
+            <div class="result-card" id="densityResult">
+              <div style="width:100%">
+                <div style="margin-bottom:6px">Số lượng cây cần trồng:</div>
+                <div style="font-size:20px; font-weight:800; color:#16a34a; margin-bottom:8px;">
+                  <span id="densityFinal">0</span> cây
+                </div>
+                <div id="seedResult" style="border-top:1px solid #a7f3d0; padding-top:8px; font-size:13px; color:#064e3b; display:none;">
+                    </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tool 4: ước tính sản lượng & doanh thu -->
+          <div class="tool-panel-inner" data-tool-panel="yield" style="display:none">
+            <h3>💰 Dự toán Doanh thu & Sản lượng</h3>
+            <p class="desc">
+              Tính doanh thu thực tế sau khi trừ tỷ lệ hao hụt và phân loại giá bán (Loại 1 / Loại 2).
+            </p>
+
+            <div class="tool-grid">
+              <div>
+                <div class="field">
+                  <label>Cách tính sản lượng</label>
+                  <select id="yield-mode">
+                    <option value="area">Theo diện tích & Năng suất/Ha</option>
+                    <option value="plant">Theo số cây & Kg/Cây</option>
+                  </select>
+                </div>
+
+                <div id="yield-area-group">
+                  <div class="field">
+                    <label>Diện tích & Đơn vị</label>
+                    <div style="display:flex; gap:8px;">
+                      <input id="yield-area" type="number" placeholder="VD: 1" style="flex:1">
+                      <select id="yield-area-unit" style="width:90px">
+                        <option value="ha">ha</option>
+                        <option value="m2">m²</option>
+                        <option value="sao-bac">Sào Bắc</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label>Năng suất dự kiến (Tấn/ha)</label>
+                    <input id="yield-per-ha" type="number" placeholder="VD: 40 (Cà chua)">
+                  </div>
+                </div>
+
+                <div id="yield-plant-group" style="display:none">
+                  <div class="field">
+                    <label>Số gốc thu hoạch</label>
+                    <input id="yield-plant-count" type="number" placeholder="VD: 2000">
+                  </div>
+                  <div class="field">
+                    <label>Năng suất trung bình (kg/cây)</label>
+                    <input id="yield-per-plant" type="number" placeholder="VD: 3.5">
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="field">
+                  <label>Tỷ lệ hao hụt / Hàng dạt (%)</label>
+                  <input id="loss-rate" type="number" value="10" placeholder="VD: 10%">
+                  <small style="color:#6b7280; font-size:11px;">(Sâu bệnh, hư hỏng khi vận chuyển)</small>
+                </div>
+                
+                <div class="field" style="background:#f0f9ff; padding:8px; border-radius:8px; border:1px solid #bae6fd;">
+                  <label style="color:#0369a1; margin-bottom:6px; display:block;">Giá bán dự kiến (VNĐ/kg)</label>
+                  <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:2px;">
+                      <span>Loại 1 (%)</span>
+                      <span>Giá Loại 1</span>
+                  </div>
+                  <div style="display:flex; gap:8px; margin-bottom:6px;">
+                      <input id="rate-type1" type="number" value="70" style="width:50px">
+                      <input id="price-type1" type="number" placeholder="VD: 15000" style="flex:1">
+                  </div>
+                  
+                  <div style="display:flex; justify-content:space-between; font-size:12px; margin-bottom:2px;">
+                      <span>Loại 2 (còn lại)</span>
+                      <span>Giá Loại 2</span>
+                  </div>
+                  <div style="display:flex; gap:8px;">
+                      <input type="text" value="Auto" disabled style="width:50px; background:#e5e7eb;">
+                      <input id="price-type2" type="number" placeholder="VD: 5000" style="flex:1">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tool-actions">
+              <button class="btn-main" type="button" id="btnCalcYield">Tính doanh thu</button>
+              <button class="btn-ghost-small" type="button" id="btnResetYield">Làm mới</button>
+            </div>
+
+            <div class="result-card" id="yieldResult" style="align-items:flex-start; flex-direction:column;">
+              <div style="width:100%; display:flex; justify-content:space-between; border-bottom:1px dashed #6ee7b7; padding-bottom:8px; margin-bottom:8px;">
+                  <span>Tổng thu (sau hao hụt):</span>
+                  <span class="value" id="yieldNetKg">0 kg</span>
+              </div>
+              <div style="width:100%;">
+                  <div style="font-size:13px; color:#065f46; margin-bottom:4px;">Doanh thu ước tính:</div>
+                  <div class="value" id="yieldRevenue" style="font-size:22px; color:#059669;">0 đ</div>
+                  <div id="yieldBreakdown" style="font-size:12px; color:#4b5563; margin-top:4px;">
+                    </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <!-- ==================== TAB: CẨM NANG NÔNG NGHIỆP ==================== -->
+  <main id="screen-forum" class="screen">
+    <div class="forum-shell">
+
+      <!-- HERO: header + bài nổi bật + video -->
+      <header class="forum-hero">
+        <!-- Cột trái: text + bài nổi bật -->
+        <div class="forum-hero-main" data-scroll-float="md">
+          <div class="forum-eyebrow">CẨM NANG NÔNG NGHIỆP</div>
+
+          <h1 class="forum-title">
+            Kiến thức nông nghiệp <span>từ nghiên cứu đến đồng ruộng</span>
+          </h1>
+
+          <p class="forum-subtitle">
+            Bài viết kỹ thuật, và báo cáo, nghiên cứu thử nghiệm được tổng hợp
+            để bạn áp tham khảo và áp dụng trên các ruộng lúa, cà chua, khoai tây,...
+          </p>
+
+          <!-- Bài nổi bật -->
+          <article class="forum-featured-article">
+            <div class="forum-featured-label">Bài nổi bật trong tuần</div>
+            <h2 class="forum-featured-title">
+              Giá rau củ hạ nhiệt nhưng vẫn cao
+            </h2>
+            <p class="forum-featured-meta">
+              Kinh doanh • Giá cả thị trường • 4 phút đọc
+            </p>
+            <p class="forum-featured-excerpt">
+              Nguồn rau củ về TP.HCM đã bớt căng thẳng nhờ thêm hàng nhập,
+              nhưng so với thời điểm ổn định thì giá nhiều mặt hàng vẫn nằm ở mức cao,
+              người đi chợ vẫn “đau ví”.
+            </p>
+
+            <div class="forum-hero-actions">
+              <a type="button" class="btn btn-primary-soft" href="{{ url_for('info_page', slug='gia-rau-cu-ha-nhiet-nhung-van-cao') }}">
+                Đọc chi tiết bài viết
+              </a>
+              <button type="button" class="btn btn-ghost" data-forum-scroll="more-posts">
+                Xem thêm bài viết khác
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <!-- Cột phải: video -->
+        <div class="forum-hero-media" data-scroll-float="lg">
+          <div class="forum-video-card">
+            <div class="forum-video-thumb">
+              <!-- VIDEO NỀN -->
+              <video
+                class="forum-video-bg"
+                muted
+                playsinline
+                autoplay
+                loop
+                preload="metadata"
+              >
+                <source src="{{ url_for('static', filename='info-forum.mp4') }}" type="video/mp4">
+              </video>
+              <!-- LỚP GRADIENT PHỦ LÊN (giữ nguyên như cũ) -->
+              <div class="forum-video-gradient"></div>
+            </div>
+
+            <!-- OVERLAY TEXT + PLAY ICON (nếu bạn vẫn muốn giữ) -->
+            <button class="forum-video-play" type="button">
+              <span class="forum-video-play-icon">ᯤ</span>
+            </button>
+
+            <div class="forum-video-overlay">
+              <div class="forum-video-kicker">AgriDetect</div>
+              <div class="forum-video-title">
+                Nông sản Việt - Ươm mầm sức sống mới
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- ẢNH EXPAND KIỂU KETTMEIR: NÔNG NGHIỆP VIỆT NAM -->
+      <section class="forum-photo-expand" aria-label="Nhịp sống nông nghiệp Việt Nam">
+        <div class="forum-photo-frame">
+          <div class="forum-photo-inner">
+            <!-- ảnh đặt bằng CSS background -->
+          </div>
+
+          <div class="forum-photo-caption">
+            <!-- Dòng chữ chạy ngang kiểu Kettmeir -->
+            <div class="forum-photo-strip">
+              NHỊP SỐNG NÔNG NGHIỆP VIỆT NAM
+            </div>
+
+            <!-- Đoạn mô tả, sẽ fade-in sau -->
+            <p class="forum-photo-body">
+                Từ đồng bằng sông Cửu Long tới vùng rau ôn đới Đà Lạt, hay tận trung du vùng Tây Bắc, nông dân Việt Nam ngày đêm chăm sóc từng tấc ruộng, 
+                từng cây trồng với tấm lòng yêu thương và sự kiên trì. Mỗi vụ mùa mang theo hy vọng, thử thách và những bài học 
+                quý báu từ thiên nhiên.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- TÀI LIỆU & BÀI VIẾT -->
+      <section class="forum-resources" id="forum-resources">
+        <div class="forum-resources-card">
+          <header class="forum-resources-header">
+            <div class="forum-resources-eyebrow">
+              ⚡ Tổng hợp tài liệu
+            </div>
+
+            <h2 class="forum-resources-title">
+              Thông tin thêm <span>và tài liệu, bài cáo khoa học</span>
+            </h2>
+            <p class="forum-resources-subtitle">
+              Bài viết kỹ thuật (cung cấp thông tin cho nông hộ), những bài báo cáo thực địa, nghiên cứu khoa học —
+              được chọn lọc và tổng hợp đầy đủ để bạn đọc tham khảo và áp dụng vào thực tiễn sản xuất nông nghiệp.
+            </p>
+          </header>
+
+          <div class="forum-resources-divider"></div>
+
+          <div class="forum-resources-grid">
+                <!-- Cột bài viết -->
+            <section class="forum-column forum-column--posts">
+              <header class="forum-section-header">
+                <h3>Bài báo & bài viết kỹ thuật</h3>
+              </header>
+
+            <div class="forum-card-list">
+                <!-- Post 1 -->
+                <a 
+                  class="forum-post-card"
+                  href="{{ url_for('info_page',
+                   slug='gia-rau-cu-ha-nhiet-nhung-van-cao') }}"
+                >
+                  <div class="forum-post-pill">
+                    Kinh doanh • Giá cả thị trường
+                  </div>
+                  <h4 class="forum-post-title">
+                    Giá rau củ hạ nhiệt nhưng vẫn cao
+                  </h4>
+                  <p class="forum-post-excerpt">
+                    Nguồn rau củ về TP.HCM đã bớt căng thẳng nhờ thêm hàng nhập,
+                    nhưng so với thời điểm ổn định thì giá nhiều mặt hàng vẫn nằm ở mức cao,
+                    người đi chợ vẫn “đau ví”.
+                  </p>
+                  <div class="forum-post-meta">
+                    <span>4 phút đọc</span>
+                    <span>•</span>
+                    <span>Cập nhật 02/12/2025</span>
+                  </div>
+                </a>
+                
+
+              <!-- Post 2 -->
+              <a 
+                  class="forum-post-card"
+                  href="{{ url_for('info_page',
+                   slug='khanh-hoa-tap-huan-quan-ly-sau-benh-va-khoi-phuc-cay-trong-sau-lu')}}"
+                >
+                <div class="forum-post-pill">
+                  Trồng trọt • Khắc phục sau lũ
+                </div>
+                <h4 class="forum-post-title">
+                  Khánh Hòa tập huấn quản lý sâu bệnh và khôi phục cây trồng sau lũ
+                </h4>
+                <p class="forum-post-excerpt">
+                  Chi cục Trồng trọt và BVTV Khánh Hòa triển khai 10 lớp tập huấn giúp nông dân nhận diện dịch hại kịp thời, khôi phục cây trồng sau lũ.
+                </p>
+                <div class="forum-post-meta">
+                  <span>3 phút đọc</span>
+                  <span>•</span>
+                  <span>Cập nhật 08/12/2025</span>
+                </div>
+              </a>
+
+              <!-- Post 3 -->
+              <a 
+                  class="forum-post-card"
+                  href="{{ url_for('info_page',
+                   slug='trong-ot-chuong-trong-nha-kinh-lai-mot-ty-dong-tren-ha') }}"
+                >
+                <div class="forum-post-pill">
+                 Ớt chuông • Kinh doanh &amp; khởi nghiệp
+                </div>
+                <h4 class="forum-post-title">
+                  Trồng ớt chuông trong nhà kính, lãi 1 tỷ đồng/ha
+                </h4>
+                <p class="forum-post-excerpt">
+                  Với 4.500m2 nhà kính, mỗi năm nhóm liên kết của anh Cường cung ứng ra thị trường hơn 30 tấn ớt ngọt, thu nhập 450 triệu đồng, tương ứng mức lợi nhuận 1 tỷ đồng/ha.
+                </p>
+                <div class="forum-post-meta">
+                  <span>6 phút đọc</span>
+                  <span>•</span>
+                  <span>Cập nhật 07/10/2025</span>
+                </div>
+              </a>
+
+              <!-- Post 4 -->
+              <a 
+                  class="forum-post-card"
+                  href="{{ url_for('info_page',
+                   slug='nguoi-hoi-sinh-nhung-thua-dat-kho-can-o-ven-do') }}"
+                >
+                <div class="forum-post-pill">
+                 Nông nghiệp • Giải pháp &amp; môi trường
+                </div>
+                <h4 class="forum-post-title">
+                  Người hồi sinh những thửa đất khô cằn ở ven đô
+                </h4>
+                <p class="forum-post-excerpt">
+                  Canh tác an toàn sinh học, trân trọng đất, nước và các vi sinh vật có lợi trong đất là điều kiện tiên quyết tạo nên sự thành công trong nông nghiệp. Sóc Sơn - vùng bán sơn địa ven đô.
+                </p>
+                <div class="forum-post-meta">
+                  <span>7 phút xem</span>
+                  <span>•</span>
+                  <span>Cập nhật 12/06/2025</span>
+                </div>
+              </a>
+            </div>
+          </section>
+
+          <!-- Cột 2: báo cáo & tài liệu -->
+          <section class="forum-column forum-column--docs" aria-label="Báo cáo & tài liệu">
+            <div class="forum-section-header">
+              <h3>Báo cáo &amp; tài liệu</h3>
+            </div>
+
+            <div class="forum-card-list">
+              <!-- Report card 1 -->
+              <a
+                class="forum-doc-card"
+                href="{{ url_for('static', filename='san-xuat-ca-chua-cua-cac-ho-nong-dan-tren-dia-ban-tinh-thai-binh-1-2025.pdf') }}"
+                download="san-xuat-ca-chua-cua-cac-ho-nong-dan-tren-dia-ban-tinh-thai-binh-1-2025.pdf"
+              >
+                <div class="forum-doc-header">
+                  <span class="forum-doc-badge">Báo cáo thực địa</span>
+                  <span class="forum-doc-size">PDF • 1.1 MB</span>
+                </div>
+                <h4 class="forum-doc-title">
+                  Sản xuất cà chua của các hộ nông dân trên địa bàn tỉnh Thái Bình (1-2025)
+                </h4>
+                <p class="forum-doc-excerpt">
+                  Bàn luận về thực trạng, thách thức và giải pháp nâng cao hiệu quả sản xuất cà chua tại địa phương.
+                </p>
+              </a>
+
+              <!-- Report card 2 -->
+               <a
+                class="forum-doc-card"
+                href="{{ url_for('static', filename='mau-nhat-ky-nong-ho.pdf') }}"
+                download="mau-nhat-ky-nong-ho.pdf"
+              >
+                <div class="forum-doc-header">
+                  <span class="forum-doc-badge">Mẫu ghi chép</span>
+                  <span class="forum-doc-size">PDF • 965 KB</span>
+                </div>
+                <h4 class="forum-doc-title">
+                  Mẫu nhật ký nông hộ: ghi chép bệnh, bón phân &amp; thời tiết
+                </h4>
+                <p class="forum-doc-excerpt">
+                  Được thiết kế cho người dân để người dân có thể ghi lại các thông tin về chăm sóc cây trồng, vật nuôi, các lợi ích và tác động của các mô hình sản xuất/ thực hành nông nghiệp của người dân.
+                </p>
+              </a>
+
+              <!-- Report card 3 -->
+              <a
+                class="forum-doc-card"
+                href="{{ url_for('static', filename='ky-thuat-trong-va-cham-soc-cay-khoai-tay.pdf') }}"
+                download="ky-thuat-trong-va-cham-soc-cay-khoai-tay.pdf"
+              >
+                <div class="forum-doc-header">
+                  <span class="forum-doc-badge">Tài liệu kỹ thuật</span>
+                  <span class="forum-doc-size">PDF • 5.4 MB</span>
+                </div>
+                <h4 class="forum-doc-title">
+                  Kỹ thuật trồng và chăm sóc cây khoai tây
+                </h4>
+                <p class="forum-doc-excerpt">
+                  Thông tin hữu ích về giống, đất đai và phân bón, kỹ thuật canh tác và quản lý sâu bệnh cho cây khoai tây.
+                </p>
+              </a>
+
+              <!-- Report card 4 -->
+              <a
+                class="forum-doc-card"
+                href="{{ url_for('static', filename='thuc-trang-va-giai-phap-phat-trien-nong-nghiep-cong-nghe-cao-tp-hcm.pdf') }}"
+                download="thuc-trang-va-giai-phap-phat-trien-nong-nghiep-cong-nghe-cao-tp-hcm.pdf"
+              >
+                <div class="forum-doc-header">
+                  <span class="forum-doc-badge">Báo cáo chuyên môn</span>
+                  <span class="forum-doc-size">PDF • 1.2 MB</span>
+                </div>
+                <h4 class="forum-doc-title">
+                  Thực trạng và giải pháp phát triển nông nghiệp công nghệ cao tại thành phố Hồ Chí Minh
+                </h4>
+                <p class="forum-doc-excerpt">
+                  Phân tích các mô hình nông nghiệp công nghệ cao đang được triển khai tại TP.HCM, những khó khăn và đề xuất giải pháp phát triển bền vững.
+                </p>
+              </a>
+
+            </div>
+          </section>
+        </div>
+      </section>
+    </div>
+  </main>
+  <!-- ================== HẾT TAB: CẨM NANG NÔNG NGHIỆP ================== -->
+
+  <!-- Aurora background script -->
+  <script src="effects/aurora.js"></script>
+
+  <!-- Splash fade-out + app fade-in -->
+  <script>
+    (function(){
+      const splash = document.getElementById("splash");
+      const body   = document.body;
+
+      if (!splash) return;
+
+      // cho UI chính hiện sau ~0.9s
+      setTimeout(() => {
+        body.classList.add("page-ready");
+        splash.classList.add("fade-out");
+        // xóa hẳn splash sau khi fade xong để không chắn click
+        setTimeout(() => {
+          if (splash && splash.parentNode) {
+            splash.parentNode.removeChild(splash);
+          }
+        }, 800);
+      }, 900);
+    })();
+  </script>
+
+  <!-- Script chính của app AgriDetect (màn nhận diện bệnh) -->
+  <script>
+    const dropZone      = document.getElementById("dropZone");
+    const imageInput    = document.getElementById("imageInput");
+    const preview       = document.getElementById("preview");
+    const analyzeBtn    = document.getElementById("analyzeBtn");
+    const resultDiv     = document.getElementById("result");
+    const cameraBtn     = document.getElementById("cameraBtn");
+    const cameraStream  = document.getElementById("cameraStream");
+    const torchBtn      = document.getElementById("torchBtn");
+    const clearBtn      = document.getElementById("clearBtn");
+    const srStatus      = document.getElementById("srStatus");
+
+    let selectedFile = null;
+    let stream = null;
+    let torchOn = false;
+
+    // ---------- Helpers ----------
+    const say = (msg) => { resultDiv.textContent = msg || ""; srStatus.textContent = msg || ""; }
+    const setAnalyzeEnabled = (on) => { analyzeBtn.disabled = !on; }
+    const showClear = (on) => { clearBtn.style.display = on ? "inline-grid" : "none"; }
+
+    function setDZActive(active){ dropZone.classList.toggle("drag", !!active); }
+    function mimeOk(file){ return !!file && /^image\/(jpeg|png|webp|gif|bmp|heic|heif)$/i.test(file.type || ""); }
+    function fileInfoStr(file){ const mb = (file.size/1048576).toFixed(2); return `${file.name || 'image'} · ${mb} MB`; }
+
+    async function compressImageIfNeeded(file, maxSide=1600, targetMB=2.0){
+      if (!mimeOk(file)) return file;
+      if (file.size <= targetMB*1048576) return file;
+      try{
+        let bmp;
+        if (('createImageBitmap' in window)) {
+          bmp = await createImageBitmap(file, { imageOrientation: 'from-image' });
+        } else {
+          const img = await new Promise((res, rej) => {
+            const im = new Image(); im.onload = () => res(im); im.onerror = rej; im.src = URL.createObjectURL(file);
+          });
+          bmp = { width: img.naturalWidth || img.width, height: img.naturalHeight || img.height, _img: img };
+        }
+        const scale = Math.min(1, maxSide / Math.max(bmp.width, bmp.height));
+        const W = Math.round(bmp.width * scale), H = Math.round(bmp.height * scale);
+        const canvas = document.createElement("canvas"); canvas.width=W; canvas.height=H;
+        const ctx = canvas.getContext("2d");
+        if (bmp instanceof ImageBitmap) { ctx.drawImage(bmp, 0, 0, W, H); bmp.close && bmp.close(); }
+        else { ctx.drawImage(bmp._img, 0, 0, W, H); }
+        let q = 0.9, outBlob = await new Promise(r => canvas.toBlob(r, "image/jpeg", q));
+        while (outBlob && outBlob.size > targetMB*1048576 && q > 0.6) { q -= 0.05; outBlob = await new Promise(r => canvas.toBlob(r, "image/jpeg", q)); }
+        return outBlob ? new File([outBlob], (file.name||"image").replace(/\.\w+$/,"")+".jpg", { type:"image/jpeg" }) : file;
+      }catch{ return file; }
+    }
+
+    function setPreviewFromBlob(blob){
+      const url = URL.createObjectURL(blob);
+      preview.src = url; preview.style.display = "block";
+      cameraStream.style.display = "none";
+      showClear(true); setAnalyzeEnabled(true);
+    }
+
+    async function handleFile(file){
+      if (!file) return;
+      if (!mimeOk(file)) { say("❌ File không phải ảnh (jpeg/png/webp/heic...)."); return; }
+      say("⏳ Đang xử lý ảnh...");
+      const comp = await compressImageIfNeeded(file, 1600, 2.0);
+      selectedFile = comp; setPreviewFromBlob(comp);
+      say(`✅ Đã sẵn sàng · ${fileInfoStr(comp)}`);
+    }
+
+    function clearAll(){
+      if (stream){ stream.getTracks().forEach(t=>t.stop()); stream=null; }
+      preview.src=""; preview.style.display="none";
+      cameraStream.style.display="none";
+      selectedFile=null; setAnalyzeEnabled(false); showClear(false);
+      say(""); cameraBtn.textContent="🎥 Mở camera"; torchBtn.style.display="none"; torchOn=false;
+    }
+
+    // ---------- Drag & Drop ----------
+    dropZone.addEventListener("click", () => imageInput.click());
+    dropZone.addEventListener("keydown", (e) => { if (e.key==="Enter"||e.key===" "){ e.preventDefault(); imageInput.click(); }});
+    dropZone.addEventListener("dragover",  (e)=>{ e.preventDefault(); setDZActive(true);  });
+    dropZone.addEventListener("dragenter", (e)=>{ e.preventDefault(); setDZActive(true);  });
+    dropZone.addEventListener("dragleave", ()=> setDZActive(false));
+    dropZone.addEventListener("drop", (e) => { e.preventDefault(); setDZActive(false); const f=e.dataTransfer.files&&e.dataTransfer.files[0]; handleFile(f); });
+    imageInput.addEventListener("change", (e)=> handleFile(e.target.files && e.target.files[0]));
+
+    // ---------- Camera ----------
+    async function toggleTorch(track, on){
+      try{
+        const cap = track.getCapabilities && track.getCapabilities();
+        if (!cap || !cap.torch) return false;
+        await track.applyConstraints({ advanced: [{ torch: !!on }] });
+        return true;
+      }catch{ return false; }
+    }
+
+    cameraBtn.addEventListener("click", async () => {
+      try{
+        if (!stream){
+          stream = await navigator.mediaDevices.getUserMedia({ video:{ facingMode:{ ideal:"environment" }}, audio:false });
+          cameraStream.srcObject = stream; cameraStream.style.display="block"; preview.style.display="none";
+          cameraBtn.textContent="📸 Chụp ảnh";
+          const cap = stream.getVideoTracks()[0]?.getCapabilities?.(); torchBtn.style.display = cap && cap.torch ? "inline-grid" : "none";
+          showClear(true); say("👀 Canh khung rồi bấm “Chụp ảnh”.");
+        }else{
+          const track = stream.getVideoTracks()[0];
+          const canvas = document.createElement("canvas");
+          const vW = cameraStream.videoWidth || 1280;
+          const vH = cameraStream.videoHeight || 720;
+          canvas.width = vW;
+          canvas.height = vH;
+
+          const ctx = canvas.getContext("2d");
+          // lật lại để file ảnh không bị ngược chữ
+          ctx.save();
+          ctx.translate(vW, 0);
+          ctx.scale(-1, 1);
+          ctx.drawImage(cameraStream, 0, 0, vW, vH);
+          ctx.restore();
+
+          const blob = await new Promise(r => canvas.toBlob(r,"image/jpeg",0.92));
+          const compFile = await compressImageIfNeeded(new File([blob], "captured.jpg", {type:"image/jpeg"}), 1600, 2.0);
+
+          selectedFile = compFile;
+          setPreviewFromBlob(compFile);
+          track.stop();
+          stream = null;
+          torchOn = false;
+          torchBtn.style.display = "none";
+          cameraBtn.textContent = "🎥 Mở camera";
+          say(`✅ Đã chụp · ${fileInfoStr(compFile)}`);
+        }
+      }catch(err){ say(""); alert("Không thể truy cập camera: " + (err?.message || err)); }
+    });
+
+    torchBtn.addEventListener("click", async () => {
+      if (!stream) return;
+      const track=stream.getVideoTracks()[0];
+      const ok=await toggleTorch(track, !torchOn);
+      if (ok){ torchOn=!torchOn; torchBtn.textContent = torchOn ? "🔦 Tắt đèn" : "🔦 Bật đèn"; }
+      else{ alert("Thiết bị không hỗ trợ torch."); }
+    });
+
+    clearBtn.addEventListener("click", clearAll);
+    window.addEventListener("beforeunload", ()=>{ if(stream) stream.getTracks().forEach(t=>t.stop()); });
+
+    // ---------- Analyze ----------
+    analyzeBtn.addEventListener("click", async () => {
+      if (!selectedFile) { say("⚠️ Vui lòng chọn hoặc chụp ảnh trước!"); return; }
+      setAnalyzeEnabled(false); say("⏳ Đang phân tích...");
+      const formData = new FormData(); formData.append("file", selectedFile);
+      try {
+        const res = await fetch("/predict", { method: "POST", body: formData });
+        const html = await res.text(); document.open(); document.write(html); document.close();
+      } catch (e) {
+        say(""); alert("❌ Lỗi kết nối tới máy chủ."); setAnalyzeEnabled(true);
+      }
+    });
+
+    setAnalyzeEnabled(!!selectedFile);
+  </script>
+
+  <!-- Script: chuyển màn hình (diagnosis <-> tools) -->
+  <!-- Script: chuyển màn hình + navbar scroll animation -->
+  <script>
+    (function(){
+      const screenDiagnosis = document.getElementById('screen-diagnosis');
+      const screenTools     = document.getElementById('screen-tools');
+      const screenForum     = document.getElementById('screen-forum');
+      const topNav          = document.querySelector('.top-nav');
+
+      const VALID_TARGETS = ['diagnosis','tools','forum'];
+      let currentScreen = 'diagnosis';
+
+      function runEnterAnimation(el){
+        if (!el) return;
+        el.classList.remove('screen-enter');
+        void el.offsetWidth;   // restart animation
+        el.classList.add('screen-enter');
+      }
+
+      function resetScrollAndNav(){
+        // về đầu trang & reset trạng thái navbar
+        window.scrollTo(0, 0);
+        if (topNav){
+          topNav.classList.remove('top-nav--compact','top-nav--hidden');
+        }
+      }
+
+      function showScreen(name){
+        if (!VALID_TARGETS.includes(name)) name = 'diagnosis';
+        if (name === currentScreen) return;
+        currentScreen = name;
+
+        screenDiagnosis.classList.remove('is-active','screen-enter');
+        screenTools.classList.remove('is-active','screen-enter');
+        screenForum.classList.remove('is-active','screen-enter');
+
+        let target = screenDiagnosis;
+        if (name === 'tools')  target = screenTools;
+        if (name === 'forum')  target = screenForum;
+
+        target.classList.add('is-active');
+        runEnterAnimation(target);
+        resetScrollAndNav();
+
+        if (name === 'forum' && window.ScrollTrigger) {
+          requestAnimationFrame(function () {
+            ScrollTrigger.refresh();
+          });
+        }
+      }
+
+      // nghe event từ menu.js
+      window.addEventListener('agri-nav-select', function(e){
+        const target = e && e.detail && e.detail.target;
+        if (VALID_TARGETS.includes(target)){
+          showScreen(target);
+        }
+      });
+
+      // fallback: lắng nghe click trực tiếp trên nút menu
+      const navButtons = Array.from(document.querySelectorAll('.nav-link-btn'));
+      navButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const name = btn.dataset.nav;
+          if (VALID_TARGETS.includes(name)){
+            showScreen(name);
+          }
+        });
+      });
+
+      // click logo -> về màn nhận diện
+      const brand = document.querySelector('.nav-brand');
+      if (brand){
+        brand.style.cursor = 'pointer';
+        brand.addEventListener('click', () => {
+          showScreen('diagnosis');
+          const diagBtn = document.querySelector('.nav-link-btn[data-nav="diagnosis"]');
+          if (diagBtn) diagBtn.click();
+        });
+      }
+
+      // mặc định hiện màn chẩn đoán
+      screenDiagnosis.classList.add('is-active');
+      runEnterAnimation(screenDiagnosis);
+
+      // ---------------- NAVBAR SCROLL ANIMATION ----------------
+      if (topNav){
+        let lastY   = window.scrollY || 0;
+        let compact = false;
+        let hidden  = false;
+
+        // 👇 CHỈ SỬA 2 CON SỐ NÀY NẾU MUỐN ĐIỀU CHỈNH
+        const COMPACT_OFFSET = 180;   // cuộn xuống > 40px: bắt đầu thu nhỏ + dạt sang phải
+        const HIDE_START     = 200;  // cuộn xuống > 220px: mới cho phép ẩn pill khi kéo xuống tiếp
+
+        function handleScroll(){
+          const y = window.scrollY || 0;
+          const goingDown = y > lastY;
+          const goingUp   = y < lastY;
+
+          // --- Bật / tắt trạng thái COMPACT ---
+          if (y > COMPACT_OFFSET && !compact){
+            compact = true;
+            topNav.classList.add('top-nav--compact');
+          } else if (y <= COMPACT_OFFSET && compact){
+            compact = false;
+            hidden  = false;
+            topNav.classList.remove('top-nav--compact','top-nav--hidden');
+          }
+
+          // --- Bật / tắt trạng thái HIDDEN ---
+          if (compact) {
+            // chỉ khi scroll xuống *và* đang ở dưới HIDE_START
+            if (y > HIDE_START && goingDown && !hidden){
+              hidden = true;
+              topNav.classList.add('top-nav--hidden');
+            }
+
+            // scroll lên hoặc lên lại gần top => hiện lại pill
+            if ((goingUp || y <= HIDE_START) && hidden){
+              hidden = false;
+              topNav.classList.remove('top-nav--hidden');
+            }
+          }
+
+          lastY = y;
+        }
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+      }
+    })();
+  </script>
+
+  <!-- Nav scroll hide/show (có quán tính) -->
+  <script>
+    (function () {
+      const topNav    = document.querySelector('.top-nav');
+      const navInner  = document.querySelector('.top-nav-inner');
+      const brandName = document.querySelector('.nav-brand-name');
+      const navLinks  = document.querySelector('.nav-links');
+
+      if (!topNav || !navInner) return;
+
+      // 👇 Mốc bắt đầu / kết thúc hiệu ứng
+      const START = 130;   // bắt đầu ẩn dần sau 40px
+      const END   = 170;  // tới ~220px là gần như biến mất
+
+      // 👇 Độ "đàn hồi": chỉnh 2 cái này để tăng/giảm quán tính
+      const STIFFNESS = 0.08; // lớn hơn → nav bám sát tay hơn
+      const DAMPING   = 0.5; // nhỏ hơn → rung / nảy nhiều hơn
+
+      function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
+      }
+
+      // Áp hiệu ứng dựa trên "scroll ảo"
+      function updateByVirtualScroll(scrollY) {
+        let t;
+        if (scrollY <= START) {
+          t = 0;
+        } else if (scrollY >= END) {
+          t = 1;
+        } else {
+          t = (scrollY - START) / (END - START); // 0 → 1
+        }
+
+        const p  = easeOutCubic(t);
+        const ty = -20 * p;           // text trượt lên trên tối đa 20px
+        const sc = 1 - 0.06 * p;      // thu nhỏ nhẹ: 1 → 0.94
+        const op = 1 - p;             // fade: 1 → 0
+
+        navInner.style.transform =
+          `translate3d(0, ${ty}px, 0) scale(${sc})`;
+        topNav.style.opacity = op;
+        topNav.style.pointerEvents = op < 0.05 ? 'none' : 'auto';
+
+        if (brandName) {
+          brandName.style.opacity = String(1 - p); // chữ logo mờ dần
+        }
+        if (navLinks) {
+          navLinks.style.transform = `translate3d(0, ${-8 * p}px, 0)`;
+        }
+      }
+
+      // ---------- Hệ "lò xo" cho quán tính ----------
+      let targetY  = window.scrollY || window.pageYOffset || 0; // vị trí thật
+      let currentY = targetY;           // scroll ảo để animate
+      let velocity = 0;                 // "tốc độ" của nav
+
+      function tick() {
+        const delta = targetY - currentY;
+
+        // Spring: kéo về target với STIFFNESS, rồi giảm tốc bằng DAMPING
+        velocity += delta * STIFFNESS;
+        velocity *= DAMPING;
+        currentY += velocity;
+
+        if (currentY < 0) {
+          currentY = 0;
+          velocity = 0;
+        }
+
+        updateByVirtualScroll(currentY);
+        requestAnimationFrame(tick);
+      }
+
+      function onScroll() {
+        targetY = window.scrollY || window.pageYOffset || 0;
+      }
+
+      // Khởi động
+      updateByVirtualScroll(targetY);
+      window.addEventListener('scroll', onScroll, { passive: true });
+      requestAnimationFrame(tick);
+    })();
+  </script>
+
+  <!-- Nav animation -->
+  <script src="effects/menu.js"></script>
+  <!-- Tool logic tách riêng -->
+  <script src="effects/tools.js"></script>
+  <!-- Forum logic-->
+  <script src="effects/forum.js"></script>
+</body>
+</html>

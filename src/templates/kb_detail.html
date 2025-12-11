@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AgriDetect – Phác đồ điều trị </title>
+  
+    <!-- Favicon -->
+  <link rel="icon" href="{{ url_for('static', filename='logo.png') }}" type="image/png" />
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='logo.png') }}">
+  <link rel="preload" as="image" href="{{ url_for('static', filename='logo.png') }}">
+
+<style>
+  :root{
+    --bg:#c3f0c3; --card:#fff; --ink:#333;
+    --title:#2f5233; --muted:#6b7280; --ok:#4CAF50; --alt:#0ea5e9; --border:#eee;
+  }
+  *{box-sizing:border-box}
+  body{
+    font-family:'Segoe UI',system-ui,Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);
+    margin:0;
+    padding:32px;
+    color:var(--ink);
+  }
+  /* Khi mở bottom-sheet thì khoá scroll body */
+  body.sheet-open{
+    overflow:hidden;
+  }
+
+  .card{
+    background:var(--card);
+    border-radius:16px;
+    box-shadow:0 6px 16px rgba(0,0,0,.08);
+    max-width:900px;
+    margin:auto;
+    padding:24px;
+  }
+  h1,h2,h3,h4{color:var(--title);margin:0 0 10px 0}
+  .muted{color:var(--muted)}
+  .btn{
+    display:inline-block;
+    margin:12px 8px 0 0;
+    padding:10px 16px;
+    border-radius:8px;
+    color:#fff;
+    text-decoration:none;
+    background:var(--ok);
+    border:none;
+    cursor:pointer;
+    font-family:inherit;
+    font-size:.9rem;
+  }
+  .btn.secondary{background:#6b7280}
+  .btn.info{background:var(--alt)}
+  .section{margin-top:18px}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media (max-width:900px){ .grid-2{grid-template-columns:1fr} }
+  ul{margin:.4rem 0 0 1.2rem}
+  details{
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:.6rem .8rem;
+    background:#fafafa;
+    margin:.5rem 0;
+  }
+  details>summary{cursor:pointer;font-weight:600}
+  .chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.25rem}
+  .chip{
+    display:inline-block;
+    padding:.35rem .6rem;
+    border-radius:999px;
+    background:#eef;
+    font-size:.85rem;
+  }
+  hr{border:0;border-top:1px solid var(--border);margin:12px 0}
+
+  /* ===== FAQ bottom sheet (nâng cấp) ===== */
+  .bottom-sheet{
+    position:fixed;
+    left:0;right:0;
+    bottom:-70vh;
+    height:70vh;
+    background:#fff;
+    box-shadow:0 -8px 24px rgba(0,0,0,.12);
+    border-top-left-radius:16px;
+    border-top-right-radius:16px;
+    transition:bottom .25s ease;
+    z-index:50;
+    padding:1rem 1rem 1.4rem;
+    border-top:1px solid rgba(148,163,184,.35);
+    backdrop-filter:blur(16px);
+  }
+  .bottom-sheet.open{bottom:0}
+
+  .faq-header{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:.75rem;
+  }
+  .faq-header-main{
+    display:flex;
+    flex-direction:column;
+    gap:.2rem;
+  }
+  .faq-header-main strong{
+    font-size:1rem;
+  }
+  .faq-header-main p{
+    margin:0;
+    font-size:.85rem;
+    color:var(--muted);
+  }
+  .faq-header button.btn{
+    margin:0;
+    padding:.5rem .9rem;
+    white-space:nowrap;
+  }
+
+  /* Hero gọn, bỏ background xanh dài */
+  .faq-hero{
+    margin-top:.6rem;
+    padding:0;               /* không còn block to */
+    border-radius:0;
+    background:none;         /* bỏ gradient */
+    position:static;
+    overflow:visible;
+    display:flex;
+    align-items:flex-start;
+    gap:.5rem;
+  }
+
+  /* tắt hiệu ứng mảng màu phía sau */
+  .faq-hero::after{
+    content:none;
+  }
+
+  /* Ẩn luôn cái vòng tròn icon nếu thấy rối,
+    muốn giữ lại thì xoá display:none và thêm size nhỏ thôi */
+  .faq-hero-illust{
+    display:none;
+  }
+
+  /* Text trong hero vẫn giữ như cũ */
+  .faq-hero-main{
+    position:static;
+  }
+  .faq-hero-main p{
+    margin:.3rem 0 0 0;
+    font-size:.86rem;
+    color:var(--muted);
+  }
+
+  /* Thanh search FAQ */
+  .faq-search-row{
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+    margin-top:.6rem;
+  }
+  .faq-search-row label{
+    font-size:.8rem;
+    color:var(--muted);
+    white-space:nowrap;
+  }
+  #faqSearch{
+    flex:1 1 auto;
+    padding:.45rem .75rem;
+    border-radius:999px;
+    border:1px solid var(--border);
+    font-size:16px;
+    outline:none;
+    background:#f9fafb;
+  }
+  #faqSearch:focus{
+    border-color:var(--alt);
+    box-shadow:0 0 0 1px rgba(56,189,248,.35);
+    background:#fff;
+  }
+
+  /* Danh sách & card FAQ */
+  .faq-list{
+    max-height:calc(70vh - 120px); /* trừ header + hero + search */
+    overflow:auto;
+    margin-top:.6rem;
+    padding-right:.1rem;
+  }
+  .faq-card{
+    position:relative;
+    border-radius:12px;
+    padding:.65rem .8rem;
+    margin-bottom:.5rem;
+    background:linear-gradient(135deg,#f9fafb,#f1f5f9);
+    border:1px solid rgba(148,163,184,.35);
+    box-shadow:0 4px 10px rgba(15,23,42,.06);
+    transform:translateY(4px);
+    opacity:0;
+    animation:faqFadeIn .25s ease forwards;
+    animation-delay:var(--faq-delay,0ms);
+  }
+  .faq-card::before{
+    content:"";
+    position:absolute;
+    inset:-1px;
+    border-radius:inherit;
+    background:linear-gradient(135deg,rgba(34,197,94,.25),rgba(56,189,248,.2));
+    opacity:0;
+    z-index:-1;
+    transition:opacity .18s ease;
+  }
+  .faq-card:hover::before{
+    opacity:1;
+  }
+  .faq-card:hover{
+    transform:translateY(0);
+    box-shadow:0 8px 18px rgba(15,23,42,.09);
+  }
+
+  .faq-summary{
+    display:flex;
+    align-items:flex-start;
+    gap:.55rem;
+    width:100%;
+    padding:0;
+    background:none;
+    border:none;
+    outline:none;
+    cursor:pointer;
+    text-align:left;
+    font-family:inherit;
+  }
+  .faq-index{
+    flex-shrink:0;
+    min-width:2.1rem;
+    height:1.6rem;
+    border-radius:999px;
+    background:rgba(22,163,74,.1);
+    color:#15803d;
+    font-size:.76rem;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .faq-question{
+    font-size:.9rem;
+    font-weight:600;
+    color:#111827;
+  }
+  .faq-icon{
+    margin-left:auto;
+    flex-shrink:0;
+    font-size:1.1rem;
+    line-height:1;
+    transform-origin:center;
+    transition:transform .2s ease,color .2s ease;
+    color:#6b7280;
+  }
+
+  .faq-body{
+    max-height:0;
+    opacity:0;
+    overflow:hidden;
+    transition:max-height .25s ease,opacity .25s ease;
+    padding-left:2.7rem;
+    margin-top:.2rem;
+  }
+  .faq-body p{
+    margin:.2rem 0 0 0;
+    font-size:.88rem;
+    line-height:1.5;
+    color:var(--muted);
+    white-space:pre-line; /* hỗ trợ \n trong content */
+  }
+
+  .faq-card.open .faq-body{
+    max-height:500px; /* đủ cho câu trả lời dài */
+    opacity:1;
+  }
+  .faq-card.open .faq-icon{
+    transform:rotate(45deg); /* dấu + thành x */
+    color:#22c55e;
+  }
+
+  .faq-empty{
+    margin:.8rem 0;
+    font-size:.85rem;
+    color:var(--muted);
+  }
+
+  @keyframes faqFadeIn{
+    from{
+      opacity:0;
+      transform:translateY(8px);
+    }
+    to{
+      opacity:1;
+      transform:translateY(0);
+    }
+  }
+
+  /* class cũ – để lại cho compat nếu code khác có dùng */
+  .faq-item{
+    border-bottom:1px solid var(--border);
+    padding:.5rem 0;
+    white-space:pre-line;
+  }
+
+  /* ===== Aurora background ===== */
+  #aurora-bg{
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  #aurora-bg canvas{
+    width:100%;
+    height:100%;
+    display:block;
+  }
+  /* ============================= */
+    /* Ẩn scrollbar giống index */
+    html{
+      scrollbar-width: none;           /* Firefox */
+    }
+    html::-webkit-scrollbar{
+      width: 0;
+      height: 0;                       /* Chrome / Edge / Safari */
+    }
+    body{
+      -ms-overflow-style: none;        /* IE / Edge cũ */
+    }
+
+    /* Lenis helper + float */
+    html.lenis { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto; }
+    .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+    .lenis.lenis-stopped { overflow: hidden; }
+    [data-scroll-float] { will-change: transform; }
+
+    html{scroll-behavior:smooth}
+</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Smooth scroll (Lenis) -->
+  <script src="https://unpkg.com/lenis@1.3.15/dist/lenis.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.15/dist/lenis.css">
+</head>
+<body>
+  <div id="aurora-bg"></div>
+
+  <div class="card">
+    <header>
+      <h2>📘 Phác đồ điều trị: {{ kb.name_vi or kb.name or kb.disease_id }}</h2>
+
+      {# Mapping slug -> tên cây tiếng Việt #}
+      {% set plant_lower = plant|lower %}
+      {% if plant_lower == 'pepper' %}
+        {% set plant_vi = 'Ớt chuông' %}
+      {% elif plant_lower == 'potato' %}
+        {% set plant_vi = 'Khoai tây' %}
+      {% elif plant_lower == 'tomato' %}
+        {% set plant_vi = 'Cà chua' %}
+      {% else %}
+        {% set plant_vi = plant|capitalize %}
+      {% endif %}
+      
+      <p class="muted" style="margin:6px 0 0 0">
+        Cây: {{ plant_vi }} · Nhóm: {{ kb.category or '—' }}
+      </p>
+    </header>
+
+    {% if not healthy %}
+      <section class="section">
+        <h3>Nhận biết nhanh</h3>
+        {% if kb.symptoms_core and kb.symptoms_core|length>0 %}
+          <ul>{% for s in kb.symptoms_core %}<li>{{ s }}</li>{% endfor %}</ul>
+        {% else %}
+          <p class="muted">Đang cập nhật dấu hiệu nhận biết.</p>
+        {% endif %}
+        {% if kb.look_alikes and kb.look_alikes|length>0 %}
+          <p class="muted"><small>Dễ nhầm với: {{ kb.look_alikes|join(", ") }}</small></p>
+        {% endif %}
+      </section>
+
+      <div class="grid-2 section">
+        <section>
+          <h3>Xử lý ngay</h3>
+          {% if kb.immediate_actions and kb.immediate_actions|length>0 %}
+            <ul>{% for s in kb.immediate_actions %}<li>{{ s }}</li>{% endfor %}</ul>
+          {% else %}
+            <p class="muted">Đang cập nhật.</p>
+          {% endif %}
+        </section>
+
+        <section>
+          <h3>Quản lý canh tác (IPM)</h3>
+          {% if kb.cultural_management and kb.cultural_management|length>0 %}
+            <ul>{% for s in kb.cultural_management %}<li>{{ s }}</li>{% endfor %}</ul>
+          {% else %}
+            <p class="muted">Đang cập nhật.</p>
+          {% endif %}
+        </section>
+      </div>
+
+      {% set has_prog = kb.spray_programs and (kb.spray_programs.preventive or kb.spray_programs.curative) %}
+      {% if has_prog %}
+      <section class="section">
+        <h3>Chương trình phun (xoay FRAC/IRAC)</h3>
+        {% if kb.spray_programs.preventive %}
+          <details open>
+            <summary>Bảo vệ (preventive)</summary>
+            {% for p in kb.spray_programs.preventive %}
+              <p><strong>Giai đoạn:</strong> {{ p.stage }}{% if p.interval_days %} · <strong>Chu kỳ:</strong> {{ p.interval_days }} ngày{% endif %}</p>
+              {% if p.actives %}
+                <div class="chips">
+                  {% for a in p.actives %}
+                    <span class="chip">{{ a.ai }}{% if a.FRAC %} · FRAC {{ a.FRAC }}{% endif %}{% if a.IRAC %} · IRAC {{ a.IRAC }}{% endif %}</span>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </details>
+        {% endif %}
+
+        {% if kb.spray_programs.curative %}
+          <details open>
+            <summary>Điều trị khi đã nhiễm (curative)</summary>
+            {% for p in kb.spray_programs.curative %}
+              <p><strong>Giai đoạn:</strong> {{ p.stage }}{% if p.interval_days %} · <strong>Chu kỳ:</strong> {{ p.interval_days }}{% endif %}</p>
+              {% if p.rotation %}
+                <p><strong>Xoay (Luân phiên) thuốc:</strong></p>
+                <div class="chips">
+                  {% for a in p.rotation %}
+                    <span class="chip">{{ a.ai }}{% if a.FRAC %} · FRAC {{ a.FRAC }}{% endif %}{% if a.IRAC %} · IRAC {{ a.IRAC }}{% endif %}</span>
+                  {% endfor %}
+                </div>
+              {% elif p.actives %}
+                <div class="chips">
+                  {% for a in p.actives %}
+                    <span class="chip">{{ a.ai }}{% if a.FRAC %} · FRAC {{ a.FRAC }}{% endif %}{% if a.IRAC %} · IRAC {{ a.IRAC }}{% endif %}</span>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </details>
+        {% endif %}
+
+        {% if kb.organic_options and kb.organic_options|length>0 %}
+          <p style="margin-top:.5rem"><strong>Hữu cơ:</strong></p>
+          <div class="chips">
+            {% for a in kb.organic_options %}
+              <span class="chip">{{ a.ai }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </section>
+      {% endif %}
+    {% else %}
+      <section class="section">
+        <h3>Tình trạng</h3>
+        <p>Không phát hiện bệnh đáng kể. Duy trì thực hành IPM, theo dõi định kỳ.</p>
+        <h4>Mẹo phòng ngừa</h4>
+        {% if kb.cultural_management and kb.cultural_management|length>0 %}
+          <ul>{% for s in kb.cultural_management %}<li>{{ s }}</li>{% endfor %}</ul>
+        {% else %}<p class="muted">Đang cập nhật.</p>{% endif %}
+        <h4>Dinh dưỡng</h4>
+        {% if kb.nutrition_notes and kb.nutrition_notes|length>0 %}
+          <ul>{% for s in kb.nutrition_notes %}<li>{{ s }}</li>{% endfor %}</ul>
+        {% else %}<p class="muted">Đang cập nhật.</p>{% endif %}
+      </section>
+    {% endif %}
+
+    <section class="section">
+      <h3>Ghi chú dinh dưỡng</h3>
+      {% if kb.nutrition_notes and kb.nutrition_notes|length>0 %}
+        <ul>{% for s in kb.nutrition_notes %}<li>{{ s }}</li>{% endfor %}</ul>
+      {% else %}<p class="muted">Đang cập nhật.</p>{% endif %}
+    </section>
+
+    {% if kb.product_slots and kb.product_slots|length>0 %}
+      <section class="section">
+        <h3>Sản phẩm gợi ý</h3>
+        <ul>
+          {% for p in kb.product_slots %}
+            <li>{{ p.ai }} — <a href="{{ p.buy_link or '#' }}" target="_blank">{{ p.buy_link and 'Mở link' or 'Chưa có link' }}</a></li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% endif %}
+
+    <hr>
+    <div>
+      <a class="btn secondary" id="btnBack" href="/">Quay lại</a>
+      <a class="btn info" id="openFaq">FAQ bệnh</a>
+    </div>
+  </div>
+
+<div id="faqSheet" class="bottom-sheet" role="dialog" aria-label="FAQ">
+  <header class="faq-header">
+    <div class="faq-header-main">
+      <strong>FAQ – {{ kb.name_vi or kb.name or kb.disease_id }}</strong>
+    </div>
+    <button id="closeFaq" class="btn secondary">Đóng</button>
+  </header>
+
+  <div class="faq-search-row">
+    <label for="faqSearch">Tìm trong FAQ</label>
+    <input
+      id="faqSearch"
+      type="search"
+      placeholder="Ví dụ: lây sang cây khác, thời tiết, luân phiên thuốc..."
+      autocomplete="off"
+    />
+  </div>
+
+  <div id="faqList" class="faq-list"></div>
+</div>
+  
+  <!-- Aurora background script -->
+  <script src="{{ url_for('effects_static', filename='aurora.js') }}"></script>
+  <script src="{{ url_for('effects_static', filename='faq_sheet.js') }}"></script>
+
+  <script src="{{ url_for('static', filename='js/kb_ui.js') }}"></script>
+  <script id="ag-kb-data" type="application/json">{{ kb|tojson }}</script>
+  <script>
+    window.AG_KB = JSON.parse(document.getElementById('ag-kb-data').textContent || '{}');
+    // Quay lại cùng tab
+    document.getElementById('btnBack').addEventListener('click', function(e){
+      e.preventDefault();
+      if (history.length > 1) history.back(); else location.href = '/';
+    });
+  </script>
+    <!-- Smooth scroll (Lenis) y chang index.html / forum.js -->
+  <script>
+    (function () {
+      "use strict";
+
+      document.addEventListener("DOMContentLoaded", function () {
+        initSmoothScroll();
+      });
+
+      // -------- Smooth scroll (Lenis) --------
+      function initSmoothScroll() {
+        if (typeof Lenis === "undefined") return;
+
+        let lenis;
+        try {
+          lenis = new Lenis({
+            lerp: 0.12,
+            smoothWheel: true,
+            smoothTouch: false
+          });
+        } catch {
+          return;
+        }
+
+        // Cho debug nếu cần (giống forum.js)
+        window.__lenis = lenis;
+
+        if (window.gsap && window.ScrollTrigger) {
+          lenis.on("scroll", ScrollTrigger.update);
+
+          gsap.ticker.add(function (time) {
+            // forum.js cũng nhân 1000 vì gsap dùng giây, Lenis dùng ms
+            lenis.raf(time * 1000);
+          });
+          gsap.ticker.lagSmoothing(0);
+        } else {
+          function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+          }
+          requestAnimationFrame(raf);
+        }
+      }
+    })();
+  </script>
+</body>
+</html>

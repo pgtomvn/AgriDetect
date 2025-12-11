@@ -1,0 +1,370 @@
+{
+  "plant": "potato",
+  "schema_version": "1.0",
+  "items": [
+    {
+      "disease_id": "potato_early_blight",
+      "labels": [
+        "Potato_Early_blight",
+        "Early blight"
+      ],
+      "name_vi": "Cháy lá sớm (Early blight)",
+      "category": "nấm",
+      "pathogen": "Alternaria solani",
+      "symptoms_core": [
+        "Vết tròn nâu có vòng đồng tâm; bắt đầu lá già",
+        "Có thể gây thối thân/cổ rễ; vết sẫm quanh cuống lá"
+      ],
+      "look_alikes": [
+        "Đốm lá Septoria (không có pycnidia)",
+        "Thiếu dinh dưỡng/K"
+      ],
+      "favorable_conditions": [
+        "Ẩm cao sau mưa/tưới; tán rậm"
+      ],
+      "diagnostic_tips": [
+        "Vòng đồng tâm rõ với quầng vàng; khác Septoria là không có chấm đen li ti"
+      ],
+      "immediate_actions": [
+        "Tỉa lá thấp; phủ gốc; khởi động nền M3/M5 khi điều kiện thuận lợi"
+      ],
+      "cultural_management": [
+        "Luân canh 2–3 năm; giống có mức chịu đựng (nếu có)"
+      ],
+      "spray_programs": {
+        "preventive": [
+          {
+            "stage": "trước/đầu mùa mưa",
+            "actives": [
+              {
+                "ai": "chlorothalonil",
+                "FRAC": "M5"
+              },
+              {
+                "ai": "mancozeb",
+                "FRAC": "M3"
+              }
+            ],
+            "interval_days": "7–10"
+          }
+        ],
+        "curative": [
+          {
+            "stage": "khi mới xuất hiện vết",
+            "rotation": [
+              {
+                "ai": "SDHI (boscalid/pydiflumetofen)",
+                "FRAC": "7"
+              },
+              {
+                "ai": "QoI (azoxystrobin)",
+                "FRAC": "11"
+              },
+              {
+                "ai": "DMI (difenoconazole)",
+                "FRAC": "3"
+              }
+            ],
+            "interval_days": "7–10 ngày (5–7 ngày khi áp lực cao)"
+          }
+        ]
+      },
+      "organic_options": [
+        {
+          "ai": "copper (M1)"
+        },
+        {
+          "ai": "potassium bicarbonate"
+        }
+      ],
+      "nutrition_notes": [
+        "Cân đối N/K; thoáng tán"
+      ],
+      "product_slots": [
+        {
+          "ai": "chlorothalonil (M5)",
+          "buy_link": "https://mekongagri.com/hoat-chat-chlorothalonil-chloro-mka-555sc-phong-tri-dom-van-lem-lep-hat-ri-sat-than-thu-va-quan-li-nam-benh-pho-rong/"
+        },
+        {
+          "ai": "mancozeb (M3)",
+          "buy_link": "https://giaiphapnongnghiep.vn/san-pham/13/thuoc-tru-benh-timan-80wp---goi-1kg-mancozeb"
+        },
+        {
+          "ai": "azoxystrobin (11)",
+          "buy_link": "https://tanminhthanh.vn/hoat-chat-azoxystrobin?srsltid=AfmBOoqzY8PP48wTXBUTqBSH9pUynAv-SkYa6bA3QUCL6v67syYgoFud"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Potato early blight (bệnh cháy lá sớm) trên khoai tây là bệnh gì?",
+          "a": "Potato early blight, tiếng Việt thường gọi là bệnh cháy lá sớm, là bệnh do nấm Alternaria solani gây ra.\nNấm tấn công chủ yếu lá, thân và đôi khi cả củ khoai tây. Bệnh làm lá xuất hiện đốm cháy có vòng đồng tâm như \"mục tiêu bắn\", sau đó lá vàng và rụng dần.\nNếu không quản lý tốt, cháy lá sớm có thể làm cây mất lá sớm, giảm kích thước và số lượng củ, làm năng suất và chất lượng khoai tây giảm rõ."
+        },
+        {
+          "q": "Triệu chứng điển hình của cháy lá sớm trên lá khoai tây là gì?",
+          "a": "• Đốm bệnh thường xuất hiện trước trên lá già phía dưới tán.\n• Ban đầu là đốm nhỏ, màu nâu sẫm đến đen, hình tròn hoặc hơi bất quy tắc.\n• Khi lớn dần, trong đốm xuất hiện nhiều vòng tròn đồng tâm, nhìn giống \"mục tiêu bắn\", xung quanh có viền vàng.\n• Một số đốm bị hạn chế bởi gân lá nên trông hơi góc cạnh.\n• Lá bệnh nặng sẽ vàng, khô giòn rồi rụng, bắt đầu từ lá dưới và lan lên trên.\nTán lá bị rụng nhiều sẽ trơ thân, cây dễ bị cháy nắng và củ kém lớn."
+        },
+        {
+          "q": "Trên thân và củ khoai tây thì cháy lá sớm biểu hiện như thế nào?",
+          "a": "• Thân: xuất hiện vệt thâm nâu, hơi lõm, có thể kéo dài dọc thân, đôi khi cũng có vòng đồng tâm mờ.\n• Cuống lá, cành: có vết nâu đen, làm phần phía trên dễ héo gãy.\n• Củ: trên vỏ củ có đốm tròn hơi lõm, màu nâu đậm đến đen, bề mặt khô, mô phía dưới bị khô xơ, màu nâu đậm.\nTổn thương trên củ thường làm xấu mẫu mã, dễ bị loại khi bán tươi và ảnh hưởng khả năng bảo quản."
+        },
+        {
+          "q": "Làm sao phân biệt cháy lá sớm với cháy lá muộn (mốc sương) và thiếu dinh dưỡng?",
+          "a": "• Cháy lá sớm:\n  – Đốm nâu sẫm có vòng đồng tâm rõ, như mục tiêu bắn.\n  – Thường bắt đầu trên lá già phía dưới.\n  – Mép đốm thường có viền vàng, mô xung quanh khô.\n• Cháy lá muộn (mốc sương):\n  – Đốm to, màu nâu xám, mô bị thối mềm, dễ rách; mặt dưới lá thường có lớp mốc trắng khi ẩm.\n  – Bệnh tiến triển rất nhanh sau mưa lạnh, có thể làm cả lá và thân thối rũ.\n• Thiếu dinh dưỡng (như thiếu N, Mg…):\n  – Vàng lá thường lan dần theo gân hoặc từ mép lá nhưng không có vòng đồng tâm, không có mô cháy nâu rõ.\n  – Không có mốc, không có đốm tròn nâu đậm đặc trưng.\nQuan sát kỹ hình dạng đốm và tốc độ lây lan sẽ giúp phân biệt tương đối rõ."
+        },
+        {
+          "q": "Nguồn lây và con đường lây lan chính của cháy lá sớm trên khoai tây là gì?",
+          "a": "• Nấm tồn tại trên tàn dư cây khoai tây, cà chua, cỏ dại họ Cà và trong đất dưới dạng bào tử, sợi nấm.\n• Củ giống nhiễm bệnh là nguồn bệnh rất quan trọng, mang mầm bệnh xuống ruộng mới.\n• Trong vụ, nấm tạo nhiều bào tử (spore) phát tán nhờ gió, mưa, tưới phun, nước bắn từ đất lên lá.\n• Bệnh lan nhanh khi có nhiều lá già, ruộng rậm rạp, ẩm độ cao và có nhiều đợt mưa nắng xen kẽ.\nVì vậy, vệ sinh tàn dư sau vụ và dùng giống sạch bệnh là khâu rất quan trọng."
+        },
+        {
+          "q": "Điều kiện nào làm cháy lá sớm bùng phát mạnh trên khoai tây?",
+          "a": "• Thời tiết ấm (thường 20–28°C) kết hợp ẩm độ không khí cao, lá ướt lâu (sương đêm, mưa, tưới phun).\n• Ruộng có nhiều tàn dư cây bệnh từ vụ trước, luân canh kém.\n• Cây khoai tây bị stress: thiếu dinh dưỡng, hạn, úng, sâu hại làm lá bị thương.\n• Lá già nhiều, tán lá rậm, thông gió kém.\nKhi hội đủ các yếu tố này, đốm bệnh có thể tăng rất nhanh, phủ kín lá ở nửa dưới tán chỉ trong vài tuần."
+        },
+        {
+          "q": "Cháy lá sớm ảnh hưởng đến năng suất khoai tây như thế nào?",
+          "a": "• Lá bị cháy và rụng sớm làm cây giảm quang hợp, củ ngừng lớn sớm.\n• Số lượng và kích thước củ giảm, tỷ lệ củ nhỏ tăng.\n• Củ có vết bệnh trên vỏ sẽ bị loại khi bán tươi, hoặc dễ hư hỏng trong kho.\n• Nặng có thể mất 20–30% năng suất, thậm chí hơn nếu bệnh xuất hiện sớm và không được quản lý tốt.\nTổn thất không chỉ ở sản lượng mà còn ở chất lượng và khả năng bảo quản củ sau thu hoạch."
+        },
+        {
+          "q": "Những biện pháp canh tác nào giúp hạn chế cháy lá sớm trên khoai tây?",
+          "a": "• Luân canh với cây không cùng họ Cà (bắp, đậu, lúa…) ít nhất 2–3 vụ, không trồng khoai tây/cà chua liên tục trên cùng ruộng.\n• Thu gom, tiêu hủy tàn dư cây bệnh sau thu hoạch, không cày vùi nguyên cây bệnh dày.\n• Trồng với khoảng cách hợp lý để tán lá thoáng, ánh sáng và gió vào được.\n• Hạn chế tưới phun lên tán; ưu tiên tưới rãnh, tưới nhỏ giọt.\n• Bón phân cân đối, tránh thiếu đạm hoặc thiếu kali; không bón đạm quá muộn làm lá quá rậm, kéo dài thời gian xanh.\n• Kiểm soát cỏ dại họ Cà quanh ruộng vì có thể là ký chủ phụ của nấm."
+        },
+        {
+          "q": "Cháy lá sớm có thể phòng ngừa từ khâu củ giống như thế nào?",
+          "a": "• Sử dụng củ giống có nguồn gốc rõ ràng, sạch bệnh, không có đốm khô bất thường trên vỏ.\n• Tránh tận dụng củ thương phẩm làm giống ở vùng đã bị cháy lá sớm nặng.\n• Trước khi trồng, bảo quản củ ở nơi thoáng, khô, tránh ẩm ướt kéo dài.\n• Loại bỏ những củ có dấu hiệu thối khô, đốm nâu đậm, vỏ nhăn bất thường.\nCủ giống khỏe là bước đầu giúp giảm áp lực bệnh trên ruộng mới."
+        },
+        {
+          "q": "Có cần phải phun thuốc cả vụ để phòng cháy lá sớm không?",
+          "a": "Không nhất thiết phun thuốc từ đầu đến cuối vụ một cách máy móc.\n• Ở giai đoạn cây còn nhỏ, thời tiết khô, chưa có dấu hiệu bệnh và ruộng không có lịch sử cháy lá sớm nặng, có thể chưa cần phun.\n• Nên bắt đầu phun khi tán lá đã che kín hàng, thời tiết bắt đầu ấm ẩm, hoặc khi phát hiện những đốm đầu tiên trên lá già phía dưới.\n• Phun dày đặc cả vụ sẽ tốn chi phí, dễ gây lờn thuốc, ảnh hưởng môi trường mà chưa chắc hiệu quả hơn.\nQuan trọng là theo dõi ruộng thường xuyên và phun đúng thời điểm nguy cơ cao."
+        },
+        {
+          "q": "Khi nào nên bắt đầu phun thuốc phòng cháy lá sớm trên khoai tây?",
+          "a": "• Thường bắt đầu khi:\n  – Cây đã khép tán, lá đụng nhau giữa các hàng.\n  – Dự báo có đợt thời tiết ấm ẩm, mưa nhiều kéo dài.\n  – Hoặc khi thấy những đốm cháy lá sớm đầu tiên trên lá già phía dưới.\n• Ở vùng có lịch sử bệnh nặng, có thể phun sớm hơn một chút, ngay từ giai đoạn thân lá bắt đầu sum suê.\nMục tiêu là có lớp thuốc bảo vệ trên lá trước hoặc ngay khi bào tử nấm xuất hiện nhiều."
+        },
+        {
+          "q": "Bao lâu nên phun thuốc một lần để quản lý cháy lá sớm?",
+          "a": "• Thời tiết khô ráo, bệnh nhẹ:\n  – Có thể giãn 10–14 ngày/lần, kết hợp theo dõi ruộng sát.\n• Thời tiết ấm ẩm, mưa nhiều, bệnh đang hiện diện trên lá:\n  – Thường 7–10 ngày/lần, tùy khuyến cáo của từng sản phẩm.\n• Sau mưa lớn hoặc tưới phun kéo dài:\n  – Cân nhắc phun sớm lại để khôi phục lớp thuốc bảo vệ.\nKhông nên tự ý phun dày hơn 5–7 ngày/lần liên tục nếu không thật sự cần thiết, vì dễ tăng chi phí và rủi ro tồn dư."
+        },
+        {
+          "q": "Có cần luân phiên hoạt chất khi phun thuốc trị cháy lá sớm không?",
+          "a": "Có.\n• Nấm Alternaria solani có thể hình thành tính kháng nếu chỉ lặp lại một hoạt chất hoặc một nhóm thuốc trong thời gian dài.\n• Nên:\n  – Xen kẽ thuốc tiếp xúc (protectant) và thuốc nội hấp/lưu dẫn theo khuyến cáo.\n  – Luân phiên các nhóm hoạt chất khác nhau giữa các lần phun, đặc biệt là những nhóm dễ bị kháng.\n• Không lạm dụng một sản phẩm “thấy ăn” rồi xài suốt nhiều vụ liên tiếp.\nLuân phiên hoạt chất kết hợp biện pháp canh tác tốt giúp kéo dài tuổi thọ hiệu lực của thuốc."
+        },
+        {
+          "q": "Khi phun thuốc trị cháy lá sớm, cần lưu ý kỹ thuật gì để thuốc hiệu quả hơn?",
+          "a": "• Pha đúng liều, đúng nồng độ theo hướng dẫn trên nhãn, không tự ý tăng liều.\n• Dùng nước sạch để pha, khuấy trộn kỹ trước và trong khi phun để thuốc không lắng.\n• Chọn béc phun tạo hạt mịn vừa phải, phủ đều cả hai mặt lá, nhất là lá phần dưới tán.\n• Phun lúc trời mát (sáng sớm hoặc chiều mát), tránh nắng gắt hoặc ngay trước mưa.\n• Đảm bảo lượng nước phun đủ ướt tầng lá nhưng không chảy ròng.\nKỹ thuật phun tốt nhiều khi quyết định hiệu quả không kém gì chọn loại thuốc."
+        },
+        {
+          "q": "Nhà nông nhỏ lẻ không đo được pH nước, không hiệu chỉnh bình phun thì nên làm sao?",
+          "a": "• Tuân thủ chặt chẽ liều lượng ghi trên nhãn (ml/ha hoặc ml/bình) và dùng loại bình mình quen dùng.\n• Pha thuốc với nước tương đối sạch (nước giếng, nước máy) thay vì nước mương đục, nhiều phù sa.\n• Khuấy đều khi pha và lắc bình nhẹ mỗi lúc nghỉ để thuốc không lắng dưới đáy.\n• Thường xuyên vệ sinh béc phun, kiểm tra xem tia phun có đều không.\n• Nếu nghi nước quá phèn hoặc quá chua/kiềm, có thể hỏi thêm cán bộ khuyến nông về dung dịch đệm đơn giản ở địa phương.\nQuan trọng là phun đều, đúng liều và chọn đúng thời điểm – như vậy đã cải thiện rất nhiều hiệu quả phòng cháy lá sớm."
+        },
+        {
+          "q": "Người trồng khoai tây nhỏ lẻ nên ưu tiên những bước nào để hạn chế cháy lá sớm?",
+          "a": "Nếu điều kiện hạn chế, có thể ưu tiên:\n1) Chọn củ giống khỏe, sạch bệnh, tránh dùng củ thương phẩm ở ruộng đã từng bị cháy lá sớm nặng.\n2) Dọn sạch tàn dư cây bệnh sau thu hoạch, luân canh sang cây không cùng họ Cà ít nhất 1–2 vụ.\n3) Trồng thưa vừa phải, ruộng thông thoáng, tưới rãnh/tưới nhỏ giọt thay vì tưới phun lên lá.\n4) Theo dõi ruộng thường xuyên; khi xuất hiện những đốm đầu tiên trên lá già dưới tán thì xử lý sớm bằng thuốc thích hợp.\n5) Bón phân cân đối và giữ cây ở trạng thái khỏe, không để cây thiếu dinh dưỡng hoặc bị sâu hại phá nhiều.\nLàm tốt vài điểm cơ bản này thường đã giảm rất nhiều áp lực cháy lá sớm trên ruộng khoai tây."
+        }
+      ],
+      "refs": [
+        "NC State – Early blight (potato)",
+        "FRAC Code List 2025"
+      ]
+    },
+    {
+      "disease_id": "potato_late_blight",
+      "labels": [
+        "Potato_Late_blight",
+        "Late blight"
+      ],
+      "name_vi": "Sương mai (Late blight)",
+      "category": "oomycete",
+      "pathogen": "Phytophthora infestans",
+      "symptoms_core": [
+        "Vết ướt, mốc trắng mép dưới lá khi ẩm cao; thối thân/củ",
+        "Lan nhanh thành ổ dịch trong vài ngày nếu không kiểm soát"
+      ],
+      "look_alikes": [
+        "Sương mai trên cây khác",
+        "Thối nhũn do vi khuẩn (ướt, mùi)"
+      ],
+      "favorable_conditions": [
+        "Ẩm >90%, 15–22°C, mưa/sương kéo dài"
+      ],
+      "diagnostic_tips": [
+        "Theo dõi cảnh báo vùng; kiểm tra khoai tự mọc từ vụ trước"
+      ],
+      "immediate_actions": [
+        "Phá ổ dịch; xử lý bờ bãi; phun bảo vệ rộng nền M3/M5 + hoạt chất chuyên oomycete"
+      ],
+      "cultural_management": [
+        "Luân canh; vệ sinh củ tồn dư; khoảng cách thoáng tán"
+      ],
+      "spray_programs": {
+        "preventive": [
+          {
+            "stage": "nguy cơ LB trong vùng / mưa kéo dài",
+            "actives": [
+              {
+                "ai": "mancozeb",
+                "FRAC": "M3"
+              },
+              {
+                "ai": "chlorothalonil",
+                "FRAC": "M5"
+              }
+            ],
+            "interval_days": "5–7 ngày khi nguy cơ cao"
+          }
+        ],
+        "curative": [
+          {
+            "stage": "khi có dấu hiệu đầu tiên",
+            "rotation": [
+              {
+                "ai": "oxathiapiprolin",
+                "FRAC": "49"
+              },
+              {
+                "ai": "mandipropamid",
+                "FRAC": "40"
+              },
+              {
+                "ai": "cyazofamid/fluopicolide/cymoxanil",
+                "FRAC": "21/43/27"
+              }
+            ],
+            "interval_days": "5–7 ngày; không lặp nhóm liên tiếp"
+          }
+        ]
+      },
+      "organic_options": [
+        {
+          "ai": "copper (M1)"
+        },
+        {
+          "ai": "phosphorous acid (phosphite)"
+        }
+      ],
+      "nutrition_notes": [
+        "Giữ tán thoáng; tưới vào sáng sớm"
+      ],
+      "product_slots": [
+        {
+          "ai": "oxathiapiprolin (49)",
+          "buy_link": "https://nongnghieplamdong.com/famoxadone-hoat-chat-tru-nam-hien-dai.html"
+        },
+        {
+          "ai": "mandipropamid (40)",
+          "buy_link": "https://nongnghieplamdong.com/san-pham/revus-opti-440sc-syngenta"
+        },
+        {
+          "ai": "mancozeb (M3)",
+          "buy_link": "https://giaiphapnongnghiep.vn/san-pham/13/thuoc-tru-benh-timan-80wp---goi-1kg-mancozeb"
+        }
+      ],
+      "faq": [
+        {
+          "q": "Potato late blight (bệnh mốc sương) trên khoai tây là bệnh gì?",
+          "a": "Potato late blight, thường gọi là bệnh mốc sương khoai tây, do tác nhân Phytophthora infestans gây ra.\nĐây là một loại nấm giả (oomycete) rất nguy hiểm, có thể tấn công lá, thân và cả củ khoai tây ở mọi giai đoạn sinh trưởng.\nBệnh phát triển cực nhanh trong điều kiện mát, ẩm, mưa nhiều và có thể làm cháy rụi cả ruộng khoai chỉ trong vài ngày nếu không quản lý tốt."
+        },
+        {
+          "q": "Triệu chứng điển hình của mốc sương trên lá khoai tây là gì?",
+          "a": "• Ban đầu xuất hiện các vết nhỏ màu xanh thẫm hoặc xanh nhạt hơi úng nước ở mép lá hoặc chóp lá.\n• Sau đó vết lan nhanh, chuyển nâu xám đến nâu đen, dạng bất quy tắc, mô bị thối nhũn khi ẩm.\n• Ở mặt dưới lá, khi ẩm độ cao thường thấy lớp mốc trắng mịn như bột ở rìa vết bệnh (vùng nấm tạo bào tử).\n• Khi khô, vết bệnh trở nên nâu sẫm, mô giòn dễ rách.\nLá bị bệnh nặng sẽ thâm đen, rũ xuống rồi khô rụi, nhất là phần lá phía trên tán."
+        },
+        {
+          "q": "Trên thân và củ khoai tây thì mốc sương biểu hiện như thế nào?",
+          "a": "• Thân: xuất hiện vết thâm nâu đến đen, dạng dài, hơi lõm, mô thân cứng lại rồi có thể thối, làm cây gãy hoặc héo từng đoạn.\n• Cuống lá: có vệt nâu đen, lá phía trên dễ héo rũ.\n• Củ: trên vỏ xuất hiện các vết bất quy tắc, hơi lõm, màu nâu đến nâu tím; khi cắt ra, mô bên trong có vùng nâu xám hoặc nâu đỏ, hơi ẩm.\nCủ bị mốc sương dễ bị vi khuẩn và nấm khác tấn công gây thối nhũn trong kho."
+        },
+        {
+          "q": "Làm sao phân biệt mốc sương với cháy lá sớm và các bệnh cháy lá khác?",
+          "a": "• Mốc sương:\n  – Vết bệnh lan rất nhanh, màu xanh thẫm rồi nâu xám, mô ướt, mềm.\n  – Khi ẩm, mặt dưới lá có lớp mốc trắng mịn quanh rìa vết.\n  – Có thể làm cả lá và thân thối rũ chỉ sau vài ngày thời tiết thuận lợi.\n• Cháy lá sớm (Alternaria):\n  – Đốm tròn hoặc gần tròn, màu nâu sẫm, có vòng đồng tâm rõ như mục tiêu bắn.\n  – Thường xuất hiện trước trên lá già phía dưới, lan chậm hơn.\n• Các cháy lá do nguyên nhân khác:\n  – Thường không có mốc trắng ở mặt dưới lá, mô khô hơn.\n  – Hình dạng và tốc độ lây lan không dữ dội bằng mốc sương.\nQuan sát tốc độ lây và lớp mốc trắng dưới lá là gợi ý rất quan trọng để nhận diện mốc sương."
+        },
+        {
+          "q": "Nguồn lây và chu kỳ bệnh mốc sương trên khoai tây là gì?",
+          "a": "• Mầm bệnh chủ yếu tồn tại trong củ bị nhiễm (củ giống, củ bỏ sót ngoài ruộng, đống khoai loại bỏ), cây khoai tây mọc lại từ củ bỏ sót, và trên tàn dư cây bệnh.\n• Trong điều kiện ẩm, tác nhân sinh ra nhiều bào tử (sporangia) phát tán theo gió, mưa, nước tưới phun, bám lên lá và thân cây khỏe.\n• Bào tử nảy mầm, xâm nhập mô lá qua khí khổng hoặc chỗ ẩm ướt trên bề mặt, gây vết bệnh mới.\n• Từ vết bệnh này, nấm lại sinh thêm bào tử, tiếp tục lan ra cả ruộng nếu thời tiết thuận lợi.\nVì vậy việc xử lý củ giống, tiêu hủy củ bỏ và cây mọc hoang rất quan trọng để giảm nguồn mầm bệnh ban đầu."
+        },
+        {
+          "q": "Điều kiện thời tiết nào làm mốc sương bùng phát mạnh trên khoai tây?",
+          "a": "• Nhiệt độ mát, thường khoảng 10–20°C kết hợp với ẩm độ không khí rất cao (trên 90%).\n• Lá ướt kéo dài do mưa phùn, sương đêm dày hoặc tưới phun vào chiều tối.\n• Ruộng trũng, thoát nước kém, tán lá rậm rạp, thông gió kém.\n• Có sẵn nguồn mầm bệnh trong vùng (cánh đồng lân cận, khoai tây volunteer, đống củ bỏ).\nKhi hội đủ các điều kiện trên, mốc sương có thể lan cực nhanh, phá hủy tán lá trong thời gian ngắn."
+        },
+        {
+          "q": "Mốc sương nguy hiểm như thế nào đối với năng suất khoai tây?",
+          "a": "• Có thể làm cháy rụi tán lá và thân, khiến cây ngừng quang hợp đột ngột.\n• Nếu bệnh xuất hiện sớm, củ chưa kịp lớn sẽ cho năng suất rất thấp, tỉ lệ củ nhỏ tăng.\n• Vết bệnh trên củ tạo cửa ngõ cho tác nhân khác xâm nhập gây thối trong kho, làm giảm mạnh lượng củ thương phẩm.\n• Trong trường hợp nặng, ruộng khoai có thể mất phần lớn năng suất chỉ sau 1–2 đợt mưa ẩm liên tiếp nếu không xử lý.\nVì tốc độ lây lan quá nhanh, mốc sương thường được xem là một trong những bệnh nguy hiểm nhất trên khoai tây."
+        },
+        {
+          "q": "Những biện pháp canh tác nào giúp hạn chế mốc sương trên khoai tây?",
+          "a": "• Luân canh với cây không cùng họ Cà (bắp, đậu, lúa…) ít nhất 2–3 năm, không trồng khoai tây hoặc cà chua liên tiếp trên cùng chân ruộng.\n• Thu gom, tiêu hủy kỹ tàn dư cây bệnh, không để đống củ bỏ (cull pile) tồn tại gần ruộng.\n• Hạn chế tưới phun, ưu tiên tưới rãnh hoặc nhỏ giọt, tránh làm lá ướt lâu.\n• Trồng với khoảng cách hợp lý, ruộng thông thoáng để lá mau khô sau mưa hoặc sương đêm.\n• Lên luống cao, thoát nước tốt để giảm ẩm độ quanh tán và hạn chế củ bị nhiễm từ mặt đất.\n• Kết hợp bón phân cân đối, giữ cây khỏe để tăng sức chống chịu."
+        },
+        {
+          "q": "Có thể phòng mốc sương từ khâu củ giống và kho chứa như thế nào?",
+          "a": "• Chỉ dùng củ giống có nguồn gốc rõ ràng, sạch bệnh, không có vết thâm nâu hoặc thối lạ trên vỏ.\n• Tránh dùng củ thương phẩm hoặc củ tồn kho lâu năm ở vùng đã từng bị mốc sương nặng làm giống.\n• Trong kho bảo quản, giữ nơi thoáng mát, khô, tránh để khoai tây ẩm nóng kéo dài.\n• Loại bỏ kịp thời những củ có dấu hiệu thối hoặc mốc, không để lây lan sang củ khác.\n• Sau vụ, cần dọn sạch củ sót trong ruộng và quanh kho, tránh để mọc lại thành cây volunteer mang mầm bệnh cho vụ sau."
+        },
+        {
+          "q": "Mốc sương có lây sang cà chua và cây họ Cà khác không?",
+          "a": "Có.\n• Tác nhân gây mốc sương khoai tây cũng có thể gây bệnh trên cà chua và một số cây họ Cà khác.\n• Vì vậy không nên trồng khoai tây sát bên cà chua nếu vùng đang có mốc sương.\n• Khi luân canh, nên chọn cây không cùng họ Cà để giảm áp lực bệnh.\nViệc quản lý mốc sương cần nhìn ở quy mô cả khu vực chứ không chỉ một ruộng riêng lẻ."
+        },
+        {
+          "q": "Có giống khoai tây kháng hoặc chống chịu mốc sương không?",
+          "a": "• Nhiều giống khoai tây đã được chọn tạo có mức độ kháng hoặc chống chịu mốc sương tốt hơn giống phổ thông.\n• Tuy nhiên, tác nhân gây bệnh có nhiều dòng (chủng) khác nhau, có thể vượt qua một số gen kháng.\n• Khi chọn giống, nên hỏi thêm đại lý giống hoặc cán bộ kỹ thuật địa phương về những giống phù hợp với vùng của mình.\n• Dù trồng giống chống chịu, vẫn cần kết hợp luân canh, vệ sinh đồng ruộng và phun thuốc hợp lý khi điều kiện thời tiết thuận lợi cho bệnh."
+        },
+        {
+          "q": "Có cần phun thuốc suốt cả vụ để phòng mốc sương không?",
+          "a": "Không nên phun máy móc cả vụ từ đầu đến cuối.\n• Giai đoạn đầu cây còn nhỏ, thời tiết khô, chưa có cảnh báo hoặc lịch sử mốc sương nặng, có thể chưa cần phun.\n• Nên tăng cường phun khi bước vào giai đoạn thân lá sum suê, thời tiết mát ẩm, có sương nhiều hoặc dự báo mưa kéo dài.\n• Khi trong vùng đã xuất hiện mốc sương hoặc trên ruộng thấy vết bệnh đầu tiên, cần phun nghiêm túc theo khuyến cáo.\nPhun theo dõi điều kiện thời tiết và cảnh báo dịch hại sẽ kinh tế và hiệu quả hơn là phun đều suốt vụ."
+        },
+        {
+          "q": "Khi nào nên bắt đầu phun thuốc phòng mốc sương trên khoai tây?",
+          "a": "• Thường bắt đầu khi:\n  – Cây đã khép tán, lá che kín hàng, độ ẩm trong tán cao hơn.\n  – Thời tiết chuyển sang mát, ẩm, có sương đêm dày hoặc mưa phùn kéo dài.\n  – Có thông tin cảnh báo mốc sương trong vùng hoặc ruộng bên cạnh đã xuất hiện bệnh.\n• Ở vùng có lịch sử mốc sương nặng, có thể phun sớm hơn một chút theo lịch dự báo hoặc mô hình cảnh báo của địa phương.\nMục tiêu là tạo lớp thuốc bảo vệ trên lá trước khi bào tử mốc sương xuất hiện nhiều."
+        },
+        {
+          "q": "Bao lâu nên phun thuốc một lần để quản lý mốc sương?",
+          "a": "• Thời tiết tương đối khô, nguy cơ thấp:\n  – Có thể 10–14 ngày/lần, kết hợp theo dõi ruộng.\n• Thời tiết mát ẩm, mưa nhiều, nguy cơ cao hoặc đã có vết bệnh:\n  – Thường 5–7 ngày/lần tùy khuyến cáo từng loại thuốc và mức độ bệnh.\n• Sau những trận mưa dài ngày, nên ưu tiên phun sớm lại để khôi phục lớp thuốc bảo vệ.\nCần tuân thủ đúng liều lượng và thời gian cách ly, tránh tự ý phun dày hơn khuyến cáo vì dễ tốn kém và tăng nguy cơ kháng thuốc."
+        },
+        {
+          "q": "Có cần luân phiên hoạt chất khi phun thuốc trị mốc sương không?",
+          "a": "Có, rất cần.\n• Tác nhân mốc sương có khả năng hình thành tính kháng thuốc nếu lạm dụng một hoạt chất nào đó (ví dụ một nhóm thuốc nội hấp) trong thời gian dài.\n• Nên:\n  – Luân phiên giữa các nhóm hoạt chất khác nhau (thuốc tiếp xúc, thuốc nội hấp, thuốc có cơ chế mới...).\n  – Kết hợp thuốc phổ rộng với thuốc đặc trị theo đúng khuyến cáo của nhà sản xuất và cán bộ BVTV.\n• Không nên dựa hoàn toàn vào một sản phẩm thấy hiệu quả rồi dùng lặp lại nhiều năm liền.\nLuân phiên hoạt chất cùng với canh tác tốt giúp giữ hiệu lực thuốc lâu dài."
+        },
+        {
+          "q": "Khi phun thuốc trị mốc sương, cần lưu ý kỹ thuật gì để đạt hiệu quả cao?",
+          "a": "• Pha thuốc đúng liều, đúng nồng độ, dùng nước tương đối sạch.\n• Khuấy đều khi pha và trong quá trình phun để thuốc không lắng dưới đáy bình.\n• Chọn béc phun cho hạt sương mịn vừa phải, phủ đều cả hai mặt lá, đặc biệt phần trên tán và mép luống nơi dễ bị mưa tạt.\n• Phun lúc trời mát (sáng sớm hoặc chiều mát), tránh nắng gắt và không phun ngay trước khi mưa.\n• Đảm bảo lượng nước phun vừa đủ ướt đều, không chảy ròng gây hao thuốc.\nKỹ thuật phun đúng giúp tăng hiệu quả phòng bệnh mà không cần tăng liều."
+        },
+        {
+          "q": "Người trồng khoai tây nhỏ lẻ nên ưu tiên những bước nào để hạn chế mốc sương?",
+          "a": "Nếu điều kiện còn hạn chế, có thể ưu tiên:\n1) Dùng củ giống khỏe, sạch bệnh, không tận dụng củ thương phẩm ở ruộng từng bị mốc sương nặng.\n2) Thu gom, tiêu hủy củ sót và tàn dư cây bệnh sau thu hoạch, không để đống củ bỏ gần ruộng.\n3) Trồng trên luống cao, thoát nước tốt, mật độ vừa phải để ruộng thông thoáng.\n4) Hạn chế tưới phun lên lá, tưới sớm trong ngày để lá kịp khô trước tối.\n5) Theo dõi chặt chẽ thời tiết và ruộng của mình; khi có cảnh báo mốc sương hoặc thấy vết đầu tiên thì xử lý sớm bằng thuốc thích hợp.\nLàm tốt vài điểm cơ bản này đã giúp giảm rất nhiều rủi ro mốc sương trên ruộng khoai tây."
+        }
+      ],
+      "refs": [
+        "USABlight – Potato late blight",
+        "FRAC Code List 2025"
+      ]
+    },
+    {
+      "disease_id": "potato_healthy",
+      "labels": [
+        "Potato_healthy",
+        "healthy"
+      ],
+      "name_vi": "Khỏe mạnh (Healthy)",
+      "category": "healthy",
+      "symptoms_core": [],
+      "look_alikes": [],
+      "favorable_conditions": [],
+      "diagnostic_tips": [],
+      "immediate_actions": [
+        "Theo dõi định kỳ; chụp/quét lại nếu thấy triệu chứng mới"
+      ],
+      "cultural_management": [
+        "Tưới hợp lý; thoáng tán; tiêu hủy tàn dư vụ trước"
+      ],
+      "spray_programs": {},
+      "organic_options": [],
+      "nutrition_notes": [
+        "Bón cân đối N-P-K + Ca/K theo giai đoạn; tránh dư đạm"
+      ],
+      "product_slots": [],
+      "faq": [
+        {
+          "q": "Có cần phun phòng không?",
+          "a": "Không nên phun khi chưa cần thiết."
+        }
+      ],
+      "refs": [
+        "UMN/Cornell – tổng hợp"
+      ]
+    }
+  ]
+}

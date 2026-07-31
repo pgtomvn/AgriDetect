@@ -1,0 +1,5 @@
+# assets
+
+This directory holds static assets used by the README and web UI.
+
+Place the banner image at `assets/agridetect_banner.png` so the README renders correctly. If you want me to commit the image file too, upload the image here or tell me to embed it as a base64 data URI in README.

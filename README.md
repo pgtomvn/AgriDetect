@@ -1,12 +1,16 @@
+<p align="center">
+  <img src="static/banner.png" alt="AgriDetect banner" />
+</p>
+
 # AgriDetect
 
-Plant identification → segmentation → disease classification (with safe Grad-CAM explainability for disease-only predictions). Flask web app + TensorFlow models. This repo excludes datasets by default and trains or serves models using your own data or the datasets referenced below.
+Plant identification → segmentation → disease classification (with safe Grad-CAM explainability for disease-only predictions). Flask web app + TensorFlow models. This repo excludes datasets by [...] 
 
 This README provides an expanded, practical guide for developers and researchers who want to run, extend, or retrain the AgriDetect pipeline.
 
 ## Summary
 
-AgriDetect is an end-to-end pipeline for plant-level analysis in field/photos: identify the plant species, segment individual plants from an image, and classify diseases for each plant instance. The web UI exposes upload and inference endpoints; models are TensorFlow/Keras-based and organized under `models/` so you can swap or update them independently.
+AgriDetect is an end-to-end pipeline for plant-level analysis in field/photos: identify the plant species, segment individual plants from an image, and classify diseases for each plant instance. The w[...]
 
 Key design goals:
 - Modular separation of concerns: `src/` contains application code, `models/` stores model weights and metadata, `uploads/` and `outputs/` are runtime directories.
@@ -108,9 +112,9 @@ curl -X POST "http://localhost:5000/api/v1/infer" -F "file=@./examples/sample.jp
 
 ## Models & training notes
 
-- Plant ID: trained with prototype-regularization and MixUp augmentation. Prototype regularization encourages tight, representative prototypes per class in embedding space; MixUp improves robustness to label noise.
+- Plant ID: trained with prototype-regularization and MixUp augmentation. Prototype regularization encourages tight, representative prototypes per class in embedding space; MixUp improves robustness t[...]
 - Segmentation: model outputs instance masks and bounding boxes. Postprocessing enforces expected plant sizes and filters spurious small detections.
-- Disease classifier: per-instance crops are normalized and passed to species-specific disease classifiers where applicable. Outputs include softmax probabilities and an optional Grad-CAM heatmap. Grad-CAM visualization is gated: only shown when classifier confidence > CONFIGURED_THRESHOLD to avoid explaining uncertain predictions.
+- Disease classifier: per-instance crops are normalized and passed to species-specific disease classifiers where applicable. Outputs include softmax probabilities and an optional Grad-CAM heatmap. Gra[...]
 
 Training scripts live in `scripts/`; common example:
 
@@ -126,7 +130,7 @@ This repository does not include full datasets. Suggested public datasets you ca
 - PlantVillage (disease classification) — many species, lab images
 - Field-level segmentation datasets (search for plant segmentation / weed crop datasets)
 
-Data preprocessing should produce for segmentation: images + instance masks/annotations (COCO format recommended) and for classification: per-instance images + labels. See `src/inference/preprocessing.py` for helpers used at inference time.
+Data preprocessing should produce for segmentation: images + instance masks/annotations (COCO format recommended) and for classification: per-instance images + labels. See `src/inference/preprocessing[...]
 
 ## Configuration
 
@@ -165,7 +169,7 @@ pytest -q
 Contributions are welcome.
 - Bug fixes and small improvements: open a PR with a clear description and reproducer.
 - New models/datasets: add under `models/` or `data/` and update `models/README.md` describing format and provenance.
-- When adding large model weights, prefer publishing them externally (OSF / Zenodo / Google Drive) and include small download scripts under `scripts/` rather than committing large binaries to the repo.
+- When adding large model weights, prefer publishing them externally (OSF / Zenodo / Google Drive) and include small download scripts under `scripts/` rather than committing large binaries to the repo[...]
 
 Before opening a PR, run linters and tests.
 
@@ -185,4 +189,3 @@ If you want, I can:
 - Tailor the README to include specific endpoint payload examples returned by the current app code;
 - Add a small `models/demo/` example and a download script for demo weights;
 - Add a Docker Compose dev setup and CI checklist.
-

@@ -173,19 +173,8 @@ Contributions are welcome.
 
 Before opening a PR, run linters and tests.
 
-## License
-
-Specify your license here (e.g., MIT). If not yet chosen, add a LICENSE file to the repo and update this section.
-
 ## Acknowledgements & references
 
 - PlantVillage dataset
 - Grad-CAM: Selvaraju et al., 2017
 - MixUp: Zhang et al., 2017
-
----
-
-If you want, I can:
-- Tailor the README to include specific endpoint payload examples returned by the current app code;
-- Add a small `models/demo/` example and a download script for demo weights;
-- Add a Docker Compose dev setup and CI checklist.
